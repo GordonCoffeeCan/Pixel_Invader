@@ -14,9 +14,12 @@ public class PlayerControl : MonoBehaviour {
 
     private float currentShootGap = 0;
 
+    private Animator playerAnim;
+
 	// Use this for initialization
 	void Start () {
         rig = this.GetComponent<Rigidbody2D>();
+        playerAnim = this.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -34,7 +37,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButton("Fire") && currentShootGap <= 0) {
             Bullet _bulletClone = Instantiate(bullet, this.transform.position, Quaternion.identity) as Bullet;
             _bulletClone.power = bulletPower;
-
+            _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
             currentShootGap = shootGap;
 
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
@@ -43,5 +46,13 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate() {
         rig.MovePosition(new Vector2(this.transform.position.x + speed * Input.GetAxis("Horizontal") * Time.deltaTime, this.transform.position.y));
+        playerAnim.SetFloat("Speed", Input.GetAxis("Horizontal"));
+    }
+
+    private void OnTriggerEnter2D(Collider2D _col) {
+        if(_col.tag == "EnemyBullet") {
+            Destroy(_col.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

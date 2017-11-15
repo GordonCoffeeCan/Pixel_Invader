@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
+  bulletType: 0
 --- !u!212 &212757897427398284
 SpriteRenderer:
   m_ObjectHideFlags: 1

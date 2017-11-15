@@ -1126,6 +1126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 114056304029336224, guid: 47af7a7da54130340915416ae14fe4ae, type: 2}
+  enemyCarrier: {fileID: 114056304029336224, guid: da05094acf874b04fb3b53ffa709ee76,
+    type: 2}
+  enemyMotherShip: {fileID: 114056304029336224, guid: e7039f4a4e7c4604d8fd2eb0b5113bb8,
+    type: 2}
+  armouredEnemy: {fileID: 114056304029336224, guid: 4549ff5ba590b6a4ca3ecd67d0a96991,
+    type: 2}
+  suicideEnemy: {fileID: 114056304029336224, guid: 8013afb2604b1db49b920cb03b99ead0,
+    type: 2}
 --- !u!114 &1158940751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,12 +1145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0572c8769b8a39740a33a6a24c09b6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: 1
-  enemySpeed: 0.85
+  wave: 0
+  enemySpeed: 0
   score: 0
   currentWaveEnemySpeed: 0
   targetPosY: 0
   moveDirection: 1
+  enemiesCount: 0
   levelHolder: {fileID: 810522099}
   scoreText: {fileID: 624883199}
   waveText: {fileID: 1684786883}
@@ -1409,7 +1418,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1359248536
 RectTransform:
@@ -2062,8 +2071,9 @@ GameObject:
   - component: {fileID: 2030927599}
   - component: {fileID: 2030927598}
   - component: {fileID: 2030927602}
-  - component: {fileID: 2030927601}
   - component: {fileID: 2030927600}
+  - component: {fileID: 2030927601}
+  - component: {fileID: 2030927603}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2105,12 +2115,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.44, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2157,21 +2167,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.44, y: 0.48}
-    newSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 0.62, y: 0.6}
+    newSize: {x: 0.44, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.48}
+  m_Size: {x: 0.62, y: 0.6}
   m_EdgeRadius: 0
 --- !u!114 &2030927602
 MonoBehaviour:
@@ -2189,6 +2199,23 @@ MonoBehaviour:
   bulletPower: 10
   shootGap: 0.35
   bullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd, type: 2}
+--- !u!95 &2030927603
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2030927597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f82d033f835c1864bb418b47840774ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2100166127
 GameObject:
   m_ObjectHideFlags: 0
