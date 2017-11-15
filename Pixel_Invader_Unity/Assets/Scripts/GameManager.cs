@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour {
     public int wave = 0;
     public float enemySpeed = 0.85f;
 
-    [HideInInspector] public float enemyTargetPosY;
     [HideInInspector] public float score = 0;
-
+    [HideInInspector] public float currentWaveEnemySpeed;
+    [HideInInspector] public float targetPosY;
     [HideInInspector] public int moveDirection = 1;
+
+    [SerializeField] private GameObject levelHolder;
 
     [SerializeField] private Text scoreText;
     [SerializeField] private Text waveText;
@@ -41,5 +43,13 @@ public class GameManager : MonoBehaviour {
         }
 
         waveText.text = (wave + 1).ToString();
+
+        levelHolder.transform.position = new Vector2(levelHolder.transform.position.x, Mathf.Lerp(levelHolder.transform.position.y, targetPosY, 0.2f));
+
+        if (levelHolder.transform.position.y < targetPosY + 0.01f) {
+            currentWaveEnemySpeed = enemySpeed;
+        } else {
+            currentWaveEnemySpeed = 0;
+        }
     }
 }

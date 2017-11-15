@@ -14,28 +14,32 @@ public class LevelBuild : MonoBehaviour {
     private float offSetX;
     private float offSetY;
     private float scalePosX = 0.6f;
-    private float scalePosY = 0.8f;
+    private float scalePosY = 1.5f;
 
     private GameObject levelHolder;
 
     private StreamReader streamReader;
 
     private int wave = 0;
-    private float posY;
+
+    private float posY = 0;
 
 	// Use this for initialization
 	void Start () {
         wave = GameManager.instance.wave;
-        levelHolder = new GameObject("LevelHolder");
+        levelHolder = GameObject.Find("LevelHolder");
         filePath = Application.dataPath + "/LevelDesign/" + FILENAME + wave + ".txt";
         streamReader = new StreamReader(filePath);
+
+        posY = -scalePosY;
+
         BuildLevel();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
 
     private void BuildLevel() {
         while (!streamReader.EndOfStream) {
@@ -50,14 +54,13 @@ public class LevelBuild : MonoBehaviour {
             }
 
             posY += scalePosY;
-            Debug.Log(posY);
         }
 
         offSetX = -(rowContent.Length / 2) * scalePosX;
         offSetY = Camera.main.orthographicSize + 1;
-        GameManager.instance.enemyTargetPosY = Camera.main.orthographicSize - 1 - posY;
-        Debug.Log(offSetX);
         levelHolder.transform.position = new Vector2(offSetX, offSetY);
+
+        GameManager.instance.targetPosY = Camera.main.orthographicSize - posY;
     }
 
     private void SetEnemy(Enemy.EnemyType _enemyType, Vector2 _pos) {

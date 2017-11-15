@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour {
         }
 
         rig = this.GetComponent<Rigidbody2D>();
-        speed = GameManager.instance.enemySpeed;
     }
 	
 	// Update is called once per frame
@@ -61,13 +60,17 @@ public class Enemy : MonoBehaviour {
             this.transform.position = new Vector2(-4.5f, transform.position.y);
             if(GameManager.instance.moveDirection < 0) {
                 GameManager.instance.moveDirection *= -1;
+                GameManager.instance.targetPosY -= 0.25f;
             }
         }else if(this.transform.position.x > 4.5f) {
             this.transform.position = new Vector2(4.5f, transform.position.y);
             if(GameManager.instance.moveDirection > 0) {
                 GameManager.instance.moveDirection *= -1;
+                GameManager.instance.targetPosY -= 0.25f;
             }
         }
+
+        speed = GameManager.instance.currentWaveEnemySpeed;
     }
 
     private void FixedUpdate() {
@@ -75,7 +78,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D _col) {
-        Debug.Log("SomeThing hit me!");
         if(_col.gameObject.tag == "Bullet") {
             health -= _col.gameObject.GetComponent<Bullet>().power;
             GameManager.instance.score += score;
