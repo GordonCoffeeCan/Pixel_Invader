@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        enemySpeed = ((float)wave + 1) / 4.5f;
+        enemySpeed = ((float)wave + 1) / 3;
 
         currentScore = Mathf.Lerp(currentScore, score, 0.15f);
         if(currentScore < 10) {

@@ -20,8 +20,8 @@ public class LevelBuilder : MonoBehaviour {
 
     private float offSetX;
     private float offSetY;
-    private float scalePosX = 0.6f;
-    private float scalePosY = 0.7f;
+    private float scalePosX = 0.5f;
+    private float scalePosY = 0.35f;
 
     private GameObject levelHolder;
 
