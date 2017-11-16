@@ -21,7 +21,7 @@ public class LevelBuilder : MonoBehaviour {
     private float offSetX;
     private float offSetY;
     private float scalePosX = 0.5f;
-    private float scalePosY = 0.35f;
+    private float scalePosY = 1f;
 
     private GameObject levelHolder;
 
@@ -48,7 +48,7 @@ public class LevelBuilder : MonoBehaviour {
         posY = 0;
         while (!streamReader.EndOfStream) {
             rowContent = streamReader.ReadLine();
-
+            
             for (int i = 0; i < rowContent.Length; i++) {
                 switch (rowContent[i]) {
                     // 'e', RegularEnemy;
@@ -58,7 +58,8 @@ public class LevelBuilder : MonoBehaviour {
                     // 's', SuicideEnemy;
 
                     case 'e':
-                        SetEnemy(Enemy.EnemyType.RegularEnemy, new Vector2(i * scalePosX, posY));
+                        GameManager.instance.currentLineEnemyDirection *= -1;
+                        SetEnemy(Enemy.EnemyType.RegularEnemy, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'c':
@@ -79,23 +80,19 @@ public class LevelBuilder : MonoBehaviour {
                         break;
                 }
             }
-
+            Debug.Log(GameManager.instance.currentLineEnemyDirection);
             posY += scalePosY;
         }
 
-        offSetX = -(rowContent.Length / 2) * scalePosX;
-        offSetY = Camera.main.orthographicSize + 3;
-        levelHolder.transform.position = new Vector2(offSetX, offSetY);
-
-        GameManager.instance.targetPosY = Camera.main.orthographicSize - posY;
+        //GameManager.instance.targetPosY = Camera.main.orthographicSize - posY;
     }
 
     private void SetEnemy(Enemy.EnemyType _enemyType, Vector2 _pos) {
         switch (_enemyType) {
             case Enemy.EnemyType.RegularEnemy:
                 Enemy _enemyClone = Instantiate(enemy) as Enemy;
-                _enemyClone.transform.parent = levelHolder.transform;
                 _enemyClone.transform.position = _pos;
+                _enemyClone.LineDirection();
                 break;
             case Enemy.EnemyType.EnemyCarrier:
                 Enemy _enemyCarrierClone = Instantiate(enemyCarrier) as Enemy;

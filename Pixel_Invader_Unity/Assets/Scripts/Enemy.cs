@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float health;
     [SerializeField] private Bullet enemyBullet;
 
-    private float speed = 0;
+    [HideInInspector] public float speed = 0;
+
     private float shootGap = 0;
     private float currentShootGap = 0;
 
@@ -63,6 +64,8 @@ public class Enemy : MonoBehaviour {
         }
 
         rig = this.GetComponent<Rigidbody2D>();
+
+        speed = 1;
     }
 	
 	// Update is called once per frame
@@ -87,8 +90,6 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        speed = GameManager.instance.currentWaveEnemySpeed;
-
         if (isAbleToShoot && this.transform.position.y < Camera.main.orthographicSize + 0.25f) {
             currentShootGap -= Time.deltaTime;
 
@@ -105,6 +106,11 @@ public class Enemy : MonoBehaviour {
 
     private void FixedUpdate() {
         rig.MovePosition(new Vector2(this.transform.position.x + speed * GameManager.instance.moveDirection * Time.deltaTime, this.transform.position.y)); 
+    }
+
+    public void LineDirection() {
+        speed *= GameManager.instance.currentLineEnemyDirection;
+        Debug.Log(speed);
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {

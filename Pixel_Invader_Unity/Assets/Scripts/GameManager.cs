@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public float targetPosY;
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
+    [HideInInspector] public int currentLineEnemyDirection = 1;
 
     [SerializeField] private GameObject levelHolder;
 
@@ -35,14 +36,13 @@ public class GameManager : MonoBehaviour {
 
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
-
-        Debug.Log(enemiesCount);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         enemySpeed = ((float)wave + 1) / 3;
+        currentWaveEnemySpeed = enemySpeed;
 
         currentScore = Mathf.Lerp(currentScore, score, 0.15f);
         if(currentScore < 10) {
@@ -55,17 +55,10 @@ public class GameManager : MonoBehaviour {
 
         waveText.text = (wave + 1).ToString();
 
-        levelHolder.transform.position = new Vector2(levelHolder.transform.position.x, Mathf.Lerp(levelHolder.transform.position.y, targetPosY, 0.15f));
-
-        if (levelHolder.transform.position.y < targetPosY + 0.01f) {
-            currentWaveEnemySpeed = enemySpeed;
-        } else {
-            currentWaveEnemySpeed = 0;
-        }
+        //levelHolder.transform.position = new Vector2(levelHolder.transform.position.x, Mathf.Lerp(levelHolder.transform.position.y, targetPosY, 0.15f));
 
         if(enemiesCount <= 0 && levelBuilt == true) {
             levelBuilt = false;
-            Debug.Log("Level Cleared!");
             wave++;
         }
 
