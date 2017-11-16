@@ -102,6 +102,7 @@ MonoBehaviour:
   health: 0
   enemyBullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd,
     type: 2}
+  speed: 0
   enemyType: 0
 --- !u!212 &212854656112296868
 SpriteRenderer:

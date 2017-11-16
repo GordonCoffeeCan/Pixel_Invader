@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour {
     private float shootGap = 0;
     private float currentShootGap = 0;
 
+    private SpriteRenderer spriteRender;
+
     private int score = 0;
 
     private Rigidbody2D rig;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        spriteRender = this.GetComponent<SpriteRenderer>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
                 health = 10;
@@ -40,14 +43,17 @@ public class Enemy : MonoBehaviour {
                 }
                 shootGap = Random.Range(1.65f, 5.85f);
                 currentShootGap = shootGap;
+                spriteRender.color = Color.white;
                 break;
             case EnemyType.EnemyCarrier:
                 health = 10;
                 score = 60;
+                spriteRender.color = new Color32(211, 30, 240, 255);
                 break;
             case EnemyType.EnemyMotherShip:
                 health = 20;
                 score = 80;
+                spriteRender.color = new Color32(244, 100, 22, 255);
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 40;
@@ -55,10 +61,12 @@ public class Enemy : MonoBehaviour {
                 isAbleToShoot = true;
                 shootGap = Random.Range(3.15f, 10.85f);
                 currentShootGap = shootGap;
+                spriteRender.color = new Color32(45, 141, 253, 255);
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
                 score = 75;
+                spriteRender.color = new Color32(30, 223, 191, 255);
                 break;
         }
 
@@ -84,18 +92,6 @@ public class Enemy : MonoBehaviour {
                 _enemyBulletClone.power = 100;
                 _enemyBulletClone.gameObject.tag = "EnemyBullet";
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _enemyBulletClone.GetComponent<BoxCollider2D>());
-            }
-        }
-
-        if (this.transform.position.x > 4.5f) {
-            for (int i = 0; i < GameManager.instance.enemyList.Count; i++) {
-                GameManager.instance.enemyList[i].speed *= -1;
-            }
-        }
-
-        if (this.transform.position.x < -4.5f) {
-            for (int i = 0; i < GameManager.instance.enemyList.Count; i++) {
-                GameManager.instance.enemyList[i].speed *= -1;
             }
         }
     }

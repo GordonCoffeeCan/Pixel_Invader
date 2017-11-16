@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector] public float score = 0;
     [HideInInspector] public float currentWaveEnemySpeed;
-    [HideInInspector] public float targetPosY;
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
@@ -25,8 +24,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Text waveText;
 
     private bool levelBuilt = false;
+    private bool dirChanged = false;
 
     private float currentScore = 0;
+
+    private float deltaPosY;
 
     private void Awake() {
         instance = this;
@@ -64,10 +66,34 @@ public class GameManager : MonoBehaviour {
             SetEnemySpeed();
             levelBuilt = true;
         }
+
+        for (int i = 0; i < enemyList.Count; i++) {
+            if (enemyList[i].transform.position.x > 4.65f || enemyList[i].transform.position.x < -4.65f) {
+                if (dirChanged == false) {
+                    for (int j = 0; j < enemyList.Count; j++) {
+                        enemyList[j].speed *= -1;
+                    }
+                    deltaPosY = 0.25f;
+                    dirChanged = true;
+                    Invoke("ResetDirChange", Time.deltaTime);
+                }
+                
+            }
+        }
+
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.5f);
+
+        for (int i = 0; i < enemyList.Count; i++) {
+            enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
+        }
     }
 
     private void SetEnemySpeed() {
-        enemySpeed = ((float)wave + 1) / 3;
+        //enemySpeed = ((float)wave + 1) / 3;
         currentWaveEnemySpeed = enemySpeed;
+    }
+
+    private void ResetDirChange() {
+        dirChanged = false;
     }
 }
