@@ -1145,13 +1145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0572c8769b8a39740a33a6a24c09b6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: 1
+  wave: 0
   enemySpeed: 0
   score: 0
   currentWaveEnemySpeed: 0
   targetPosY: 0
   moveDirection: 1
   enemiesCount: 0
+  currentLineEnemyDirection: 1
+  enemyList: []
   levelHolder: {fileID: 810522099}
   scoreText: {fileID: 624883199}
   waveText: {fileID: 1684786883}

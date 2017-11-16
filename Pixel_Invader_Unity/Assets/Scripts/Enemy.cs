@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour {
     private int score = 0;
 
     private Rigidbody2D rig;
-
     private bool isAbleToShoot = false;
 
     public enum EnemyType {
@@ -64,8 +63,6 @@ public class Enemy : MonoBehaviour {
         }
 
         rig = this.GetComponent<Rigidbody2D>();
-
-        speed = 1;
     }
 	
 	// Update is called once per frame
@@ -73,21 +70,8 @@ public class Enemy : MonoBehaviour {
         if (health <= 0) {
             GameManager.instance.score += score;
             GameManager.instance.enemiesCount--;
+            GameManager.instance.enemyList.Remove(this);
             Destroy(this.gameObject);
-        }
-
-        if (this.transform.position.y < Camera.main.orthographicSize + 1.5f) {
-            if (this.transform.position.x < -4.5f) {
-                if (GameManager.instance.moveDirection < 0) {
-                    GameManager.instance.moveDirection *= -1;
-                    GameManager.instance.targetPosY -= 0.2f;
-                }
-            } else if (this.transform.position.x > 4.5f) {
-                if (GameManager.instance.moveDirection > 0) {
-                    GameManager.instance.moveDirection *= -1;
-                    GameManager.instance.targetPosY -= 0.2f;
-                }
-            }
         }
 
         if (isAbleToShoot && this.transform.position.y < Camera.main.orthographicSize + 0.25f) {
@@ -102,15 +86,22 @@ public class Enemy : MonoBehaviour {
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _enemyBulletClone.GetComponent<BoxCollider2D>());
             }
         }
+
+        if (this.transform.position.x > 4.5f) {
+            for (int i = 0; i < GameManager.instance.enemyList.Count; i++) {
+                GameManager.instance.enemyList[i].speed *= -1;
+            }
+        }
+
+        if (this.transform.position.x < -4.5f) {
+            for (int i = 0; i < GameManager.instance.enemyList.Count; i++) {
+                GameManager.instance.enemyList[i].speed *= -1;
+            }
+        }
     }
 
     private void FixedUpdate() {
-        rig.MovePosition(new Vector2(this.transform.position.x + speed * GameManager.instance.moveDirection * Time.deltaTime, this.transform.position.y)); 
-    }
-
-    public void LineDirection() {
-        speed *= GameManager.instance.currentLineEnemyDirection;
-        Debug.Log(speed);
+        rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y)); 
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {

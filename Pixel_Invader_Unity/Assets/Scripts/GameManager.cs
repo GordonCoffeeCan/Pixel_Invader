@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
 
+    [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
+
     [SerializeField] private GameObject levelHolder;
 
     [SerializeField] private Text scoreText;
@@ -33,17 +35,13 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentScore = score;
-
+        SetEnemySpeed();
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        enemySpeed = ((float)wave + 1) / 3;
-        currentWaveEnemySpeed = enemySpeed;
-
         currentScore = Mathf.Lerp(currentScore, score, 0.15f);
         if(currentScore < 10) {
             scoreText.text = "00" + Mathf.Round(currentScore).ToString();
@@ -55,16 +53,21 @@ public class GameManager : MonoBehaviour {
 
         waveText.text = (wave + 1).ToString();
 
-        //levelHolder.transform.position = new Vector2(levelHolder.transform.position.x, Mathf.Lerp(levelHolder.transform.position.y, targetPosY, 0.15f));
-
-        if(enemiesCount <= 0 && levelBuilt == true) {
+        if (enemiesCount <= 0 && levelBuilt == true) {
             levelBuilt = false;
             wave++;
         }
 
         if (levelBuilt == false) {
+            enemyList.Clear();
             LevelBuilder.instance.BuildLevel(wave);
+            SetEnemySpeed();
             levelBuilt = true;
         }
+    }
+
+    private void SetEnemySpeed() {
+        enemySpeed = ((float)wave + 1) / 3;
+        currentWaveEnemySpeed = enemySpeed;
     }
 }

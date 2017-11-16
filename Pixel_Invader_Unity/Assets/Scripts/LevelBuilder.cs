@@ -58,7 +58,7 @@ public class LevelBuilder : MonoBehaviour {
                     // 's', SuicideEnemy;
 
                     case 'e':
-                        GameManager.instance.currentLineEnemyDirection *= -1;
+                        
                         SetEnemy(Enemy.EnemyType.RegularEnemy, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, posY));
                         GameManager.instance.enemiesCount++;
                         break;
@@ -80,6 +80,7 @@ public class LevelBuilder : MonoBehaviour {
                         break;
                 }
             }
+            GameManager.instance.currentLineEnemyDirection *= -1;
             Debug.Log(GameManager.instance.currentLineEnemyDirection);
             posY += scalePosY;
         }
@@ -91,8 +92,9 @@ public class LevelBuilder : MonoBehaviour {
         switch (_enemyType) {
             case Enemy.EnemyType.RegularEnemy:
                 Enemy _enemyClone = Instantiate(enemy) as Enemy;
+                GameManager.instance.enemyList.Add(_enemyClone);
+                _enemyClone.speed = GameManager.instance.currentWaveEnemySpeed * GameManager.instance.currentLineEnemyDirection;
                 _enemyClone.transform.position = _pos;
-                _enemyClone.LineDirection();
                 break;
             case Enemy.EnemyType.EnemyCarrier:
                 Enemy _enemyCarrierClone = Instantiate(enemyCarrier) as Enemy;
