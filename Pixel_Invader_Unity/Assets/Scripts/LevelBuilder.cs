@@ -81,7 +81,6 @@ public class LevelBuilder : MonoBehaviour {
                 }
             }
             GameManager.instance.currentLineEnemyDirection *= -1;
-            Debug.Log(GameManager.instance.currentLineEnemyDirection);
         }
     }
 
