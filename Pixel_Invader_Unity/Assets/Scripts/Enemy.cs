@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour {
                 }
                 shootGap = Random.Range(1.65f, 5.85f);
                 currentShootGap = shootGap;
-                spriteRender.color = Color.white;
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 break;
             case EnemyType.EnemyCarrier:
                 health = 10;
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
             case EnemyType.EnemyMotherShip:
                 health = 20;
                 score = 80;
-                enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 40;

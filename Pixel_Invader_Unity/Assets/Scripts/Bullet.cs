@@ -13,17 +13,27 @@ public class Bullet : MonoBehaviour {
 
     [HideInInspector] public BulletType bulletType;
 
+    [SerializeField] private Sprite[] bulletSprites;
+    [SerializeField] private ParticleSystem[] bulletTrailParticles;
+
+    private SpriteRenderer spriteRenderer;
+
     private float speed = 6;
 
     private int dir = 0;
 
 	// Use this for initialization
 	void Start () {
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
         switch (bulletType) {
             case BulletType.PlayerBullet:
+                spriteRenderer.sprite = bulletSprites[0];
+                bulletTrailParticles[0].gameObject.SetActive(true);
                 dir = 1;
                 break;
             case BulletType.EnemyBullet:
+                spriteRenderer.sprite = bulletSprites[1];
+                bulletTrailParticles[1].gameObject.SetActive(true);
                 dir = -1;
                 break;
         }

@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;
                     }
-                    deltaPosY = 0.02f;
+                    deltaPosY = 0.1f;
                     dirChanged = true;
                     Invoke("ResetDirChange", Time.deltaTime);
                 }
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.1f);
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.25f);
 
         for (int i = 0; i < enemyList.Count; i++) {
             enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
