@@ -68,12 +68,12 @@ public class GameManager : MonoBehaviour {
         }
 
         for (int i = 0; i < enemyList.Count; i++) {
-            if (enemyList[i].transform.position.x > 4.65f || enemyList[i].transform.position.x < -4.65f) {
+            if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
                 if (dirChanged == false) {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;
                     }
-                    deltaPosY = 0.25f;
+                    deltaPosY = 0.02f;
                     dirChanged = true;
                     Invoke("ResetDirChange", Time.deltaTime);
                 }
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.5f);
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.1f);
 
         for (int i = 0; i < enemyList.Count; i++) {
             enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);

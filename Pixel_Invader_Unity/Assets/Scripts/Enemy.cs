@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] private float health;
     [SerializeField] private Bullet enemyBullet;
+    [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
 
     [HideInInspector] public float speed = 0;
 
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour {
     private int score = 0;
 
     private Rigidbody2D rig;
+    private Animator enemyAnim;
     private bool isAbleToShoot = false;
 
     public enum EnemyType {
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spriteRender = this.GetComponent<SpriteRenderer>();
+        enemyAnim = this.GetComponent<Animator>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
                 health = 10;
@@ -53,7 +56,7 @@ public class Enemy : MonoBehaviour {
             case EnemyType.EnemyMotherShip:
                 health = 20;
                 score = 80;
-                spriteRender.color = new Color32(244, 100, 22, 255);
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 40;

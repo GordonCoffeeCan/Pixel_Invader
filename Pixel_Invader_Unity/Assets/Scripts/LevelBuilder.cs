@@ -21,7 +21,7 @@ public class LevelBuilder : MonoBehaviour {
     private float offSetX;
     private float offSetY;
     private float scalePosX = 0.5f;
-    private float scalePosY = 0.5f;
+    private float scalePosY = 0.55f;
 
     private GameObject levelHolder;
 
