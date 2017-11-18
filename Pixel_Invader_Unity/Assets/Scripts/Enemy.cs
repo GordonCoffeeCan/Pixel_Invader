@@ -97,6 +97,11 @@ public class Enemy : MonoBehaviour {
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _enemyBulletClone.GetComponent<BoxCollider2D>());
             }
         }
+
+        if (this.transform.position.y < -Camera.main.orthographicSize - 1) {
+            Destroy(this.gameObject);
+            GameManager.instance.enemyList.Remove(this);
+        }
     }
 
     private void FixedUpdate() {
