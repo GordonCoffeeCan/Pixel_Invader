@@ -59,23 +59,27 @@ public class LevelBuilder : MonoBehaviour {
                     // 's', SuicideEnemy;
 
                     case 'e':
-                        SetEnemy(Enemy.EnemyType.RegularEnemy, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.RegularEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'c':
-                        SetEnemy(Enemy.EnemyType.EnemyCarrier, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.EnemyCarrier, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'm':
-                        SetEnemy(Enemy.EnemyType.EnemyMotherShip, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.EnemyMotherShip, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'a':
-                        SetEnemy(Enemy.EnemyType.ArmouredEnemy, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.ArmouredEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 's':
-                        SetEnemy(Enemy.EnemyType.SuicideEnemy, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.SuicideEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        GameManager.instance.enemiesCount++;
+                        break;
+                    case 'z':
+                        SetEnemy(Enemy.EnemyType.RegularEnemy, Enemy.MovementStyle.Zigzag, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                 }
@@ -84,10 +88,12 @@ public class LevelBuilder : MonoBehaviour {
         }
     }
 
-    private void SetEnemy(Enemy.EnemyType _enemyType, Vector2 _pos) {
+    private void SetEnemy(Enemy.EnemyType _enemyType, Enemy.MovementStyle _movementStyle, Vector2 _pos) {
         Enemy _enemyClone = Instantiate(enemy) as Enemy;
         _enemyClone.speed = GameManager.instance.currentWaveEnemySpeed * GameManager.instance.currentLineEnemyDirection;
+        _enemyClone.verticalSpeed = GameManager.instance.currentWaveEnemySpeed;
         _enemyClone.enemyType = _enemyType;
+        _enemyClone.movementStyle = _movementStyle;
         _enemyClone.gameObject.name = "Enemy " + _enemyClone.enemyType;
         _enemyClone.transform.position = _pos;
         GameManager.instance.enemyList.Add(_enemyClone);

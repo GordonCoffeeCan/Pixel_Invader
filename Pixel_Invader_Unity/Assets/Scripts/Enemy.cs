@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
 
     [HideInInspector] public float speed = 0;
+    [HideInInspector] public float verticalSpeed = 0;
+    [HideInInspector] public float currentPosY = 0;
 
     private float shootGap = 0;
     private float currentShootGap = 0;
@@ -26,10 +28,17 @@ public class Enemy : MonoBehaviour {
         EnemyCarrier,
         EnemyMotherShip,
         ArmouredEnemy,
-        SuicideEnemy
+        SuicideEnemy,
+        SpawnPoint
+    }
+
+    public enum MovementStyle {
+        LeftAndRight,
+        Zigzag
     }
 
     public EnemyType enemyType;
+    public MovementStyle movementStyle;
 
 	// Use this for initialization
 	void Start () {
@@ -71,9 +80,15 @@ public class Enemy : MonoBehaviour {
                 score = 75;
                 spriteRender.color = new Color32(30, 223, 191, 255);
                 break;
+            case EnemyType.SpawnPoint:
+                break;
         }
 
         rig = this.GetComponent<Rigidbody2D>();
+
+        if (movementStyle == MovementStyle.Zigzag) {
+            currentPosY = this.transform.position.y;
+        }
     }
 	
 	// Update is called once per frame
@@ -90,7 +105,7 @@ public class Enemy : MonoBehaviour {
 
             if (currentShootGap <= 0) {
                 currentShootGap = shootGap;
-                Bullet _enemyBulletClone = Instantiate(enemyBullet, this.transform.position, Quaternion.identity) as Bullet;
+                Bullet _enemyBulletClone = Instantiate(enemyBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _enemyBulletClone.bulletType = Bullet.BulletType.EnemyBullet;
                 _enemyBulletClone.power = 100;
                 _enemyBulletClone.gameObject.tag = "EnemyBullet";
@@ -105,7 +120,15 @@ public class Enemy : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y)); 
+        switch (movementStyle) {
+            case MovementStyle.LeftAndRight:
+                rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y));
+                break;
+            case MovementStyle.Zigzag:
+                rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y - verticalSpeed * Time.deltaTime));
+                break;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {

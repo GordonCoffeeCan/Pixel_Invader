@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour {
         }
 
         if (Input.GetButton("Fire") && currentShootGap <= 0) {
-            Bullet _bulletClone = Instantiate(bullet, this.transform.position, Quaternion.identity) as Bullet;
+            Bullet _bulletClone = Instantiate(bullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bulletClone.power = bulletPower;
             _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
             currentShootGap = shootGap;

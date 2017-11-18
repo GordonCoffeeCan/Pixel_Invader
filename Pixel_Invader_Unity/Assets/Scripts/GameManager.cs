@@ -68,20 +68,38 @@ public class GameManager : MonoBehaviour {
         }
 
         for (int i = 0; i < enemyList.Count; i++) {
+
+            //Change horizontal direction for left and right movement
             if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
                 if (dirChanged == false) {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;
                     }
-                    deltaPosY = 0.1f;
+                    if(enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
+                        deltaPosY = 0.2f;
+                    }
                     dirChanged = true;
                     Invoke("ResetDirChange", Time.deltaTime);
-                }
-                
+                }  
             }
+            //Change horizontal direction for left and right movement
+
+            //Change vertical direction for zigzag movement
+            if (enemyList[i].movementStyle == Enemy.MovementStyle.Zigzag) {
+                if (enemyList[i].transform.position.y > enemyList[i].currentPosY || enemyList[i].transform.position.y < enemyList[i].currentPosY - 1) {
+                    if (dirChanged == false) {
+                        for (int j = 0; j < enemyList.Count; j++) {
+                            enemyList[j].verticalSpeed *= -1;
+                        }
+                        dirChanged = true;
+                        Invoke("ResetDirChange", Time.deltaTime);
+                    }
+                }
+            }
+            //Change vertical direction for zigzag movement
         }
 
-        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.25f);
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.5f);
 
         for (int i = 0; i < enemyList.Count; i++) {
             enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
