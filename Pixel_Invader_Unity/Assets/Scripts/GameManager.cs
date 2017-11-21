@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Text waveText;
 
     private bool levelBuilt = false;
-    private bool dirChanged = false;
+    private bool hDirChanged = false;
+    private bool vDirChanged = false;
 
     private float currentScore = 0;
 
@@ -71,15 +72,15 @@ public class GameManager : MonoBehaviour {
 
             //Change horizontal direction for left and right movement
             if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
-                if (dirChanged == false) {
+                if (hDirChanged == false) {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;
                     }
                     if(enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
                         deltaPosY = 0.2f;
                     }
-                    dirChanged = true;
-                    Invoke("ResetDirChange", Time.deltaTime);
+                    hDirChanged = true;
+                    Invoke("ResetHorizontalDirChange", Time.deltaTime);
                 }  
             }
             //Change horizontal direction for left and right movement
@@ -87,12 +88,12 @@ public class GameManager : MonoBehaviour {
             //Change vertical direction for zigzag movement
             if (enemyList[i].movementStyle == Enemy.MovementStyle.Zigzag) {
                 if (enemyList[i].transform.position.y > enemyList[i].currentPosY || enemyList[i].transform.position.y < enemyList[i].currentPosY - 1) {
-                    if (dirChanged == false) {
+                    if (vDirChanged == false) {
                         for (int j = 0; j < enemyList.Count; j++) {
                             enemyList[j].verticalSpeed *= -1;
                         }
-                        dirChanged = true;
-                        Invoke("ResetDirChange", Time.deltaTime);
+                        vDirChanged = true;
+                        Invoke("ResetVerticalDirChange", Time.deltaTime);
                     }
                 }
             }
@@ -111,7 +112,11 @@ public class GameManager : MonoBehaviour {
         currentWaveEnemySpeed = enemySpeed;
     }
 
-    private void ResetDirChange() {
-        dirChanged = false;
+    private void ResetHorizontalDirChange() {
+        hDirChanged = false;
+    }
+
+    private void ResetVerticalDirChange() {
+        vDirChanged = false;
     }
 }
