@@ -69,19 +69,21 @@ public class GameManager : MonoBehaviour {
         }
 
         for (int i = 0; i < enemyList.Count; i++) {
+            if (enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
+                //Change horizontal direction for left and right movement
+                if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
+                    if (hDirChanged == false) {
+                        for (int j = 0; j < enemyList.Count; j++) {
+                            enemyList[j].speed *= -1;
+                        }
 
-            //Change horizontal direction for left and right movement
-            if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
-                if (hDirChanged == false) {
-                    for (int j = 0; j < enemyList.Count; j++) {
-                        enemyList[j].speed *= -1;
+                        deltaPosY = 0.1f;
+                        hDirChanged = true;
+                        Invoke("ResetHorizontalDirChange", Time.deltaTime);
                     }
-                    if(enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
-                        deltaPosY = 0.2f;
-                    }
-                    hDirChanged = true;
-                    Invoke("ResetHorizontalDirChange", Time.deltaTime);
-                }  
+                }
+
+                enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
             }
             //Change horizontal direction for left and right movement
 
@@ -100,11 +102,7 @@ public class GameManager : MonoBehaviour {
             //Change vertical direction for zigzag movement
         }
 
-        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.5f);
-
-        for (int i = 0; i < enemyList.Count; i++) {
-            enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
-        }
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
     }
 
     private void SetEnemySpeed() {

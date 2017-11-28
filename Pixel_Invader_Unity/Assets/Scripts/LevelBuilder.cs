@@ -67,7 +67,7 @@ public class LevelBuilder : MonoBehaviour {
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'm':
-                        SetEnemy(Enemy.EnemyType.EnemyMotherShip, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        SetEnemy(Enemy.EnemyType.EnemyMotherShip, Enemy.MovementStyle.Zigzag, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                     case 'a':
@@ -76,10 +76,6 @@ public class LevelBuilder : MonoBehaviour {
                         break;
                     case 's':
                         SetEnemy(Enemy.EnemyType.SuicideEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
-                        break;
-                    case 'z':
-                        SetEnemy(Enemy.EnemyType.RegularEnemy, Enemy.MovementStyle.Zigzag, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
                         GameManager.instance.enemiesCount++;
                         break;
                 }
