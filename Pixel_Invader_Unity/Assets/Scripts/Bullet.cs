@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour {
 
     [HideInInspector] public enum BulletType {
         PlayerBullet,
-        EnemyBullet
+        EnemyBullet,
+        Bomb
     }
 
     [HideInInspector] public BulletType bulletType;
@@ -42,7 +43,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.Translate(new Vector2(0, speed * dir * Time.deltaTime));
-        if (this.transform.position.y >= Camera.main.orthographicSize && bulletType == BulletType.PlayerBullet) {
+        if (this.transform.position.y >= Camera.main.orthographicSize && (bulletType == BulletType.PlayerBullet || bulletType == BulletType.Bomb)) {
             Destroy(this.gameObject);
         }
 

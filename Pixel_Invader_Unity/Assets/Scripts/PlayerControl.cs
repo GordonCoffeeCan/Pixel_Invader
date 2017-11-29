@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private float bulletPower = 10;
     [SerializeField] private float shootGap = 0.35f;
     [SerializeField] private Bullet bullet;
+    [SerializeField] private Bullet bomb;
 
     private Rigidbody2D rig;
 
@@ -41,6 +42,12 @@ public class PlayerControl : MonoBehaviour {
             currentShootGap = shootGap;
 
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
+        }
+
+        if (Input.GetButtonDown("Bomb")) {
+            Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+            _bombClone.power = 100; ;
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
         }
 	}
 
