@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b53eade552846c34cbed35526061b079
-timeCreated: 1510949842
+timeCreated: 1512076171
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -148,8 +148,8 @@ TextureImporter:
       name: Bullet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
+        x: 0
+        y: 0
         width: 7
         height: 11
       alignment: 0
@@ -162,8 +162,8 @@ TextureImporter:
       name: Bullet_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 3
+        x: 8
+        y: 0
         width: 7
         height: 11
       alignment: 0
