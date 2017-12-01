@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float health;
     [SerializeField] private Bullet enemyBullet;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
+    [SerializeField] private ParticleSystem hitFX;
+    [SerializeField] private ParticleSystem[] explosionFXes;
 
     [HideInInspector] public float speed = 0;
     [HideInInspector] public float verticalSpeed = 0;
@@ -16,6 +18,8 @@ public class Enemy : MonoBehaviour {
     private float currentShootGap = 0;
 
     private SpriteRenderer spriteRender;
+
+    private ParticleSystem enemyExplosionFX;
 
     private int score = 0;
 
@@ -56,6 +60,7 @@ public class Enemy : MonoBehaviour {
                 shootGap = Random.Range(1.65f, 5.85f);
                 currentShootGap = shootGap;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
+                enemyExplosionFX = explosionFXes[0];
                 break;
             case EnemyType.EnemyCarrier:
                 health = 10;
@@ -66,6 +71,7 @@ public class Enemy : MonoBehaviour {
                 health = 20;
                 score = 80;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
+                enemyExplosionFX = explosionFXes[1];
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 40;
@@ -97,6 +103,7 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.score += score;
             GameManager.instance.enemiesCount--;
             GameManager.instance.enemyList.Remove(this);
+            Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
@@ -134,6 +141,7 @@ public class Enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D _col) {
         if(_col.tag == "Bullet") {
             health -= _col.gameObject.GetComponent<Bullet>().power;
+            Instantiate(hitFX, _col.transform.position, Quaternion.identity);
             Destroy(_col.gameObject);
         }
     }
