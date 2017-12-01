@@ -204,7 +204,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154000113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 250.4403, z: 0}
+  m_LocalPosition: {x: 0, y: 250.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1880819255}
@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00006580353, y: -88.91503}
+  m_AnchoredPosition: {x: 0.00006580353, y: -88.91504}
   m_SizeDelta: {x: 280, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209382165
@@ -336,7 +336,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365510967}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 104.39516, z: 0}
+  m_LocalPosition: {x: 0, y: 104.350006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 624883198}
@@ -1046,6 +1046,7 @@ MonoBehaviour:
   enemySpeed: 0.75
   score: 0
   currentWaveEnemySpeed: 0
+  cameraShakeAmount: 0
   moveDirection: 1
   enemiesCount: 0
   currentLineEnemyDirection: 1
@@ -1152,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.89, y: -114.2}
+  m_AnchoredPosition: {x: 5.8899994, y: -114.2}
   m_SizeDelta: {x: 199.14, y: 416.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333135542
@@ -1361,7 +1362,7 @@ RectTransform:
   m_GameObject: {fileID: 1359248532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.013885406, y: 0.013885406, z: 0.013885406}
+  m_LocalScale: {x: 0.01388889, y: 0.01388889, z: 0.01388889}
   m_Children:
   - {fileID: 1793564400}
   - {fileID: 1880819255}
@@ -1405,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500.27667, y: -104.39514}
+  m_AnchoredPosition: {x: -500.27667, y: -104.39515}
   m_SizeDelta: {x: 280, y: 88.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684786883
@@ -1472,7 +1473,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1793564399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500.16052, y: 0, z: 0}
+  m_LocalPosition: {x: -500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946374359}
@@ -1701,7 +1702,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1880819254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500.16052, y: 0, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 0.9997678, y: 0.9997678, z: 0.9997678}
   m_Children:
   - {fileID: 154000114}
@@ -2265,9 +2266,12 @@ MonoBehaviour:
   speed: 7
   screenEdge: 4.5
   bulletPower: 10
-  shootGap: 0.35
+  bulletGap: 0.35
+  tripleBulletGap: 0.15
+  shotgunBulletGap: 0.5
   bullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd, type: 2}
   bomb: {fileID: 114247307767806914, guid: 8cc6cc08ce85b684895af21884ac3bc3, type: 2}
+  gunType: 0
 --- !u!95 &2030927603
 Animator:
   serializedVersion: 3
@@ -2376,7 +2380,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2100166127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -187.69516, z: 0}
+  m_LocalPosition: {x: 0, y: -187.65002, z: 0}
   m_LocalScale: {x: 0.9997678, y: 0.9997678, z: 0.9997678}
   m_Children:
   - {fileID: 1684786882}

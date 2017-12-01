@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
 
     private float shootGap = 0;
     private float currentShootGap = 0;
+    private float cameraShakeAmount = 0;
 
     private SpriteRenderer spriteRender;
 
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour {
         enemyAnim = this.GetComponent<Animator>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
-                health = 10;
+                health = 20;
                 isAbleToShoot = RegularEnemyShoot();
                 if (isAbleToShoot) {
                     score = 15;
@@ -58,33 +59,41 @@ public class Enemy : MonoBehaviour {
                     score = 10;
                 }
                 shootGap = Random.Range(1.65f, 5.85f);
+                cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 currentShootGap = shootGap;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 enemyExplosionFX = explosionFXes[0];
                 break;
             case EnemyType.EnemyCarrier:
-                health = 10;
+                health = 20;
                 score = 60;
+                cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 spriteRender.color = new Color32(211, 30, 240, 255);
+                enemyExplosionFX = explosionFXes[0];
                 break;
             case EnemyType.EnemyMotherShip:
-                health = 20;
+                health = 30;
                 score = 80;
+                cameraShakeAmount = Random.Range(0.25f, 0.4f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
                 enemyExplosionFX = explosionFXes[1];
                 break;
             case EnemyType.ArmouredEnemy:
-                health = 40;
+                health = 50;
                 score = 120;
                 isAbleToShoot = true;
                 shootGap = Random.Range(3.15f, 10.85f);
                 currentShootGap = shootGap;
+                cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 spriteRender.color = new Color32(45, 141, 253, 255);
+                enemyExplosionFX = explosionFXes[0];
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
                 score = 75;
+                cameraShakeAmount = Random.Range(0.25f, 0.35f);
                 spriteRender.color = new Color32(30, 223, 191, 255);
+                enemyExplosionFX = explosionFXes[0];
                 break;
             case EnemyType.SpawnPoint:
                 break;
@@ -103,6 +112,7 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.score += score;
             GameManager.instance.enemiesCount--;
             GameManager.instance.enemyList.Remove(this);
+            GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
