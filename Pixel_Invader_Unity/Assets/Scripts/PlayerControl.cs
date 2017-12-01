@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private float shotgunBulletGap = 0.5f;
     [SerializeField] private Bullet bullet;
     [SerializeField] private Bullet bomb;
+    [SerializeField] private ParticleSystem playerExplosionFX;
 
     [HideInInspector] public enum GunType {
         RegularGun,
@@ -91,7 +92,8 @@ public class PlayerControl : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D _col) {
         if(_col.tag == "EnemyBullet") {
             Destroy(_col.gameObject);
-            //Destroy(this.gameObject);
+            Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 
@@ -106,7 +108,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void CreateTripleBullet() {
         for (int i = 0; i < 3; i++) {
-            Vector3 _pos = new Vector2((this.transform.position.x - 0.2f) + 0.15f * i, this.transform.position.y + (i % 2) * 0.2f);
+            Vector3 _pos = new Vector2((this.transform.position.x - 0.15f) + 0.15f * i, this.transform.position.y + (i % 2) * 0.2f);
             Bullet _bulletClone = Instantiate(bullet, _pos + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bulletClone.power = bulletPower;
             _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
