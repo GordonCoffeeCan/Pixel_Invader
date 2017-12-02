@@ -70,23 +70,30 @@ public class GameManager : MonoBehaviour {
         }
 
         for (int i = 0; i < enemyList.Count; i++) {
+            if (enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
+                enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
+            } 
+        }
+
+        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
+
+
+        for (int i = 0; i < enemyList.Count; i++) {
             //Change horizontal direction
             if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
                 if (hDirChanged == false) {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;
+                        deltaPosY = 0.1f;
                     }
-                    deltaPosY = 0.1f;
+                    
                     hDirChanged = true;
                     Invoke("ResetHorizontalDirChange", Time.deltaTime);
                 }
+
+                
             }
             //Change horizontal direction
-
-            if (enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
-                enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
-
-            }
 
             //Change vertical direction for zigzag movement
             if (enemyList[i].movementStyle == Enemy.MovementStyle.Zigzag) {
@@ -103,7 +110,6 @@ public class GameManager : MonoBehaviour {
             //Change vertical direction for zigzag movement
         }
 
-        deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
 
         //Shake Camera on Destroy enemy;
         cameraShakeAmount = Mathf.Lerp(cameraShakeAmount, 0, 0.2f);

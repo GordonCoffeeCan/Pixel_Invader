@@ -23,16 +23,15 @@ public class LevelBuilder : MonoBehaviour {
     private float scalePosX = 0.5f;
     private float scalePosY = 0.55f;
 
-    private GameObject levelHolder;
-
     private StreamReader streamReader;
 
     private float posY = 0;
 
+    private int id = 0;
+
 	// Use this for initialization
 	void Start () {
         instance = this;
-        levelHolder = GameObject.Find("LevelHolder");
     }
 	
 	// Update is called once per frame
@@ -44,7 +43,6 @@ public class LevelBuilder : MonoBehaviour {
         filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
         streamReader = new StreamReader(filePath);
 
-        levelHolder.transform.position = Vector2.zero;
         posY = 0;
 
         while (!streamReader.EndOfStream) {
@@ -90,8 +88,9 @@ public class LevelBuilder : MonoBehaviour {
         _enemyClone.verticalSpeed = GameManager.instance.currentWaveEnemySpeed;
         _enemyClone.enemyType = _enemyType;
         _enemyClone.movementStyle = _movementStyle;
-        _enemyClone.gameObject.name = "Enemy " + _enemyClone.enemyType;
+        _enemyClone.gameObject.name = "Enemy " + _enemyClone.enemyType + id;
         _enemyClone.transform.position = _pos;
         GameManager.instance.enemyList.Add(_enemyClone);
+        id++;
     }
 }

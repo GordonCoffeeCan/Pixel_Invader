@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Bullet bullet;
     [SerializeField] private Bullet bomb;
     [SerializeField] private ParticleSystem playerExplosionFX;
+    [SerializeField] private GameObject[] weapons;
 
     [HideInInspector] public enum GunType {
         RegularGun,
@@ -49,29 +50,49 @@ public class PlayerControl : MonoBehaviour {
         //Only for development------------------------------------
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             gunType = GunType.RegularGun;
+            bulletPower = 10;
+            for (int i = 0; i < weapons.Length; i++) {
+                weapons[i].SetActive(false);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             gunType = GunType.HeavyGun;
+            bulletPower = 5;
+            weapons[0].SetActive(true);
+            for (int i = 0; i < weapons.Length; i++) {
+                weapons[i].SetActive(false);
+                if(i == 0) {
+                    weapons[i].SetActive(true);
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
             gunType = GunType.ShotGun;
+            bulletPower = 3;
+            weapons[1].SetActive(true);
+            for (int i = 0; i < weapons.Length; i++) {
+                weapons[i].SetActive(false);
+                if (i == 1) {
+                    weapons[i].SetActive(true);
+                }
+            }
         }
         //Only for development------------------------------------
 
         if (Input.GetButton("Fire") && currentShootGap <= 0) {
             switch (gunType) {
                 case GunType.RegularGun:
-                    bulletPower = 10;
+                    
                     CreateRegularBullet();
                     break;
                 case GunType.HeavyGun:
-                    bulletPower = 5;
+                    
                     CreateTripleBullet();
                     break;
                 case GunType.ShotGun:
-                    bulletPower = 3;
+                    
                     CreateShotGunBullet();
                     break;
             }
@@ -93,6 +114,7 @@ public class PlayerControl : MonoBehaviour {
         if(_col.tag == "EnemyBullet") {
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
+            GameManager.instance.cameraShakeAmount += 0.35f;
             Destroy(this.gameObject);
         }
     }
