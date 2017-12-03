@@ -12,7 +12,13 @@ public class Bullet : MonoBehaviour {
         Bomb
     }
 
+    public AudioSource soundFXSource;
+    public AudioClip[] bulletSoundFXes;
+
     [HideInInspector] public BulletType bulletType;
+
+    [HideInInspector] public float showObjecDelay = 0;
+    [HideInInspector] public bool soundFXPlayable = true;
 
     [SerializeField] private Sprite[] bulletSprites;
     [SerializeField] private ParticleSystem[] bulletTrailParticles;
@@ -23,9 +29,11 @@ public class Bullet : MonoBehaviour {
 
     private int dir = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        this.gameObject.SetActive(false);
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+        
         switch (bulletType) {
             case BulletType.PlayerBullet:
                 spriteRenderer.sprite = bulletSprites[0];
@@ -35,9 +43,11 @@ public class Bullet : MonoBehaviour {
             case BulletType.EnemyBullet:
                 spriteRenderer.sprite = bulletSprites[1];
                 bulletTrailParticles[1].gameObject.SetActive(true);
+                soundFXSource.clip = bulletSoundFXes[1];
                 dir = -1;
                 break;
         }
+        Invoke("ShowObject", showObjecDelay * Time.deltaTime);
 	}
 	
 	// Update is called once per frame
@@ -49,6 +59,20 @@ public class Bullet : MonoBehaviour {
 
         if (this.transform.position.y <= -Camera.main.orthographicSize && bulletType == BulletType.EnemyBullet) {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void ShowObject() {
+        this.gameObject.SetActive(true);
+        this.transform.parent = null;
+        PlaySoundFX(soundFXPlayable);
+    }
+
+    private void PlaySoundFX(bool _playSound = true) {
+        if (_playSound) {
+            soundFXSource.Play();
+            soundFXSource.transform.parent = null;
+            Destroy(this.soundFXSource.gameObject, this.soundFXSource.clip.length);
         }
     }
 }

@@ -204,7 +204,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154000113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 250.4403, z: 0}
+  m_LocalPosition: {x: 0, y: 250.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1880819255}
@@ -336,7 +336,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365510967}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 104.39516, z: 0}
+  m_LocalPosition: {x: 0, y: 104.350006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 624883198}
@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0572c8769b8a39740a33a6a24c09b6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: 4
+  wave: 0
   enemySpeed: 0.75
   score: 0
   currentWaveEnemySpeed: 0
@@ -4818,7 +4818,7 @@ RectTransform:
   m_GameObject: {fileID: 1359248532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.013885406, y: 0.013885406, z: 0.013885406}
+  m_LocalScale: {x: 0.01388889, y: 0.01388889, z: 0.01388889}
   m_Children:
   - {fileID: 1793564400}
   - {fileID: 1880819255}
@@ -4929,7 +4929,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1793564399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500.16052, y: 0, z: 0}
+  m_LocalPosition: {x: -500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946374359}
@@ -5158,7 +5158,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1880819254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500.16052, y: 0, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 0.9997678, y: 0.9997678, z: 0.9997678}
   m_Children:
   - {fileID: 154000114}
@@ -5800,8 +5800,8 @@ MonoBehaviour:
   screenEdge: 4.5
   bulletPower: 10
   bulletGap: 0.35
-  tripleBulletGap: 0.15
-  shotgunBulletGap: 0.5
+  tripleBulletGap: 0.25
+  shotgunBulletGap: 0.45
   bullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd, type: 2}
   bomb: {fileID: 114247307767806914, guid: 8cc6cc08ce85b684895af21884ac3bc3, type: 2}
   playerExplosionFX: {fileID: 198574922467594088, guid: f48c8936eeb9e38459f1cf51b1c8c0a8,
@@ -9329,7 +9329,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2100166127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -187.69516, z: 0}
+  m_LocalPosition: {x: 0, y: -187.65002, z: 0}
   m_LocalScale: {x: 0.9997678, y: 0.9997678, z: 0.9997678}
   m_Children:
   - {fileID: 1684786882}
