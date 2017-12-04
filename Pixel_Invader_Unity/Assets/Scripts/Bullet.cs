@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour {
                 dir = -1;
                 break;
         }
+        
         Invoke("ShowObject", showObjecDelay * Time.deltaTime);
 	}
 	

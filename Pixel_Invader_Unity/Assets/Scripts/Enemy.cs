@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rig;
     private Animator enemyAnim;
     private bool isAbleToShoot = false;
+    private bool hasDropBox = false;
 
     public enum EnemyType {
         RegularEnemy,
@@ -64,6 +65,9 @@ public class Enemy : MonoBehaviour {
                 currentShootGap = shootGap;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 enemyExplosionFX = explosionFXes[0];
+                if (Random.Range(0, 36) == 5) {
+                    hasDropBox = true;
+                }
                 break;
             case EnemyType.EnemyCarrier:
                 health = 20;
@@ -71,6 +75,7 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
                 enemyExplosionFX = explosionFXes[2];
+                hasDropBox = true;
                 break;
             case EnemyType.EnemyMotherShip:
                 health = 30;
@@ -115,7 +120,9 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.enemyList.Remove(this);
             GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
-            
+            if (hasDropBox) {
+                Instantiate(dropBox, this.transform.position, Quaternion.identity);
+            }
             Destroy(this.gameObject);
         }
 

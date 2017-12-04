@@ -116,6 +116,10 @@ public class PlayerControl : MonoBehaviour {
             GameManager.instance.cameraShakeAmount += 0.35f;
             //Destroy(this.gameObject);
         }
+
+        if (_col.tag == "DropBox") {
+            Debug.Log("Got a Box!");
+        }
     }
 
     private void CreateRegularBullet() {

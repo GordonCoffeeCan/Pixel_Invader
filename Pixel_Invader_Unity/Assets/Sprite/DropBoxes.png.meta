@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: dadfa43101f2e4a4982cb1c3e683b305
-timeCreated: 1512417170
+timeCreated: 1512424240
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DropBoxes_0
-    21300002: DropBoxes_1
-    21300004: DropBoxes_2
-    21300006: DropBoxes_3
-    21300008: DropBoxes_4
+    21300000: BombBox
+    21300002: HeavyGunBox
+    21300004: LaserBox
+    21300006: ShogunBox
+    21300008: NewPlaneBox
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -146,7 +146,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DropBoxes_0
+      name: BombBox
       rect:
         serializedVersion: 2
         x: 0
@@ -154,13 +154,13 @@ TextureImporter:
         width: 12
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DropBoxes_1
+      name: HeavyGunBox
       rect:
         serializedVersion: 2
         x: 17
@@ -168,13 +168,13 @@ TextureImporter:
         width: 12
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DropBoxes_2
+      name: LaserBox
       rect:
         serializedVersion: 2
         x: 34
@@ -182,13 +182,13 @@ TextureImporter:
         width: 12
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DropBoxes_3
+      name: ShogunBox
       rect:
         serializedVersion: 2
         x: 0
@@ -196,13 +196,13 @@ TextureImporter:
         width: 12
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DropBoxes_4
+      name: NewPlaneBox
       rect:
         serializedVersion: 2
         x: 17
@@ -210,7 +210,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
