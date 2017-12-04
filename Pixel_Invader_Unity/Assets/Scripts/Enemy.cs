@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
     [SerializeField] private ParticleSystem hitFX;
     [SerializeField] private ParticleSystem[] explosionFXes;
+    [SerializeField] private DropBox dropBox;
 
     [HideInInspector] public float speed = 0;
     [HideInInspector] public float verticalSpeed = 0;
@@ -68,8 +69,8 @@ public class Enemy : MonoBehaviour {
                 health = 20;
                 score = 60;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
-                spriteRender.color = new Color32(211, 30, 240, 255);
-                enemyExplosionFX = explosionFXes[0];
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
+                enemyExplosionFX = explosionFXes[2];
                 break;
             case EnemyType.EnemyMotherShip:
                 health = 30;
@@ -114,6 +115,7 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.enemyList.Remove(this);
             GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
+            
             Destroy(this.gameObject);
         }
 

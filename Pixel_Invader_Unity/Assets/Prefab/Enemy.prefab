@@ -123,10 +123,12 @@ MonoBehaviour:
   enemyAnimControllers:
   - {fileID: 9100000, guid: 0fcb3ba38f6162b40abe7b7dde2b5ea9, type: 2}
   - {fileID: 9100000, guid: c5a7f3d64af00074c8b4de76142d926a, type: 2}
+  - {fileID: 9100000, guid: 15f5eac447680d144abbe6a00f78e751, type: 2}
   hitFX: {fileID: 198537107640596934, guid: 4ff8674949631304caf8cf1035b701d8, type: 2}
   explosionFXes:
   - {fileID: 198574922467594088, guid: 94c286a05cf3d1943a14b0021e375a9f, type: 2}
   - {fileID: 198574922467594088, guid: 3b38eb051701f47479e0e4098df3f267, type: 2}
+  - {fileID: 198574922467594088, guid: ec696c5049699994996e5aa1fd230566, type: 2}
   speed: 0
   verticalSpeed: 0
   currentPosY: 0
