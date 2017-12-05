@@ -10,7 +10,9 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private float bulletGap = 0.35f;
     [SerializeField] private float tripleBulletGap = 0.45f;
     [SerializeField] private float shotgunBulletGap = 0.6f;
-    [SerializeField] private Bullet bullet;
+    [SerializeField] private Bullet regularBullet;
+    [SerializeField] private Bullet heavyGunBullet;
+    [SerializeField] private Bullet shotgunBullet;
     [SerializeField] private Bullet bomb;
     [SerializeField] private ParticleSystem playerExplosionFX;
     [SerializeField] private GameObject[] weapons;
@@ -100,6 +102,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonDown("Bomb")) {
             Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bombClone.power = 100; ;
+            _bombClone.dir = 1;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
         }
 	}
@@ -114,19 +117,39 @@ public class PlayerControl : MonoBehaviour {
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;
+            gunType = GunType.RegularGun;
             //Destroy(this.gameObject);
         }
 
         if (_col.tag == "DropBox") {
-            Debug.Log("Got a Box!");
+            DropBox _dropBox = _col.GetComponent<DropBox>();
+            switch (_dropBox.boxType) {
+                case DropBox.BoxType.Bomb:
+                    Debug.Log("Bomb ++");
+                    break;
+                case DropBox.BoxType.HeavyGun:
+                    gunType = GunType.HeavyGun;
+                    break;
+                case DropBox.BoxType.Laser:
+                    Debug.Log("Laser ++");
+                    break;
+                case DropBox.BoxType.NewSpacecraft:
+                    Debug.Log("Health ++");
+                    break;
+                case DropBox.BoxType.Shotgun:
+                    gunType = GunType.ShotGun;
+                    break;
+            }
+
+            Destroy(_col.gameObject);
         }
     }
 
     private void CreateRegularBullet() {
-        Bullet _bulletClone = Instantiate(bullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+        Bullet _bulletClone = Instantiate(regularBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
         _bulletClone.power = bulletPower;
-        _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
         currentShootGap = bulletGap;
+        _bulletClone.dir = 1;
         _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
         Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
     }
@@ -134,11 +157,11 @@ public class PlayerControl : MonoBehaviour {
     private void CreateTripleBullet() {
         for (int i = 0; i < 3; i++) {
             Vector3 _pos = new Vector2((this.transform.position.x - 0.15f) + 0.15f * Random.Range(0, 3), this.transform.position.y + (i % 2) * 0.2f);
-            Bullet _bulletClone = Instantiate(bullet, _pos + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+            Bullet _bulletClone = Instantiate(heavyGunBullet, _pos + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bulletClone.transform.parent = this.transform;
             _bulletClone.power = bulletPower;
-            _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
             _bulletClone.showObjecDelay = i * 4.5f;
+            _bulletClone.dir = 1;
             _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         }
@@ -149,13 +172,13 @@ public class PlayerControl : MonoBehaviour {
     private void CreateShotGunBullet() {
         for (int i = 0; i < 8; i++) {
             float _angle = 35 - 10 * i;
-            Bullet _bulletClone = Instantiate(bullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.Euler(new Vector3(0, 0, _angle))) as Bullet;
+            Bullet _bulletClone = Instantiate(shotgunBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.Euler(new Vector3(0, 0, _angle))) as Bullet;
             _bulletClone.transform.parent = this.transform;
             _bulletClone.power = bulletPower;
-            _bulletClone.bulletType = Bullet.BulletType.PlayerBullet;
             if(i > 0) {
                 _bulletClone.soundFXPlayable = false;
             }
+            _bulletClone.dir = 1;
             _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[2];
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         }

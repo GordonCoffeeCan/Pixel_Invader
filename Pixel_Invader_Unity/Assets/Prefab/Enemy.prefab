@@ -118,8 +118,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  enemyBullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd,
+  enemyBullet: {fileID: 114882958960836000, guid: ee2bdaf4ef110d242a4b60c1e561f00c,
     type: 2}
+  sprites:
+  - {fileID: 21300000, guid: ebbff9b957f8df2478e8c4160ac89044, type: 3}
+  - {fileID: 21300000, guid: 102394041405344458cd783b6733d3ed, type: 3}
+  - {fileID: 21300000, guid: a5d016f04fd38f449a3978c02fabb6a8, type: 3}
   enemyAnimControllers:
   - {fileID: 9100000, guid: 0fcb3ba38f6162b40abe7b7dde2b5ea9, type: 2}
   - {fileID: 9100000, guid: c5a7f3d64af00074c8b4de76142d926a, type: 2}

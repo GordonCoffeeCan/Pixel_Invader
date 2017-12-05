@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] private float health;
     [SerializeField] private Bullet enemyBullet;
+    [SerializeField] private Sprite[] sprites;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
     [SerializeField] private ParticleSystem hitFX;
     [SerializeField] private ParticleSystem[] explosionFXes;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour {
     private int score = 0;
 
     private Rigidbody2D rig;
+    private BoxCollider2D boxCollider;
     private Animator enemyAnim;
     private bool isAbleToShoot = false;
     private bool hasDropBox = false;
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour {
 	void Start () {
         spriteRender = this.GetComponent<SpriteRenderer>();
         enemyAnim = this.GetComponent<Animator>();
+        boxCollider = this.GetComponent<BoxCollider2D>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
                 health = 20;
@@ -65,6 +68,7 @@ public class Enemy : MonoBehaviour {
                 currentShootGap = shootGap;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 enemyExplosionFX = explosionFXes[0];
+                spriteRender.sprite = sprites[0];
                 if (Random.Range(0, 36) == 5) {
                     hasDropBox = true;
                 }
@@ -73,8 +77,10 @@ public class Enemy : MonoBehaviour {
                 health = 20;
                 score = 60;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
+                
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
                 enemyExplosionFX = explosionFXes[2];
+                spriteRender.sprite = sprites[2];
                 hasDropBox = true;
                 break;
             case EnemyType.EnemyMotherShip:
@@ -83,6 +89,7 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.25f, 0.4f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
                 enemyExplosionFX = explosionFXes[1];
+                spriteRender.sprite = sprites[1];
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 50;
@@ -93,6 +100,7 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 spriteRender.color = new Color32(45, 141, 253, 255);
                 enemyExplosionFX = explosionFXes[0];
+                spriteRender.sprite = sprites[0];
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
@@ -100,12 +108,14 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.25f, 0.35f);
                 spriteRender.color = new Color32(30, 223, 191, 255);
                 enemyExplosionFX = explosionFXes[0];
+                spriteRender.sprite = sprites[0];
                 break;
             case EnemyType.SpawnPoint:
                 break;
         }
 
         rig = this.GetComponent<Rigidbody2D>();
+        boxCollider.size = new Vector2(spriteRender.sprite.rect.size.x / spriteRender.sprite.pixelsPerUnit, spriteRender.sprite.rect.size.y / spriteRender.sprite.pixelsPerUnit);
 
         if (movementStyle == MovementStyle.Zigzag) {
             currentPosY = this.transform.position.y;
@@ -121,7 +131,7 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
             if (hasDropBox) {
-                Instantiate(dropBox, this.transform.position, Quaternion.identity);
+                Instantiate(dropBox, this.transform.position + Vector3.forward * -2.5f , Quaternion.identity);
             }
             Destroy(this.gameObject);
         }
@@ -132,8 +142,8 @@ public class Enemy : MonoBehaviour {
             if (currentShootGap <= 0) {
                 currentShootGap = shootGap;
                 Bullet _enemyBulletClone = Instantiate(enemyBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
-                _enemyBulletClone.bulletType = Bullet.BulletType.EnemyBullet;
                 _enemyBulletClone.power = 100;
+                _enemyBulletClone.dir = -1;
                 _enemyBulletClone.gameObject.tag = "EnemyBullet";
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _enemyBulletClone.GetComponent<BoxCollider2D>());
             }

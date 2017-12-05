@@ -19,10 +19,12 @@ public class DropBox : MonoBehaviour {
     private BoxType[] boxTypeArray;
 
     private SpriteRenderer spriteRender;
+    private BoxCollider2D boxCollider;
 
 	// Use this for initialization
 	void Start () {
         spriteRender = this.GetComponent<SpriteRenderer>();
+        boxCollider = this.GetComponent<BoxCollider2D>();
         switch (Random.Range(0, 5)) {
             case 0:
                 boxType = BoxType.Bomb;
@@ -45,6 +47,8 @@ public class DropBox : MonoBehaviour {
                 spriteRender.sprite = sprites[4];
                 break;
         }
+
+        boxCollider.size = new Vector2(spriteRender.sprite.rect.size.x / spriteRender.sprite.pixelsPerUnit, spriteRender.sprite.rect.size.y / spriteRender.sprite.pixelsPerUnit);
     }
 	
 	// Update is called once per frame
