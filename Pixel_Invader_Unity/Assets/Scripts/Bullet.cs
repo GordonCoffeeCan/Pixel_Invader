@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour {
 	void Update () {
         if (isBomb) {
             deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.05f);
-            Debug.Log(deltaPosY);
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + deltaPosY * Time.deltaTime);
             if (this.transform.position.y >= 0) {
                 Destroy(this.gameObject);

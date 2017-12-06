@@ -132,13 +132,7 @@ public class GameManager : MonoBehaviour {
 
     public void BombAll() {
         for (int i = 0; i < enemyList.Count; i++) {
-            /*Invoke(){
-
-            }*/
+            enemyList[i].health -= Random.Range(10f, 30f);
         }
-    }
-
-    private void bombAffectToEnemy(Enemy _enemy) {
-        _enemy.health -= 20;
     }
 }
