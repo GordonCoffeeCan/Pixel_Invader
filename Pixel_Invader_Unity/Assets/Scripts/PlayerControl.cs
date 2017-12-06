@@ -15,7 +15,8 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Bullet shotgunBullet;
     [SerializeField] private Bullet bomb;
     [SerializeField] private ParticleSystem playerExplosionFX;
-    [SerializeField] private ParticleSystem powerUpFX;
+    [SerializeField] private ParticleSystem muteFX;
+    [SerializeField] private ParticleSystem[] powerUpFX;
     [SerializeField] private GameObject[] weapons;
 
     [HideInInspector] public enum GunType {
@@ -30,12 +31,16 @@ public class PlayerControl : MonoBehaviour {
 
     private float currentShootGap = 0;
 
+    private float muteForBulletTime = 0;
+
     private Animator playerAnim;
 
 	// Use this for initialization
 	void Start () {
         rig = this.GetComponent<Rigidbody2D>();
         playerAnim = this.GetComponent<Animator>();
+        Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
+        muteForBulletTime = 2.5f;
     }
 	
 	// Update is called once per frame
@@ -52,30 +57,15 @@ public class PlayerControl : MonoBehaviour {
 
         //Only for development------------------------------------
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            gunType = GunType.RegularGun;
-            for (int i = 0; i < weapons.Length; i++) {
-                weapons[i].SetActive(false);
-            }
+            OnRegularGun();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            gunType = GunType.HeavyGun;
-            for (int i = 0; i < weapons.Length; i++) {
-                weapons[i].SetActive(false);
-                if (i == 0) {
-                    weapons[i].SetActive(true);
-                }
-            }
+            OnHeavyGun();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            gunType = GunType.ShotGun;
-            for (int i = 0; i < weapons.Length; i++) {
-                weapons[i].SetActive(false);
-                if (i == 1) {
-                    weapons[i].SetActive(true);
-                }
-            }
+            OnShotGun();
         }
         //Only for development------------------------------------
 
@@ -93,11 +83,18 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("Bomb")) {
+        if (Input.GetButtonDown("Bomb") && GameManager.instance.BombCount > 0) {
             Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bombClone.power = 100; ;
             _bombClone.dir = 1;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
+            GameManager.instance.BombCount--;
+        }
+
+        muteForBulletTime -= Time.deltaTime;
+
+        if (muteForBulletTime <= 0) {
+            muteForBulletTime = 0;
         }
 	}
 
@@ -107,15 +104,16 @@ public class PlayerControl : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {
-        if(_col.tag == "EnemyBullet") {
+        if (_col.tag == "EnemyBullet") {
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;
-            gunType = GunType.RegularGun;
-            for (int i = 0; i < weapons.Length; i++) {
-                weapons[i].SetActive(false);
+            if (muteForBulletTime <= 0) {
+                OnRegularGun();
+                GameManager.instance.playerIsDead = true;
+                GameManager.instance.playerCount--;
+                Destroy(this.gameObject);
             }
-            //Destroy(this.gameObject);
         }
 
         if (_col.tag == "DropBox") {
@@ -123,49 +121,78 @@ public class PlayerControl : MonoBehaviour {
             switch (_dropBox.boxType) {
                 case DropBox.BoxType.Bomb:
                     Debug.Log("Bomb ++");
+                    Instantiate(powerUpFX[0], this.transform);
+                    if (GameManager.instance.BombCount < 3) {
+                        GameManager.instance.BombCount++;
+                    }
                     break;
                 case DropBox.BoxType.HeavyGun:
-                    gunType = GunType.HeavyGun;
-                    for (int i = 0; i < weapons.Length; i++) {
-                        weapons[i].SetActive(false);
-                        if (i == 0) {
-                            weapons[i].SetActive(true);
-                        }
-                    }
+                    OnHeavyGun();
                     break;
                 case DropBox.BoxType.Laser:
                     Debug.Log("Laser ++");
-                    break;
-                case DropBox.BoxType.NewSpacecraft:
-                    Debug.Log("Health ++");
-                    break;
-                case DropBox.BoxType.Shotgun:
-                    gunType = GunType.ShotGun;
-                    for (int i = 0; i < weapons.Length; i++) {
-                        weapons[i].SetActive(false);
-                        if (i == 1) {
-                            weapons[i].SetActive(true);
-                        }
+                    Instantiate(powerUpFX[3], this.transform);
+                    if (GameManager.instance.LaserCount < 3) {
+                        GameManager.instance.LaserCount++;
                     }
                     break;
+                case DropBox.BoxType.NewSpacecraft:
+                    Instantiate(powerUpFX[1], this.transform);
+                    Debug.Log("Health ++");
+                    if (GameManager.instance.playerCount < 3) {
+                        GameManager.instance.playerCount++;
+                    }
+                    break;
+                case DropBox.BoxType.Shotgun:
+                    OnShotGun();
+                    break;
             }
-            Instantiate(powerUpFX, this.transform);
             Destroy(_col.gameObject);
         }
     }
 
-    private void CreateRegularBullet() {
+    private void OnRegularGun() {
+        gunType = GunType.RegularGun;
         bulletPower = 10;
+        for (int i = 0; i < weapons.Length; i++) {
+            weapons[i].SetActive(false);
+        }
+    }
+
+    private void OnHeavyGun() {
+        gunType = GunType.HeavyGun;
+        bulletPower = 5;
+        Instantiate(powerUpFX[2], this.transform);
+        for (int i = 0; i < weapons.Length; i++) {
+            weapons[i].SetActive(false);
+            if (i == 0) {
+                weapons[i].SetActive(true);
+            }
+        }
+    }
+
+    private void OnShotGun() {
+        gunType = GunType.ShotGun;
+        bulletPower = 3;
+        Instantiate(powerUpFX[4], this.transform);
+        for (int i = 0; i < weapons.Length; i++) {
+            weapons[i].SetActive(false);
+            if (i == 1) {
+                weapons[i].SetActive(true);
+            }
+        }
+    }
+
+    private void CreateRegularBullet() {
         Bullet _bulletClone = Instantiate(regularBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
         _bulletClone.power = bulletPower;
-        currentShootGap = bulletGap;
         _bulletClone.dir = 1;
         _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
         Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
+        currentShootGap = bulletGap;
     }
 
     private void CreateTripleBullet() {
-        bulletPower = 5;
         for (int i = 0; i < 3; i++) {
             Vector3 _pos = new Vector2((this.transform.position.x - 0.15f) + 0.15f * Random.Range(0, 3), this.transform.position.y + (i % 2) * 0.2f);
             Bullet _bulletClone = Instantiate(heavyGunBullet, _pos + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
@@ -176,12 +203,10 @@ public class PlayerControl : MonoBehaviour {
             _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         }
-
         currentShootGap = tripleBulletGap;
     }
 
     private void CreateShotGunBullet() {
-        bulletPower = 3;
         for (int i = 0; i < 8; i++) {
             float _angle = 35 - 10 * i;
             Bullet _bulletClone = Instantiate(shotgunBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.Euler(new Vector3(0, 0, _angle))) as Bullet;

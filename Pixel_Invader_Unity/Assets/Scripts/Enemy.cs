@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour {
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
                 enemyExplosionFX = explosionFXes[0];
                 spriteRender.sprite = sprites[0];
-                if (Random.Range(0, 36) == 5) {
+                if (Random.Range(0, 26) == 5) {
                     hasDropBox = true;
                 }
                 break;

@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114995947961653694}
   - component: {fileID: 82813356828541646}
   m_Layer: 0
-  m_Name: PlayerPowerUpParticle
+  m_Name: ShotgunPowerUpParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 317992610
+  randomSeed: -705562508
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -346,7 +346,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.30147058, g: 1, b: 0.91328603, a: 1}
+      maxColor: {r: 1, g: 0.4296064, b: 0.87188137, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3573,7 +3573,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 184379440
+  randomSeed: -1213072770
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6890,7 +6890,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1251104581
+  randomSeed: 1127911695
   InitialModule:
     serializedVersion: 3
     enabled: 1

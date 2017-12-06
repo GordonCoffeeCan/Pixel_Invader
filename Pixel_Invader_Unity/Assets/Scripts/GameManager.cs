@@ -10,17 +10,20 @@ public class GameManager : MonoBehaviour {
     public int wave = 0;
     public float enemySpeed = 0.85f;
 
+    public int playerCount = 3;
+    public int BombCount = 0;
+    public int LaserCount = 0;
+
     [HideInInspector] public float score = 0;
     [HideInInspector] public float currentWaveEnemySpeed;
     [HideInInspector] public float cameraShakeAmount = 0;
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
-
+    [HideInInspector] public bool playerIsDead = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
 
-    [SerializeField] private GameObject levelHolder;
-
+    [SerializeField] private Transform player;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text waveText;
 
@@ -42,6 +45,8 @@ public class GameManager : MonoBehaviour {
         SetEnemySpeed();
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
+
+        StartCoroutine(ResetPlayer());
     }
 	
 	// Update is called once per frame
@@ -115,6 +120,13 @@ public class GameManager : MonoBehaviour {
         cameraShakeAmount = Mathf.Lerp(cameraShakeAmount, 0, 0.2f);
         Camera.main.transform.position = new Vector3(Random.insideUnitCircle.x * cameraShakeAmount, Random.insideUnitCircle.y * cameraShakeAmount, -10);
         //Shake Camera on Destroy enemy;
+
+        //Instanciate Player if player is dead
+        if (playerCount > 0 && playerIsDead) {
+            StartCoroutine(ResetPlayer(1));
+            playerIsDead = false;
+        }
+        //Instanciate Player if player is dead
     }
 
     private void SetEnemySpeed() {
@@ -134,5 +146,10 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < enemyList.Count; i++) {
             enemyList[i].health -= Random.Range(10f, 30f);
         }
+    }
+
+    private IEnumerator ResetPlayer(float _time = 0) {
+        yield return new WaitForSeconds(_time);
+        Instantiate(player, new Vector3(0, -4, -2), Quaternion.identity);
     }
 }
