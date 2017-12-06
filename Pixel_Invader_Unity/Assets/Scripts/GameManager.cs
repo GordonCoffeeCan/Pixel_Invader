@@ -129,4 +129,16 @@ public class GameManager : MonoBehaviour {
     private void ResetVerticalDirChange() {
         vDirChanged = false;
     }
+
+    public void BombAll() {
+        for (int i = 0; i < enemyList.Count; i++) {
+            /*Invoke(){
+
+            }*/
+        }
+    }
+
+    private void bombAffectToEnemy(Enemy _enemy) {
+        _enemy.health -= 20;
+    }
 }

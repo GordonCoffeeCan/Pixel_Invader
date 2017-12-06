@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    [SerializeField] private float health;
+    public float health;
+
     [SerializeField] private Bullet enemyBullet;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;

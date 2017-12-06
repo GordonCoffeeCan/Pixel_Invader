@@ -23,6 +23,9 @@ public class Bullet : MonoBehaviour {
     // Use this for initialization
     void Start () {
         this.gameObject.SetActive(false);
+        if (isBomb) {
+            GameManager.instance.cameraShakeAmount = 0.15f;
+        }
         Invoke("ShowObject", showObjecDelay * Time.deltaTime);
 	}
 	
@@ -58,8 +61,13 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        if (hitEnemy) {
+        if (hitEnemy || isBomb) {
             Instantiate(hitFX, this.transform.position, Quaternion.identity);
+        }
+
+        if (isBomb) {
+            GameManager.instance.cameraShakeAmount = 0.65f;
+            GameManager.instance.BombAll();
         }
     }
 }

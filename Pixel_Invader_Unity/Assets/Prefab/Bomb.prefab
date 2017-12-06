@@ -131,7 +131,7 @@ MonoBehaviour:
   soundFXSource: {fileID: 0}
   bulletSoundFXes: []
   isBomb: 1
-  hitFX: {fileID: 0}
+  hitFX: {fileID: 198241129049938772, guid: e9059a05179534a49bc41632ca2bd2bc, type: 2}
   showObjecDelay: 0
   soundFXPlayable: 1
   hitEnemy: 0
