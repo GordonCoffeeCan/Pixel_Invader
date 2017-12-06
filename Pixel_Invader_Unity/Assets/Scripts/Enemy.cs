@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Bullet enemyBullet;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
-    [SerializeField] private ParticleSystem hitFX;
     [SerializeField] private ParticleSystem[] explosionFXes;
     [SerializeField] private DropBox dropBox;
 
@@ -169,8 +168,9 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D _col) {
         if(_col.tag == "Bullet") {
-            health -= _col.gameObject.GetComponent<Bullet>().power;
-            Instantiate(hitFX, _col.transform.position, Quaternion.identity);
+            Bullet _bullet = _col.gameObject.GetComponent<Bullet>();
+            health -= _bullet.power;
+            _bullet.hitEnemy = true;
             Destroy(_col.gameObject);
         }
     }

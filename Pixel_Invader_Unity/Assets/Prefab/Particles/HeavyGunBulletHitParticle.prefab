@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 198537107640596934}
   - component: {fileID: 82634189521338412}
   m_Layer: 0
-  m_Name: BulletHitParticle
+  m_Name: HeavyGunBulletHitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3454,7 +3454,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: c899bb198d6c3ed4cafa5f8c2b3b61ad, type: 2}
+  - {fileID: 2100000, guid: 3a20bad72be7a3945a5166404f286400, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

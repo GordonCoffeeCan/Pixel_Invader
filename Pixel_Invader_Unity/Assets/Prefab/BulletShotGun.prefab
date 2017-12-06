@@ -225,8 +225,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e7cedecd164c61443a83a1808daa9abc, type: 3}
   - {fileID: 8300000, guid: 74026fd28ddf982418fedef0ac0f129b, type: 3}
   - {fileID: 8300000, guid: 6b59775d060a3f6419700f18c8e7538a, type: 3}
+  hitFX: {fileID: 198537107640596934, guid: 038d82c54714445418a8d7e74d7b8a9b, type: 2}
   showObjecDelay: 0
   soundFXPlayable: 1
+  hitEnemy: 0
   dir: 1
 --- !u!198 &198029298276219626
 ParticleSystem:
