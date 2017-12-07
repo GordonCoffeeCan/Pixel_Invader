@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b53eade552846c34cbed35526061b079
-timeCreated: 1512495911
+timeCreated: 1512617843
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: Bullet_1
     21300004: Bullet_2
     21300006: Bullet_3
+    21300008: Bullet_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -194,6 +195,20 @@ TextureImporter:
         y: 4
         width: 7
         height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bullet_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
