@@ -124,15 +124,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ebbff9b957f8df2478e8c4160ac89044, type: 3}
   - {fileID: 21300000, guid: 102394041405344458cd783b6733d3ed, type: 3}
   - {fileID: 21300000, guid: a5d016f04fd38f449a3978c02fabb6a8, type: 3}
+  - {fileID: 21300000, guid: f6494349be2d89a4b88928a73dbbe67f, type: 3}
   enemyAnimControllers:
   - {fileID: 9100000, guid: 0fcb3ba38f6162b40abe7b7dde2b5ea9, type: 2}
   - {fileID: 9100000, guid: c5a7f3d64af00074c8b4de76142d926a, type: 2}
   - {fileID: 9100000, guid: 15f5eac447680d144abbe6a00f78e751, type: 2}
-  hitFX: {fileID: 198537107640596934, guid: 4ff8674949631304caf8cf1035b701d8, type: 2}
+  - {fileID: 9100000, guid: 8872bca04a7ea564b828c8f505cff6e5, type: 2}
   explosionFXes:
   - {fileID: 198574922467594088, guid: 94c286a05cf3d1943a14b0021e375a9f, type: 2}
   - {fileID: 198574922467594088, guid: 3b38eb051701f47479e0e4098df3f267, type: 2}
   - {fileID: 198574922467594088, guid: ec696c5049699994996e5aa1fd230566, type: 2}
+  - {fileID: 198574922467594088, guid: 70c5b46b8e44b0e438a2c1af6c077e09, type: 2}
+  laserHit: {fileID: 198537107640596934, guid: 9b805c114150a2d47b7010e6482f9be1, type: 2}
   dropBox: {fileID: 114558592735487730, guid: e8482aadf13bded41af8f07ea324936c, type: 2}
   speed: 0
   verticalSpeed: 0

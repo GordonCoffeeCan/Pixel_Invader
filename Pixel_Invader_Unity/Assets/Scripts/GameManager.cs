@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     private bool levelBuilt = false;
     private bool hDirChanged = false;
     private bool vDirChanged = false;
+    private bool recreateLevel = false;
 
     private float currentScore = 0;
 
@@ -64,15 +65,15 @@ public class GameManager : MonoBehaviour {
 
         if (enemiesCount <= 0 && levelBuilt == true) {
             levelBuilt = false;
-            wave++;
+            recreateLevel = true;
         }
 
-        if (levelBuilt == false) {
-            enemyList.Clear();
-            LevelBuilder.instance.BuildLevel(wave);
-            SetEnemySpeed();
-            levelBuilt = true;
+        //Recreate Level after some second
+        if (recreateLevel) {
+            StartCoroutine(RecreateLevel(2));
+            recreateLevel = false;
         }
+        //Recreate Level after some second
 
         for (int i = 0; i < enemyList.Count; i++) {
             if (enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
@@ -95,8 +96,6 @@ public class GameManager : MonoBehaviour {
                     hDirChanged = true;
                     Invoke("ResetHorizontalDirChange", Time.deltaTime);
                 }
-
-                
             }
             //Change horizontal direction
 
@@ -146,6 +145,15 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < enemyList.Count; i++) {
             enemyList[i].health -= Random.Range(10f, 30f);
         }
+    }
+
+    private IEnumerator RecreateLevel(float _time = 0) {
+        yield return new WaitForSeconds(_time);
+        wave++;
+        enemyList.Clear();
+        LevelBuilder.instance.BuildLevel(wave);
+        SetEnemySpeed();
+        levelBuilt = true;
     }
 
     private IEnumerator ResetPlayer(float _time = 0) {

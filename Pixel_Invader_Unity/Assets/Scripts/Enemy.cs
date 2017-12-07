@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
     [SerializeField] private ParticleSystem[] explosionFXes;
+    [SerializeField] private ParticleSystem laserHit;
     [SerializeField] private DropBox dropBox;
 
     [HideInInspector] public float speed = 0;
@@ -98,9 +99,9 @@ public class Enemy : MonoBehaviour {
                 shootGap = Random.Range(3.15f, 10.85f);
                 currentShootGap = shootGap;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
-                spriteRender.color = new Color32(45, 141, 253, 255);
-                enemyExplosionFX = explosionFXes[0];
-                spriteRender.sprite = sprites[0];
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[3];
+                enemyExplosionFX = explosionFXes[3];
+                spriteRender.sprite = sprites[3];
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
@@ -174,6 +175,8 @@ public class Enemy : MonoBehaviour {
             _bullet.hitEnemy = true;
             if (_col.tag == "Bullet") {
                 Destroy(_col.gameObject);
+            }else if (_col.tag == "Laser") {
+                Instantiate(laserHit, this.transform.position, Quaternion.identity);
             }
         }
     }

@@ -31,9 +31,11 @@ public class Bullet : MonoBehaviour {
     void Start () {
         this.gameObject.SetActive(false);
         if (bulletType == BulletType.Bomb) {
-            GameManager.instance.cameraShakeAmount = 0.15f;
+            GameManager.instance.cameraShakeAmount += 0.15f;
         }else if (bulletType == BulletType.Laser) {
-            Destroy(this.gameObject, 0.5f);
+            GameManager.instance.cameraShakeAmount += 0.15f;
+            Invoke("TurnOffCollider", 0.1f);
+            Destroy(this.gameObject, 0.35f);
         }
         Invoke("ShowObject", showObjecDelay * Time.deltaTime);
 	}
@@ -60,6 +62,10 @@ public class Bullet : MonoBehaviour {
             this.transform.parent = null;
         }
         PlaySoundFX(soundFXPlayable);
+    }
+
+    private void TurnOffCollider() {
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void PlaySoundFX(bool _playSound = true) {
