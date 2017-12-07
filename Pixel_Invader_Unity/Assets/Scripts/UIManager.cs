@@ -23,8 +23,8 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ChangeUICount(GameManager.instance.playerCount, Lifes);
-        ChangeUICount(GameManager.instance.BombCount, Bombs);
-        ChangeUICount(GameManager.instance.LaserCount, Lasers);
+        ChangeUICount(GameManager.instance.bombCount, Bombs);
+        ChangeUICount(GameManager.instance.laserCount, Lasers);
     }
 
     private void ChangeUICount(int _number, Image[] _uiImages) {

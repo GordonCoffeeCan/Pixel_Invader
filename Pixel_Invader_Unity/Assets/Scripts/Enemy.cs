@@ -168,11 +168,13 @@ public class Enemy : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {
-        if(_col.tag == "Bullet") {
+        if(_col.tag == "Bullet" || _col.tag == "Laser") {
             Bullet _bullet = _col.gameObject.GetComponent<Bullet>();
             health -= _bullet.power;
             _bullet.hitEnemy = true;
-            Destroy(_col.gameObject);
+            if (_col.tag == "Bullet") {
+                Destroy(_col.gameObject);
+            }
         }
     }
 

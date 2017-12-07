@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Bullet heavyGunBullet;
     [SerializeField] private Bullet shotgunBullet;
     [SerializeField] private Bullet bomb;
+    [SerializeField] private Bullet laser;
     [SerializeField] private ParticleSystem playerExplosionFX;
     [SerializeField] private ParticleSystem muteFX;
     [SerializeField] private ParticleSystem[] powerUpFX;
@@ -83,12 +84,19 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("Bomb") && GameManager.instance.BombCount > 0) {
+        if (Input.GetButtonDown("Bomb") && GameManager.instance.bombCount > 0) {
             Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
-            _bombClone.power = 100; ;
             _bombClone.dir = 1;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
-            GameManager.instance.BombCount--;
+            GameManager.instance.bombCount--;
+        }
+
+        if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
+            Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
+            Debug.Log(_laserClone.transform.parent);
+            _laserClone.power = 20;
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
+            GameManager.instance.laserCount--;
         }
 
         muteForBulletTime -= Time.deltaTime;
@@ -122,8 +130,8 @@ public class PlayerControl : MonoBehaviour {
                 case DropBox.BoxType.Bomb:
                     Debug.Log("Bomb ++");
                     Instantiate(powerUpFX[0], this.transform);
-                    if (GameManager.instance.BombCount < 3) {
-                        GameManager.instance.BombCount++;
+                    if (GameManager.instance.bombCount < 3) {
+                        GameManager.instance.bombCount++;
                     }
                     break;
                 case DropBox.BoxType.HeavyGun:
@@ -132,8 +140,8 @@ public class PlayerControl : MonoBehaviour {
                 case DropBox.BoxType.Laser:
                     Debug.Log("Laser ++");
                     Instantiate(powerUpFX[3], this.transform);
-                    if (GameManager.instance.LaserCount < 3) {
-                        GameManager.instance.LaserCount++;
+                    if (GameManager.instance.laserCount < 3) {
+                        GameManager.instance.laserCount++;
                     }
                     break;
                 case DropBox.BoxType.NewSpacecraft:

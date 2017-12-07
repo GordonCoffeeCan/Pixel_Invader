@@ -252,6 +252,7 @@ MonoBehaviour:
   shotgunBullet: {fileID: 114882958960836000, guid: 300f7d4a59ab24546b948679b1458128,
     type: 2}
   bomb: {fileID: 114247307767806914, guid: 8cc6cc08ce85b684895af21884ac3bc3, type: 2}
+  laser: {fileID: 114915512869623948, guid: 72634d02e812107458f94dea68754911, type: 2}
   playerExplosionFX: {fileID: 198574922467594088, guid: f48c8936eeb9e38459f1cf51b1c8c0a8,
     type: 2}
   muteFX: {fileID: 198040881722531856, guid: 809f63029d5c7b948bbd32738a2132fd, type: 2}
@@ -7096,7 +7097,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300004, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

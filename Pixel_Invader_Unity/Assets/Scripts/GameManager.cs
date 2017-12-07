@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
     public float enemySpeed = 0.85f;
 
     public int playerCount = 3;
-    public int BombCount = 0;
-    public int LaserCount = 0;
+    public int bombCount = 0;
+    public int laserCount = 0;
 
     [HideInInspector] public float score = 0;
     [HideInInspector] public float currentWaveEnemySpeed;

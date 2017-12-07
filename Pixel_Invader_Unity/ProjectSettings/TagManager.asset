@@ -7,6 +7,8 @@ TagManager:
   - EnemyBullet
   - DropBox
   - Bullet
+  - PlayerBullet
+  - Laser
   layers:
   - Default
   - TransparentFX

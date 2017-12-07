@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 199869529141317628}
   - component: {fileID: 50249994283967630}
   - component: {fileID: 61657659573469882}
+  - component: {fileID: 114915512869623948}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Bullet
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +82,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961832864598008}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -119,6 +120,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 10.5}
   m_EdgeRadius: 0
+--- !u!114 &114915512869623948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961832864598008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a151467702569945940981ea3f49fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXSource: {fileID: 0}
+  bulletSoundFXes: []
+  bulletType: 2
+  hitFX: {fileID: 0}
+  power: 0
+  dir: 0
+  showObjecDelay: 0
+  soundFXPlayable: 1
+  hitEnemy: 0
 --- !u!198 &198287955372896172
 ParticleSystem:
   m_ObjectHideFlags: 1
