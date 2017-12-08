@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,16 +22,17 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
     [HideInInspector] public bool playerIsDead = false;
+    [HideInInspector] public bool gameIsOver = false;
+    [HideInInspector] public bool levelBuilt = false;
+    [HideInInspector] public bool recreateLevel = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
 
-    [SerializeField] private Transform player;
+    [SerializeField] private PlayerControl player;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text waveText;
 
-    private bool levelBuilt = false;
     private bool hDirChanged = false;
     private bool vDirChanged = false;
-    private bool recreateLevel = false;
 
     private float currentScore = 0;
 
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour {
 
         //Recreate Level after some second
         if (recreateLevel) {
-            StartCoroutine(RecreateLevel(2));
+            StartCoroutine(RecreateLevel(3.5f));
             recreateLevel = false;
         }
         //Recreate Level after some second
@@ -78,7 +80,15 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < enemyList.Count; i++) {
             if (enemyList[i].movementStyle == Enemy.MovementStyle.LeftAndRight) {
                 enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
-            } 
+            }
+
+            //Enemy Breakthrough the finl line, Game Over
+            if (enemyList[i].transform.position.y <= -(Camera.main.orthographicSize - 1.5f)) {
+                playerIsDead = true;
+                playerCount = 0;
+                gameIsOver = true;
+            }
+            //Enemy Breakthrough the finl line, Game Over
         }
 
         deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
@@ -124,6 +134,8 @@ public class GameManager : MonoBehaviour {
         if (playerCount > 0 && playerIsDead) {
             StartCoroutine(ResetPlayer(1));
             playerIsDead = false;
+        }else if (playerCount <= 0 && playerIsDead) {
+            gameIsOver = true;
         }
         //Instanciate Player if player is dead
     }
@@ -159,5 +171,13 @@ public class GameManager : MonoBehaviour {
     private IEnumerator ResetPlayer(float _time = 0) {
         yield return new WaitForSeconds(_time);
         Instantiate(player, new Vector3(0, -4, -2), Quaternion.identity);
+    }
+
+    public void ReloadLevel() {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadMainMenu() {
+        SceneManager.LoadScene(0);
     }
 }

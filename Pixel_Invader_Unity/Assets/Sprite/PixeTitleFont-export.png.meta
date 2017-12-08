@@ -1,0 +1,1204 @@
+fileFormatVersion: 2
+guid: 4a060233e80a95d4baeda024a7bcad53
+timeCreated: 1512708658
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PixelTitleFont_0
+    21300002: PixelTitleFont_1
+    21300004: PixelTitleFont_2
+    21300006: PixelTitleFont_3
+    21300008: PixelTitleFont_4
+    21300010: PixelTitleFont_5
+    21300012: PixelTitleFont_6
+    21300014: PixelTitleFont_7
+    21300016: PixelTitleFont_8
+    21300018: PixelTitleFont_9
+    21300020: PixelTitleFont_10
+    21300022: PixelTitleFont_11
+    21300024: PixelTitleFont_12
+    21300026: PixelTitleFont_13
+    21300028: PixelTitleFont_14
+    21300030: PixelTitleFont_15
+    21300032: PixelTitleFont_16
+    21300034: PixelTitleFont_17
+    21300036: PixelTitleFont_18
+    21300038: PixelTitleFont_19
+    21300040: PixelTitleFont_20
+    21300042: PixelTitleFont_21
+    21300044: PixelTitleFont_22
+    21300046: PixelTitleFont_23
+    21300048: PixelTitleFont_24
+    21300050: PixelTitleFont_25
+    21300052: PixelTitleFont_26
+    21300054: PixelTitleFont_27
+    21300056: PixelTitleFont_28
+    21300058: PixelTitleFont_29
+    21300060: PixelTitleFont_30
+    21300062: PixelTitleFont_31
+    21300064: PixelTitleFont_32
+    21300066: PixelTitleFont_33
+    21300068: PixelTitleFont_34
+    21300070: PixelTitleFont_35
+    21300072: PixelTitleFont_36
+    21300074: PixelTitleFont_37
+    21300076: PixelTitleFont_38
+    21300078: PixelTitleFont_39
+    21300080: PixelTitleFont_40
+    21300082: PixelTitleFont_41
+    21300084: PixelTitleFont_42
+    21300086: PixelTitleFont_43
+    21300088: PixelTitleFont_44
+    21300090: PixelTitleFont_45
+    21300092: PixelTitleFont_46
+    21300094: PixelTitleFont_47
+    21300096: PixelTitleFont_48
+    21300098: PixelTitleFont_49
+    21300100: PixelTitleFont_50
+    21300102: PixelTitleFont_51
+    21300104: PixelTitleFont_52
+    21300106: PixelTitleFont_53
+    21300108: PixelTitleFont_54
+    21300110: PixelTitleFont_55
+    21300112: PixelTitleFont_56
+    21300114: PixelTitleFont_57
+    21300116: PixelTitleFont_58
+    21300118: PixelTitleFont_59
+    21300120: PixelTitleFont_60
+    21300122: PixelTitleFont_61
+    21300124: PixelTitleFont_62
+    21300126: PixelTitleFont_63
+    21300128: PixelTitleFont_64
+    21300130: PixelTitleFont_65
+    21300132: PixeTitleFont_0
+    21300134: PixeTitleFont_1
+    21300136: PixeTitleFont_2
+    21300138: PixeTitleFont_3
+    21300140: PixeTitleFont_4
+    21300142: PixeTitleFont_5
+    21300144: PixeTitleFont_6
+    21300146: PixeTitleFont_7
+    21300148: PixeTitleFont_8
+    21300150: PixeTitleFont_9
+    21300152: PixeTitleFont_10
+    21300154: PixeTitleFont_11
+    21300156: PixeTitleFont_12
+    21300158: PixeTitleFont_13
+    21300160: PixeTitleFont_14
+    21300162: PixeTitleFont_15
+    21300164: PixeTitleFont_16
+    21300166: PixeTitleFont_17
+    21300168: PixeTitleFont_18
+    21300170: PixeTitleFont_19
+    21300172: PixeTitleFont_20
+    21300174: PixeTitleFont_21
+    21300176: PixeTitleFont_22
+    21300178: PixeTitleFont_23
+    21300180: PixeTitleFont_24
+    21300182: PixeTitleFont_25
+    21300184: PixeTitleFont_26
+    21300186: PixeTitleFont_27
+    21300188: PixeTitleFont_28
+    21300190: PixeTitleFont_29
+    21300192: PixeTitleFont_30
+    21300194: PixeTitleFont_31
+    21300196: PixeTitleFont_32
+    21300198: PixeTitleFont_33
+    21300200: PixeTitleFont_34
+    21300202: PixeTitleFont_35
+    21300204: PixeTitleFont_36
+    21300206: PixeTitleFont_37
+    21300208: PixeTitleFont_38
+    21300210: PixeTitleFont_39
+    21300212: PixeTitleFont_40
+    21300214: PixeTitleFont_41
+    21300216: PixeTitleFont_42
+    21300218: PixeTitleFont_43
+    21300220: PixeTitleFont_44
+    21300222: PixeTitleFont_45
+    21300224: PixeTitleFont_46
+    21300226: PixeTitleFont_47
+    21300228: PixeTitleFont_48
+    21300230: PixeTitleFont_49
+    21300232: PixeTitleFont_50
+    21300234: PixeTitleFont_51
+    21300236: PixeTitleFont_52
+    21300238: PixeTitleFont_53
+    21300240: PixeTitleFont_54
+    21300242: PixeTitleFont_55
+    21300244: PixeTitleFont_56
+    21300246: PixeTitleFont_57
+    21300248: PixeTitleFont_58
+    21300250: PixeTitleFont_59
+    21300252: PixeTitleFont_60
+    21300254: PixeTitleFont_61
+    21300256: PixeTitleFont_62
+    21300258: PixeTitleFont_63
+    21300260: PixeTitleFont_64
+    21300262: PixeTitleFont_65
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PixeTitleFont_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 26
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_4
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 19
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 46
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_8
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 205
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 230
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 19
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 73
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 73
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_13
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 53
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_15
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 100
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 181
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 127
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_19
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 208
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 230
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 181
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 154
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_23
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_24
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 100
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_25
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 230
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 154
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_27
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 46
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 105
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_29
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 51
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_30
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 235
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 149
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_32
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 125
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_33
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 154
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_34
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 178
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_35
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 75
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_36
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 78
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_37
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 178
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_39
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 154
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_40
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 29
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_41
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 176
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_42
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_43
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 103
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 51
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_45
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 232
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_46
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 181
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_47
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 8
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_50
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 123
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_51
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 45
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_52
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 24
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_53
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 18
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_54
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 203
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_57
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 203
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_58
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 176
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_59
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_60
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 230
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_61
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 96
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_62
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 69
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_63
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 151
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 0
+        height: 0
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PixeTitleFont_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 0
+        height: 0
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

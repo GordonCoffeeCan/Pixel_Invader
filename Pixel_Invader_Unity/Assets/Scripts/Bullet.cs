@@ -25,8 +25,6 @@ public class Bullet : MonoBehaviour {
 
     private float deltaPosY = 14;
 
-    
-
     // Use this for initialization
     void Start () {
         this.gameObject.SetActive(false);
@@ -37,7 +35,7 @@ public class Bullet : MonoBehaviour {
             Invoke("TurnOffCollider", 0.1f);
             Destroy(this.gameObject, 0.35f);
         }
-        Invoke("ShowObject", showObjecDelay * Time.deltaTime);
+        Invoke("ShowObject", showObjecDelay);
 	}
 	
 	// Update is called once per frame

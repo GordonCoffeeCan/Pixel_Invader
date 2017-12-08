@@ -1,0 +1,1270 @@
+fileFormatVersion: 2
+guid: 34db1bb10bfae50438a638ea0d365247
+timeCreated: 1512709180
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PixelTitleFont_0
+    21300002: PixelTitleFont_1
+    21300004: PixelTitleFont_2
+    21300006: PixelTitleFont_3
+    21300008: PixelTitleFont_4
+    21300010: PixelTitleFont_5
+    21300012: PixelTitleFont_6
+    21300014: PixelTitleFont_7
+    21300016: PixelTitleFont_8
+    21300018: PixelTitleFont_9
+    21300020: PixelTitleFont_10
+    21300022: PixelTitleFont_11
+    21300024: PixelTitleFont_12
+    21300026: PixelTitleFont_13
+    21300028: PixelTitleFont_14
+    21300030: PixelTitleFont_15
+    21300032: PixelTitleFont_16
+    21300034: PixelTitleFont_17
+    21300036: PixelTitleFont_18
+    21300038: PixelTitleFont_19
+    21300040: PixelTitleFont_20
+    21300042: PixelTitleFont_21
+    21300044: PixelTitleFont_22
+    21300046: PixelTitleFont_23
+    21300048: PixelTitleFont_24
+    21300050: PixelTitleFont_25
+    21300052: PixelTitleFont_26
+    21300054: PixelTitleFont_27
+    21300056: PixelTitleFont_28
+    21300058: PixelTitleFont_29
+    21300060: PixelTitleFont_30
+    21300062: PixelTitleFont_31
+    21300064: PixelTitleFont_32
+    21300066: PixelTitleFont_33
+    21300068: PixelTitleFont_34
+    21300070: PixelTitleFont_35
+    21300072: PixelTitleFont_36
+    21300074: PixelTitleFont_37
+    21300076: PixelTitleFont_38
+    21300078: PixelTitleFont_39
+    21300080: PixelTitleFont_40
+    21300082: PixelTitleFont_41
+    21300084: PixelTitleFont_42
+    21300086: PixelTitleFont_43
+    21300088: PixelTitleFont_44
+    21300090: PixelTitleFont_45
+    21300092: PixelTitleFont_46
+    21300094: PixelTitleFont_47
+    21300096: PixelTitleFont_48
+    21300098: PixelTitleFont_49
+    21300100: PixelTitleFont_50
+    21300102: PixelTitleFont_51
+    21300104: PixelTitleFont_52
+    21300106: PixelTitleFont_53
+    21300108: PixelTitleFont_54
+    21300110: PixelTitleFont_55
+    21300112: PixelTitleFont_56
+    21300114: PixelTitleFont_57
+    21300116: PixelTitleFont_58
+    21300118: PixelTitleFont_59
+    21300120: PixelTitleFont_60
+    21300122: PixelTitleFont_61
+    21300124: PixelTitleFont_62
+    21300126: PixelTitleFont_63
+    21300128: PixelTitleFont_64
+    21300130: PixelTitleFont_65
+    21300132: PixelMenuFont_0
+    21300134: PixelMenuFont_1
+    21300136: PixelMenuFont_2
+    21300138: PixelMenuFont_3
+    21300140: PixelMenuFont_4
+    21300142: PixelMenuFont_5
+    21300144: PixelMenuFont_6
+    21300146: PixelMenuFont_7
+    21300148: PixelMenuFont_8
+    21300150: PixelMenuFont_9
+    21300152: PixelMenuFont_10
+    21300154: PixelMenuFont_11
+    21300156: PixelMenuFont_12
+    21300158: PixelMenuFont_13
+    21300160: PixelMenuFont_14
+    21300162: PixelMenuFont_15
+    21300164: PixelMenuFont_16
+    21300166: PixelMenuFont_17
+    21300168: PixelMenuFont_18
+    21300170: PixelMenuFont_19
+    21300172: PixelMenuFont_20
+    21300174: PixelMenuFont_21
+    21300176: PixelMenuFont_22
+    21300178: PixelMenuFont_23
+    21300180: PixelMenuFont_24
+    21300182: PixelMenuFont_25
+    21300184: PixelMenuFont_26
+    21300186: PixelMenuFont_27
+    21300188: PixelMenuFont_28
+    21300190: PixelMenuFont_29
+    21300192: PixelMenuFont_30
+    21300194: PixelMenuFont_31
+    21300196: PixelMenuFont_32
+    21300198: PixelMenuFont_33
+    21300200: PixelMenuFont_34
+    21300202: PixelMenuFont_35
+    21300204: PixelMenuFont_36
+    21300206: PixelMenuFont_37
+    21300208: PixelMenuFont_38
+    21300210: PixelMenuFont_39
+    21300212: PixelMenuFont_40
+    21300214: PixelMenuFont_41
+    21300216: PixelMenuFont_42
+    21300218: PixelMenuFont_43
+    21300220: PixelMenuFont_44
+    21300222: PixelMenuFont_45
+    21300224: PixelMenuFont_46
+    21300226: PixelMenuFont_47
+    21300228: PixelMenuFont_48
+    21300230: PixelMenuFont_49
+    21300232: PixelMenuFont_50
+    21300234: PixelMenuFont_51
+    21300236: PixelMenuFont_52
+    21300238: PixelMenuFont_53
+    21300240: PixelMenuFont_54
+    21300242: PixelMenuFont_55
+    21300244: PixelMenuFont_56
+    21300246: PixelMenuFont_57
+    21300248: PixelMenuFont_58
+    21300250: PixelMenuFont_59
+    21300252: PixelMenuFont_60
+    21300254: PixelMenuFont_61
+    21300256: PixelMenuFont_62
+    21300258: PixelMenuFont_63
+    21300260: PixelMenuFont_64
+    21300262: PixelMenuFont_65
+    21300264: New Sprite Font_0
+    21300266: New Sprite Font_1
+    21300268: New Sprite Font_2
+    21300270: New Sprite Font_3
+    21300272: New Sprite Font_4
+    21300274: New Sprite Font_5
+    21300276: New Sprite Font_6
+    21300278: New Sprite Font_7
+    21300280: New Sprite Font_8
+    21300282: New Sprite Font_9
+    21300284: New Sprite Font_10
+    21300286: New Sprite Font_11
+    21300288: New Sprite Font_12
+    21300290: New Sprite Font_13
+    21300292: New Sprite Font_14
+    21300294: New Sprite Font_15
+    21300296: New Sprite Font_16
+    21300298: New Sprite Font_17
+    21300300: New Sprite Font_18
+    21300302: New Sprite Font_19
+    21300304: New Sprite Font_20
+    21300306: New Sprite Font_21
+    21300308: New Sprite Font_22
+    21300310: New Sprite Font_23
+    21300312: New Sprite Font_24
+    21300314: New Sprite Font_25
+    21300316: New Sprite Font_26
+    21300318: New Sprite Font_27
+    21300320: New Sprite Font_28
+    21300322: New Sprite Font_29
+    21300324: New Sprite Font_30
+    21300326: New Sprite Font_31
+    21300328: New Sprite Font_32
+    21300330: New Sprite Font_33
+    21300332: New Sprite Font_34
+    21300334: New Sprite Font_35
+    21300336: New Sprite Font_36
+    21300338: New Sprite Font_37
+    21300340: New Sprite Font_38
+    21300342: New Sprite Font_39
+    21300344: New Sprite Font_40
+    21300346: New Sprite Font_41
+    21300348: New Sprite Font_42
+    21300350: New Sprite Font_43
+    21300352: New Sprite Font_44
+    21300354: New Sprite Font_45
+    21300356: New Sprite Font_46
+    21300358: New Sprite Font_47
+    21300360: New Sprite Font_48
+    21300362: New Sprite Font_49
+    21300364: New Sprite Font_50
+    21300366: New Sprite Font_51
+    21300368: New Sprite Font_52
+    21300370: New Sprite Font_53
+    21300372: New Sprite Font_54
+    21300374: New Sprite Font_55
+    21300376: New Sprite Font_56
+    21300378: New Sprite Font_57
+    21300380: New Sprite Font_58
+    21300382: New Sprite Font_59
+    21300384: New Sprite Font_60
+    21300386: New Sprite Font_61
+    21300388: New Sprite Font_62
+    21300390: New Sprite Font_63
+    21300392: New Sprite Font_64
+    21300394: New Sprite Font_65
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: New Sprite Font_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 26
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_4
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 19
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 46
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_8
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 205
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 230
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 19
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 73
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 73
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_13
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 53
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_15
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 100
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 181
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 127
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_19
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 208
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 230
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 181
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 154
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_23
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_24
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 100
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_25
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 230
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 154
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_27
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 46
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 105
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_29
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 51
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_30
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 235
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 149
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_32
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 125
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_33
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 154
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_34
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 178
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_35
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 75
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_36
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 78
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_37
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 178
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_39
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 154
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_40
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 29
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_41
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 176
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_42
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_43
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 103
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 51
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_45
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 232
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_46
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 181
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_47
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 8
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_50
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 123
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_51
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 45
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_52
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 24
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_53
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 18
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_54
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 203
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_57
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 203
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_58
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 176
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_59
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 203
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_60
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 230
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_61
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 96
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_62
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 69
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_63
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 151
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 0
+        height: 0
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: New Sprite Font_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 0
+        height: 0
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

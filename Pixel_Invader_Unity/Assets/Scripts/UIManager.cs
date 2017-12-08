@@ -5,26 +5,42 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    [SerializeField] private Image[] Lifes;
-    [SerializeField] private Image[] Lasers;
-    [SerializeField] private Image[] Bombs;
+    [SerializeField] private Image[] lifes;
+    [SerializeField] private Image[] lasers;
+    [SerializeField] private Image[] bombs;
+    [SerializeField] private Text waveClearText;
+    [SerializeField] private Text gameOverText;
 
 	// Use this for initialization
 	void Start () {
-        for (int i = 0; i < Lasers.Length; i++) {
-            Lasers[i].gameObject.SetActive(false);
+        for (int i = 0; i < lasers.Length; i++) {
+            lasers[i].gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < Bombs.Length; i++) {
-            Bombs[i].gameObject.SetActive(false);
+        for (int i = 0; i < bombs.Length; i++) {
+            bombs[i].gameObject.SetActive(false);
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        ChangeUICount(GameManager.instance.playerCount, Lifes);
-        ChangeUICount(GameManager.instance.bombCount, Bombs);
-        ChangeUICount(GameManager.instance.laserCount, Lasers);
+        ChangeUICount(GameManager.instance.playerCount, lifes);
+        ChangeUICount(GameManager.instance.bombCount, bombs);
+        ChangeUICount(GameManager.instance.laserCount, lasers);
+
+        if (GameManager.instance.levelBuilt == false) {
+            waveClearText.text = "Wave " + (GameManager.instance.wave + 1).ToString() + " Clear!\r\nGet Ready for New Wave!!";
+            waveClearText.gameObject.SetActive(true);
+        } else {
+            waveClearText.text = "";
+            waveClearText.gameObject.SetActive(false);
+        }
+
+        if (GameManager.instance.gameIsOver) {
+            gameOverText.gameObject.SetActive(true);
+        } else {
+            gameOverText.gameObject.SetActive(false);
+        }
     }
 
     private void ChangeUICount(int _number, Image[] _uiImages) {

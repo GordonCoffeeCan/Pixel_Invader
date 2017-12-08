@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 496840}
-  - component: {fileID: 114266841153887044}
+  - component: {fileID: 114732847703229238}
   m_Layer: 0
   m_Name: SpriteFontSetup
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131436}
   m_IsPrefabParent: 1
---- !u!114 &114266841153887044
+--- !u!114 &114732847703229238
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c7c28e874e894e9d411172e573e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: PixelUIFont
-  sprite: {fileID: 2800000, guid: eb1f3d6d7daa0c1489b479266408bc59, type: 3}
+  name: New Sprite Font
+  sprite: {fileID: 2800000, guid: 34db1bb10bfae50438a638ea0d365247, type: 3}
   fontBase: 26
   fontSize: 1
-  lineSpacing: 20
-  font: {fileID: 12800000, guid: 9c8ecbb40e79b35468171a34f3243ac0, type: 2}
+  lineSpacing: 37
+  font: {fileID: 12800000, guid: 49fe8e1a26b0cde40a4a0bf81aa9d44a, type: 2}
   characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?! \t"
