@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Bullet enemyBullet;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private RuntimeAnimatorController[] enemyAnimControllers;
+    [SerializeField] private ParticleSystem[] enemySpawnFXs;
     [SerializeField] private ParticleSystem[] explosionFXes;
     [SerializeField] private ParticleSystem laserHit;
     [SerializeField] private DropBox dropBox;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour {
     private float cameraShakeAmount = 0;
 
     private SpriteRenderer spriteRender;
-
+    private ParticleSystem enemySpawnFX;
     private ParticleSystem enemyExplosionFX;
 
     private int score = 0;
@@ -68,6 +69,7 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 currentShootGap = shootGap;
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[0];
+                enemySpawnFX = enemySpawnFXs[0];
                 enemyExplosionFX = explosionFXes[0];
                 spriteRender.sprite = sprites[0];
                 if (Random.Range(0, 26) == 5) {
@@ -80,6 +82,7 @@ public class Enemy : MonoBehaviour {
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
+                enemySpawnFX = enemySpawnFXs[2];
                 enemyExplosionFX = explosionFXes[2];
                 spriteRender.sprite = sprites[2];
                 hasDropBox = true;
@@ -89,6 +92,7 @@ public class Enemy : MonoBehaviour {
                 score = 80;
                 cameraShakeAmount = Random.Range(0.25f, 0.4f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
+                enemySpawnFX = enemySpawnFXs[1];
                 enemyExplosionFX = explosionFXes[1];
                 spriteRender.sprite = sprites[1];
                 break;
@@ -100,6 +104,7 @@ public class Enemy : MonoBehaviour {
                 currentShootGap = shootGap;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[3];
+                enemySpawnFX = enemySpawnFXs[3];
                 enemyExplosionFX = explosionFXes[3];
                 spriteRender.sprite = sprites[3];
                 break;
@@ -121,10 +126,15 @@ public class Enemy : MonoBehaviour {
         if (movementStyle == MovementStyle.Zigzag) {
             currentPosY = this.transform.position.y;
         }
+
+        spriteRender.color = new Color32(255, 255, 255, 0);
+        Instantiate(enemySpawnFX, this.transform.position, Quaternion.identity, this.transform);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        spriteRender.color = Color32.Lerp(spriteRender.color, new Color32(255, 255, 255, 255), 0.15f);
+
         if (health <= 0) {
             GameManager.instance.score += score;
             GameManager.instance.enemiesCount--;

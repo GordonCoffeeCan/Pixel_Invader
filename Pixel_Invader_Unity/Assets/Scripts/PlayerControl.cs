@@ -137,7 +137,6 @@ public class PlayerControl : MonoBehaviour {
             DropBox _dropBox = _col.GetComponent<DropBox>();
             switch (_dropBox.boxType) {
                 case DropBox.BoxType.Bomb:
-                    Debug.Log("Bomb ++");
                     Instantiate(powerUpFX[0], this.transform);
                     if (GameManager.instance.bombCount < 3) {
                         GameManager.instance.bombCount++;
@@ -147,7 +146,6 @@ public class PlayerControl : MonoBehaviour {
                     OnHeavyGun();
                     break;
                 case DropBox.BoxType.Laser:
-                    Debug.Log("Laser ++");
                     Instantiate(powerUpFX[3], this.transform);
                     if (GameManager.instance.laserCount < 3) {
                         GameManager.instance.laserCount++;
@@ -155,7 +153,6 @@ public class PlayerControl : MonoBehaviour {
                     break;
                 case DropBox.BoxType.NewSpacecraft:
                     Instantiate(powerUpFX[1], this.transform);
-                    Debug.Log("Health ++");
                     if (GameManager.instance.playerCount < 3) {
                         GameManager.instance.playerCount++;
                     }

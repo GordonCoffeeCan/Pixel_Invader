@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour {
 	}
 
     public void OnNewGame() {
+        ProgressManager.currentWave = 0;
         SceneManager.LoadScene(1);
     }
 

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
         currentScore = score;
         SetEnemySpeed();
+        wave = ProgressManager.currentWave;
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
 
@@ -138,6 +139,12 @@ public class GameManager : MonoBehaviour {
             gameIsOver = true;
         }
         //Instanciate Player if player is dead
+
+        //Record current game progress
+        if (gameIsOver) {
+            ProgressManager.currentWave = wave;
+        }
+        //Record current game progress
     }
 
     private void SetEnemySpeed() {

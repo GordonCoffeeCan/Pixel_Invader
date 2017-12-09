@@ -130,6 +130,11 @@ MonoBehaviour:
   - {fileID: 9100000, guid: c5a7f3d64af00074c8b4de76142d926a, type: 2}
   - {fileID: 9100000, guid: 15f5eac447680d144abbe6a00f78e751, type: 2}
   - {fileID: 9100000, guid: 8872bca04a7ea564b828c8f505cff6e5, type: 2}
+  enemySpawnFXs:
+  - {fileID: 198040881722531856, guid: 6e0477fa3860a524d991b2baa49745bd, type: 2}
+  - {fileID: 198040881722531856, guid: 72185263209de834abf73fd3e5ff828a, type: 2}
+  - {fileID: 198040881722531856, guid: 1ea64e22e66269b44ae2afca4aea26af, type: 2}
+  - {fileID: 198040881722531856, guid: 830e1c4c0b8523440828b165b845e915, type: 2}
   explosionFXes:
   - {fileID: 198574922467594088, guid: 94c286a05cf3d1943a14b0021e375a9f, type: 2}
   - {fileID: 198574922467594088, guid: 3b38eb051701f47479e0e4098df3f267, type: 2}
