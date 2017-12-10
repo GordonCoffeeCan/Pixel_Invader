@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Image[] bombs;
     [SerializeField] private Text waveClearText;
     [SerializeField] private Text gameOverText;
+    [SerializeField] private Text countDownText;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,8 @@ public class UIManager : MonoBehaviour {
         } else {
             gameOverText.gameObject.SetActive(false);
         }
+
+        countDownText.text = Mathf.RoundToInt(GameManager.instance.countDownTime).ToString();
     }
 
     private void ChangeUICount(int _number, Image[] _uiImages) {

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
+    [HideInInspector] public float countDownTime = 10;
     [HideInInspector] public bool playerIsDead = false;
     [HideInInspector] public bool gameIsOver = false;
     [HideInInspector] public bool levelBuilt = false;
@@ -140,9 +141,24 @@ public class GameManager : MonoBehaviour {
         }
         //Instanciate Player if player is dead
 
+        //Only for Dev
+        if (Input.GetKeyDown(KeyCode.K)) {
+            playerCount = 0;
+            playerIsDead = true;
+            gameIsOver = true;
+        }
+        //Only for Dev
+
         //Record current game progress
         if (gameIsOver) {
             ProgressManager.currentWave = wave;
+            if (countDownTime > 0) {
+                countDownTime -= Time.deltaTime;
+            } else {
+                LoadMainMenu();
+            }
+        } else {
+            countDownTime = 10;
         }
         //Record current game progress
     }
