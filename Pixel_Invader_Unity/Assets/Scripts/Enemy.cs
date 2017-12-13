@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private ParticleSystem[] enemySpawnFXs;
     [SerializeField] private ParticleSystem[] explosionFXes;
     [SerializeField] private ParticleSystem laserHit;
+    [SerializeField] private ParticleSystem trail;
     [SerializeField] private DropBox dropBox;
+    [SerializeField] private GameObject orbs;
 
     [HideInInspector] public float speed = 0;
     [HideInInspector] public float verticalSpeed = 0;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour {
     private float shootGap = 0;
     private float currentShootGap = 0;
     private float cameraShakeAmount = 0;
+    private float suicideTime = 0;
 
     private SpriteRenderer spriteRender;
     private ParticleSystem enemySpawnFX;
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour {
     private Animator enemyAnim;
     private bool isAbleToShoot = false;
     private bool hasDropBox = false;
+    private bool foundPlayer = false;
 
     public enum EnemyType {
         RegularEnemy,
@@ -45,7 +49,8 @@ public class Enemy : MonoBehaviour {
 
     public enum MovementStyle {
         LeftAndRight,
-        Zigzag
+        Zigzag,
+        Towards
     }
 
     public EnemyType enemyType;
@@ -88,9 +93,10 @@ public class Enemy : MonoBehaviour {
                 hasDropBox = true;
                 break;
             case EnemyType.EnemyMotherShip:
-                health = 30;
+                health = 40;
                 score = 80;
                 cameraShakeAmount = Random.Range(0.25f, 0.4f);
+                orbs.gameObject.SetActive(true);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[1];
                 enemySpawnFX = enemySpawnFXs[1];
                 enemyExplosionFX = explosionFXes[1];
@@ -111,10 +117,12 @@ public class Enemy : MonoBehaviour {
             case EnemyType.SuicideEnemy:
                 health = 10;
                 score = 75;
+                suicideTime = Random.Range(3f, 15f);
                 cameraShakeAmount = Random.Range(0.25f, 0.35f);
-                spriteRender.color = new Color32(30, 223, 191, 255);
-                enemyExplosionFX = explosionFXes[0];
-                spriteRender.sprite = sprites[0];
+                enemyAnim.runtimeAnimatorController = enemyAnimControllers[4];
+                enemySpawnFX = enemySpawnFXs[4];
+                enemyExplosionFX = explosionFXes[4];
+                spriteRender.sprite = sprites[4];
                 break;
             case EnemyType.SpawnPoint:
                 break;
@@ -164,6 +172,24 @@ public class Enemy : MonoBehaviour {
             Destroy(this.gameObject);
             GameManager.instance.enemyList.Remove(this);
         }
+
+        if (enemyType == EnemyType.SuicideEnemy && GameManager.instance.playerClone != null) {
+            suicideTime -= Time.deltaTime;
+            if (suicideTime <= 0) {
+                suicideTime = 0;
+                foundPlayer = true;
+            }
+
+            if (foundPlayer) {
+                trail.gameObject.SetActive(true);
+                movementStyle = MovementStyle.Towards;
+            }
+        } else if(suicideTime <= 0 && GameManager.instance.playerClone == null && enemyType == EnemyType.SuicideEnemy) {
+            suicideTime = Random.Range(3f, 15f);
+            foundPlayer = false;
+            movementStyle = MovementStyle.LeftAndRight;
+            trail.gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate() {
@@ -173,6 +199,9 @@ public class Enemy : MonoBehaviour {
                 break;
             case MovementStyle.Zigzag:
                 rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y - verticalSpeed * Time.deltaTime));
+                break;
+            case MovementStyle.Towards:
+                rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.playerClone.transform.position, 0.05f);
                 break;
         }
         

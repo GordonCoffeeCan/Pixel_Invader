@@ -56,7 +56,7 @@ public class PlayerControl : MonoBehaviour {
             currentShootGap -= Time.deltaTime;
         }
 
-        //Only for development------------------------------------
+        /*//Only for development------------------------------------
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             OnRegularGun();
         }
@@ -68,7 +68,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
             OnShotGun();
         }
-        //Only for development------------------------------------
+        //Only for development------------------------------------*/
 
         if (GameManager.instance.levelBuilt) {
             if (Input.GetButton("Fire") && currentShootGap <= 0) {
@@ -94,7 +94,6 @@ public class PlayerControl : MonoBehaviour {
 
             if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
-                Debug.Log(_laserClone.transform.parent);
                 _laserClone.power = 20;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
                 GameManager.instance.laserCount--;
@@ -162,6 +161,21 @@ public class PlayerControl : MonoBehaviour {
                     break;
             }
             Destroy(_col.gameObject);
+        }
+
+        if(_col.tag == "Enemy"){
+            Enemy _enemy = _col.GetComponent<Enemy>();
+            if (_enemy.enemyType == Enemy.EnemyType.SuicideEnemy) {
+                _enemy.health -= 100;
+                Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
+                GameManager.instance.cameraShakeAmount += 0.35f;
+                if (muteForBulletTime <= 0) {
+                    OnRegularGun();
+                    GameManager.instance.playerIsDead = true;
+                    GameManager.instance.playerCount--;
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 

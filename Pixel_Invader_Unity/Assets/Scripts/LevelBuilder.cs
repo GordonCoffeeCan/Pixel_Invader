@@ -55,26 +55,37 @@ public class LevelBuilder : MonoBehaviour {
                     // 'm', EnemyMotherShip;
                     // 'a', ArmeredEnemy;
                     // 's', SuicideEnemy;
+                    // 'r', randam select enemy;
 
                     case 'e':
                         SetEnemy(Enemy.EnemyType.RegularEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
                         break;
                     case 'c':
                         SetEnemy(Enemy.EnemyType.EnemyCarrier, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
                         break;
                     case 'm':
                         SetEnemy(Enemy.EnemyType.EnemyMotherShip, Enemy.MovementStyle.Zigzag, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
                         break;
                     case 'a':
                         SetEnemy(Enemy.EnemyType.ArmouredEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
                         break;
                     case 's':
                         SetEnemy(Enemy.EnemyType.SuicideEnemy, Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
-                        GameManager.instance.enemiesCount++;
+                        break;
+                    case 'r':
+                        int _index = Random.Range(0, 5);
+                        Enemy.EnemyType[] _types = new Enemy.EnemyType[5];
+                        _types[0] = Enemy.EnemyType.RegularEnemy;
+                        _types[1] = Enemy.EnemyType.EnemyCarrier;
+                        _types[2] = Enemy.EnemyType.EnemyMotherShip;
+                        _types[3] = Enemy.EnemyType.ArmouredEnemy;
+                        _types[4] = Enemy.EnemyType.SuicideEnemy;
+
+                        if (_index != 2) {
+                            SetEnemy(_types[_index], Enemy.MovementStyle.LeftAndRight, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        } else {
+                            SetEnemy(_types[_index], Enemy.MovementStyle.Zigzag, new Vector2(i * scalePosX - (rowContent.Length / 2) * scalePosX, Camera.main.orthographicSize - posY));
+                        }
                         break;
                 }
             }
@@ -90,6 +101,7 @@ public class LevelBuilder : MonoBehaviour {
         _enemyClone.movementStyle = _movementStyle;
         _enemyClone.gameObject.name = "Enemy " + _enemyClone.enemyType + id;
         _enemyClone.transform.position = _pos;
+        GameManager.instance.enemiesCount++;
         GameManager.instance.enemyList.Add(_enemyClone);
         id++;
     }

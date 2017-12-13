@@ -219,17 +219,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a151467702569945940981ea3f49fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
   soundFXSource: {fileID: 82306253360810186}
   bulletSoundFXes:
   - {fileID: 8300000, guid: e7cedecd164c61443a83a1808daa9abc, type: 3}
   - {fileID: 8300000, guid: 74026fd28ddf982418fedef0ac0f129b, type: 3}
   - {fileID: 8300000, guid: 6b59775d060a3f6419700f18c8e7538a, type: 3}
+  bulletType: 0
   hitFX: {fileID: 198537107640596934, guid: 4ff8674949631304caf8cf1035b701d8, type: 2}
+  power: 0
+  dir: 0
   showObjecDelay: 0
   soundFXPlayable: 1
   hitEnemy: 0
-  dir: 0
 --- !u!198 &198029298276219626
 ParticleSystem:
   m_ObjectHideFlags: 1

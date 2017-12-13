@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour {
         ChangeUICount(GameManager.instance.laserCount, lasers);
 
         if (GameManager.instance.levelBuilt == false) {
-            waveClearText.text = "Wave " + (GameManager.instance.wave + 1).ToString() + " Clear!\r\nGet Ready for New Wave!!";
+            waveClearText.text = "Wave " + (GameManager.instance.waveIndex).ToString() + " Clear!\r\nGet Ready for New Wave!!";
             waveClearText.gameObject.SetActive(true);
         } else {
             waveClearText.text = "";

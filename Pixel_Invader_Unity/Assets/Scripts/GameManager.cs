@@ -21,12 +21,14 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
+    [HideInInspector] public int waveIndex = 1;
     [HideInInspector] public float countDownTime = 10;
     [HideInInspector] public bool playerIsDead = false;
     [HideInInspector] public bool gameIsOver = false;
     [HideInInspector] public bool levelBuilt = false;
     [HideInInspector] public bool recreateLevel = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
+    [HideInInspector] public PlayerControl playerClone;
 
     [SerializeField] private PlayerControl player;
     [SerializeField] private Text scoreText;
@@ -48,24 +50,18 @@ public class GameManager : MonoBehaviour {
         currentScore = score;
         SetEnemySpeed();
         wave = ProgressManager.currentWave;
+        waveIndex = ProgressManager.currentWaveIndex;
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
-
         StartCoroutine(ResetPlayer());
     }
 	
 	// Update is called once per frame
 	void Update () {
         currentScore = Mathf.Lerp(currentScore, score, 0.15f);
-        if(currentScore < 10) {
-            scoreText.text = "00" + Mathf.Round(currentScore).ToString();
-        }else if (currentScore >= 10 && currentScore < 100) {
-            scoreText.text = "0" + Mathf.Round(currentScore).ToString();
-        } else if(currentScore >= 100) {
-            scoreText.text = Mathf.Round(currentScore).ToString();
-        }
 
-        waveText.text = (wave + 1).ToString();
+        scoreText.text = Mathf.Round(currentScore).ToString();
+        waveText.text = waveIndex.ToString();
 
         if (enemiesCount <= 0 && levelBuilt == true) {
             levelBuilt = false;
@@ -85,7 +81,7 @@ public class GameManager : MonoBehaviour {
             }
 
             //Enemy Breakthrough the finl line, Game Over
-            if (enemyList[i].transform.position.y <= -(Camera.main.orthographicSize - 1.5f)) {
+            if (enemyList[i].transform.position.y <= -(Camera.main.orthographicSize - 1.5f) && enemyList[i].movementStyle != Enemy.MovementStyle.Towards) {
                 playerIsDead = true;
                 playerCount = 0;
                 gameIsOver = true;
@@ -152,6 +148,7 @@ public class GameManager : MonoBehaviour {
         //Record current game progress
         if (gameIsOver) {
             ProgressManager.currentWave = wave;
+            ProgressManager.currentWaveIndex = waveIndex;
             if (countDownTime > 0) {
                 countDownTime -= Time.deltaTime;
             } else {
@@ -184,7 +181,13 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator RecreateLevel(float _time = 0) {
         yield return new WaitForSeconds(_time);
-        wave++;
+        if (wave <= 9) {
+            wave++;
+            waveIndex = wave + 1;
+        } else if(wave > 9){
+            wave = Random.Range(10, 20);
+            waveIndex++;
+        }
         enemyList.Clear();
         LevelBuilder.instance.BuildLevel(wave);
         SetEnemySpeed();
@@ -193,7 +196,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator ResetPlayer(float _time = 0) {
         yield return new WaitForSeconds(_time);
-        Instantiate(player, new Vector3(0, -4, -2), Quaternion.identity);
+        playerClone = Instantiate(player, new Vector3(0, -4, -2), Quaternion.identity) as PlayerControl;
     }
 
     public void ReloadLevel() {
