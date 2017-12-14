@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
                         enemyList[j].speed *= -1;
                         deltaPosY = 0.1f;
                     }
-                    
+
                     hDirChanged = true;
                     Invoke("ResetHorizontalDirChange", Time.deltaTime);
                 }
@@ -121,7 +121,6 @@ public class GameManager : MonoBehaviour {
             }
             //Change vertical direction for zigzag movement
         }
-
 
         //Shake Camera on Destroy enemy;
         cameraShakeAmount = Mathf.Lerp(cameraShakeAmount, 0, 0.2f);

@@ -70,34 +70,32 @@ public class PlayerControl : MonoBehaviour {
         }
         //Only for development------------------------------------*/
 
-        if (GameManager.instance.levelBuilt) {
-            if (Input.GetButton("Fire") && currentShootGap <= 0) {
-                switch (gunType) {
-                    case GunType.RegularGun:
-                        CreateRegularBullet();
-                        break;
-                    case GunType.HeavyGun:
-                        CreateTripleBullet();
-                        break;
-                    case GunType.ShotGun:
-                        CreateShotGunBullet();
-                        break;
-                }
+        if (Input.GetButton("Fire") && currentShootGap <= 0) {
+            switch (gunType) {
+                case GunType.RegularGun:
+                    CreateRegularBullet();
+                    break;
+                case GunType.HeavyGun:
+                    CreateTripleBullet();
+                    break;
+                case GunType.ShotGun:
+                    CreateShotGunBullet();
+                    break;
             }
+        }
 
-            if (Input.GetButtonDown("Bomb") && GameManager.instance.bombCount > 0) {
-                Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
-                _bombClone.dir = 1;
-                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
-                GameManager.instance.bombCount--;
-            }
+        if (Input.GetButtonDown("Bomb") && GameManager.instance.bombCount > 0) {
+            Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+            _bombClone.dir = 1;
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
+            GameManager.instance.bombCount--;
+        }
 
-            if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
-                Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
-                _laserClone.power = 20;
-                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
-                GameManager.instance.laserCount--;
-            }
+        if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
+            Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
+            _laserClone.power = 20;
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
+            GameManager.instance.laserCount--;
         }
 
         muteForBulletTime -= Time.deltaTime;

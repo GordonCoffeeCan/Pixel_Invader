@@ -43,7 +43,7 @@ public class LevelBuilder : MonoBehaviour {
         filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
         streamReader = new StreamReader(filePath);
 
-        posY = 0;
+        posY = -1;
 
         while (!streamReader.EndOfStream) {
             rowContent = streamReader.ReadLine();
