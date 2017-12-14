@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour {
 
         deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
 
-
         for (int i = 0; i < enemyList.Count; i++) {
             //Change horizontal direction
             if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {

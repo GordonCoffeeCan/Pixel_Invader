@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour {
     private float currentShootGap = 0;
     private float cameraShakeAmount = 0;
     private float suicideTime = 0;
+    private float initialMoveTime = 0.85f;
 
     private SpriteRenderer spriteRender;
     private ParticleSystem enemySpawnFX;
@@ -132,8 +133,10 @@ public class Enemy : MonoBehaviour {
         boxCollider.size = new Vector2(spriteRender.sprite.rect.size.x / spriteRender.sprite.pixelsPerUnit, spriteRender.sprite.rect.size.y / spriteRender.sprite.pixelsPerUnit);
 
         if (movementStyle == MovementStyle.Zigzag) {
-            currentPosY = this.transform.position.y;
+            
         }
+
+        currentPosY = this.transform.position.y;
 
         spriteRender.color = new Color32(255, 255, 255, 0);
         Instantiate(enemySpawnFX, this.transform.position, Quaternion.identity, this.transform);
@@ -193,18 +196,22 @@ public class Enemy : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        switch (movementStyle) {
-            case MovementStyle.LeftAndRight:
-                rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y));
-                break;
-            case MovementStyle.Zigzag:
-                rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y - verticalSpeed * Time.deltaTime));
-                break;
-            case MovementStyle.Towards:
-                rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.playerClone.transform.position, 0.05f);
-                break;
+        if (initialMoveTime > 0) {
+            initialMoveTime -= Time.deltaTime;
+            this.transform.position = new Vector3(this.transform.position.x, Mathf.MoveTowards(this.transform.position.y, currentPosY - 2, 0.03f), this.transform.position.z);
+        }else{
+            switch (movementStyle) {
+                case MovementStyle.LeftAndRight:
+                    rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y));
+                    break;
+                case MovementStyle.Zigzag:
+                    rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y - verticalSpeed * Time.deltaTime));
+                    break;
+                case MovementStyle.Towards:
+                    rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.playerClone.transform.position, 0.05f);
+                    break;
+            }
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {
