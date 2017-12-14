@@ -93,7 +93,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
             Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
-            _laserClone.power = 20;
+            _laserClone.power = 80;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
             GameManager.instance.laserCount--;
         }
@@ -199,7 +199,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnShotGun() {
         gunType = GunType.ShotGun;
-        bulletPower = 3;
+        bulletPower = 5;
         Instantiate(powerUpFX[4], this.transform);
         for (int i = 0; i < weapons.Length; i++) {
             weapons[i].SetActive(false);
@@ -234,7 +234,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void CreateShotGunBullet() {
         for (int i = 0; i < 8; i++) {
-            float _angle = 35 - 10 * i;
+            float _angle = 15 - 4.29f * i;
             Bullet _bulletClone = Instantiate(shotgunBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.Euler(new Vector3(0, 0, _angle))) as Bullet;
             _bulletClone.transform.parent = this.transform;
             _bulletClone.power = bulletPower;

@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour {
         boxCollider = this.GetComponent<BoxCollider2D>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
-                health = 20;
+                health = 10;
                 isAbleToShoot = RegularEnemyShoot();
                 if (isAbleToShoot) {
                     score = 15;
