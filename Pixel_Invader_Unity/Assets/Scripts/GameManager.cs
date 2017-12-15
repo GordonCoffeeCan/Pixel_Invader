@@ -89,6 +89,18 @@ public class GameManager : MonoBehaviour {
             //Enemy Breakthrough the finl line, Game Over
         }
 
+        //Check number to change speed
+        if (enemyList.Count < 5 && enemyList.Count >= 2) {
+            for (int i = 0; i < enemyList.Count; i++) {
+                enemyList[i].speedMultiplier = 2;
+            }
+        } else if (enemyList.Count < 2) {
+            for (int i = 0; i < enemyList.Count; i++) {
+                enemyList[i].speedMultiplier = 4.5f;
+            }
+        }
+        //Check number to change speed
+
         deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.2f);
 
         for (int i = 0; i < enemyList.Count; i++) {
@@ -108,7 +120,7 @@ public class GameManager : MonoBehaviour {
 
             //Change vertical direction for zigzag movement
             if (enemyList[i].movementStyle == Enemy.MovementStyle.Zigzag) {
-                if (enemyList[i].transform.position.y > enemyList[i].currentPosY || enemyList[i].transform.position.y < enemyList[i].currentPosY - 1) {
+                if (enemyList[i].transform.position.y > enemyList[i].currentPosY - 1 || enemyList[i].transform.position.y < enemyList[i].currentPosY - 3) {
                     if (vDirChanged == false) {
                         for (int j = 0; j < enemyList.Count; j++) {
                             enemyList[j].verticalSpeed *= -1;

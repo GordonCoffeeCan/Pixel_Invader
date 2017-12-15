@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private GameObject orbs;
 
     [HideInInspector] public float speed = 0;
+    [HideInInspector] public float speedMultiplier = 1;
     [HideInInspector] public float verticalSpeed = 0;
     [HideInInspector] public float currentPosY = 0;
 
@@ -202,10 +203,10 @@ public class Enemy : MonoBehaviour {
         }else{
             switch (movementStyle) {
                 case MovementStyle.LeftAndRight:
-                    rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y));
+                    rig.MovePosition(new Vector2(this.transform.position.x + speed * speedMultiplier * Time.deltaTime, this.transform.position.y));
                     break;
                 case MovementStyle.Zigzag:
-                    rig.MovePosition(new Vector2(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y - verticalSpeed * Time.deltaTime));
+                    rig.MovePosition(new Vector2(this.transform.position.x + speed * speedMultiplier * Time.deltaTime, this.transform.position.y - verticalSpeed * speedMultiplier * Time.deltaTime));
                     break;
                 case MovementStyle.Towards:
                     rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.playerClone.transform.position, 0.05f);
