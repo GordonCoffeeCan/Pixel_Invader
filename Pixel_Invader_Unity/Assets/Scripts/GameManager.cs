@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using XInputDotNetPure;
 
 public class GameManager : MonoBehaviour {
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public bool recreateLevel = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
     [HideInInspector] public PlayerControl playerClone;
+    [HideInInspector] public float vibrateValue = 0;
 
     [SerializeField] private PlayerControl player;
     [SerializeField] private Text scoreText;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour {
     private float currentScore = 0;
 
     private float deltaPosY;
+
+    private PlayerIndex playerIndex = PlayerIndex.One;
 
     private void Awake() {
         instance = this;
@@ -168,6 +172,11 @@ public class GameManager : MonoBehaviour {
             countDownTime = 10;
         }
         //Record current game progress
+    }
+
+    private void FixedUpdate() {
+        vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.2f);
+        GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
     }
 
     private void SetEnemySpeed() {

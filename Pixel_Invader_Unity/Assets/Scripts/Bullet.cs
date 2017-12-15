@@ -80,6 +80,7 @@ public class Bullet : MonoBehaviour {
         }
 
         if (bulletType == BulletType.Bomb) {
+            GameManager.instance.vibrateValue = 2;
             GameManager.instance.cameraShakeAmount = 0.65f;
             GameManager.instance.BombAll();
         }

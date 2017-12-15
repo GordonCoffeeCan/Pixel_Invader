@@ -85,6 +85,7 @@ public class PlayerControl : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Bomb") && GameManager.instance.bombCount > 0) {
+            GameManager.instance.vibrateValue = 2;
             Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bombClone.dir = 1;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
@@ -92,6 +93,7 @@ public class PlayerControl : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
+            GameManager.instance.vibrateValue = 2;
             Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
             _laserClone.power = 80;
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
@@ -119,6 +121,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D _col) {
         if (_col.tag == "EnemyBullet") {
+            GameManager.instance.vibrateValue = 2;
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;

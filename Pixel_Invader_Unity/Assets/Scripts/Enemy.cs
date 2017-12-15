@@ -156,6 +156,7 @@ public class Enemy : MonoBehaviour {
             if (hasDropBox) {
                 Instantiate(dropBox, this.transform.position + Vector3.forward * -2.5f , Quaternion.identity);
             }
+            GameManager.instance.vibrateValue = 2;
             Destroy(this.gameObject);
         }
 
