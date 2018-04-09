@@ -1,0 +1,44 @@
+{"frames": {
+
+"Background_Color.png":
+{
+	"frame": {"x":0,"y":0,"w":480,"h":270},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"sourceSize": {"w":480,"h":270}
+},
+"Star_Layer_0.png":
+{
+	"frame": {"x":480,"y":0,"w":480,"h":270},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"sourceSize": {"w":480,"h":270}
+},
+"Star_Layer_1.png":
+{
+	"frame": {"x":0,"y":270,"w":480,"h":270},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"sourceSize": {"w":480,"h":270}
+},
+"Star_Layer_2.png":
+{
+	"frame": {"x":480,"y":270,"w":480,"h":270},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"sourceSize": {"w":480,"h":270}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "BackgroundSpriteSheet.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0a1456e68f27528453901bd2252d5f57:1/1$"
+}
+}
