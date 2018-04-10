@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
     private bool vDirChanged = false;
 
     private float currentScore = 0;
+    private float enemyPositionLimit = 0;
 
     private float deltaPosY;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour {
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
         StartCoroutine(ResetPlayer());
+        enemyPositionLimit = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
     }
 	
 	// Update is called once per frame
@@ -84,13 +86,13 @@ public class GameManager : MonoBehaviour {
                 enemyList[i].transform.position = new Vector2(enemyList[i].transform.position.x, enemyList[i].transform.position.y - deltaPosY);
             }
 
-            //Enemy Breakthrough the finl line, Game Over
-            if (enemyList[i].transform.position.y <= -(Camera.main.orthographicSize - 1.5f) && enemyList[i].movementStyle != Enemy.MovementStyle.Towards) {
+            //Enemy Breakthrough the final line, Game Over
+            if (enemyList[i].transform.position.y <= -(WindowSizeUtil.instance.halfWindowSize.y - 1.5f) && enemyList[i].movementStyle != Enemy.MovementStyle.Towards) {
                 playerIsDead = true;
                 playerCount = 0;
                 gameIsOver = true;
             }
-            //Enemy Breakthrough the finl line, Game Over
+            //Enemy Breakthrough the final line, Game Over
         }
 
         //Check number to change speed
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < enemyList.Count; i++) {
             //Change horizontal direction
-            if (enemyList[i].transform.position.x > 4.5f || enemyList[i].transform.position.x < -4.5f) {
+            if (enemyList[i].transform.position.x > enemyPositionLimit || enemyList[i].transform.position.x < -enemyPositionLimit) {
                 if (hDirChanged == false) {
                     for (int j = 0; j < enemyList.Count; j++) {
                         enemyList[j].speed *= -1;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour {
 
     [SerializeField] private float speed = 7;
-    [SerializeField] private float screenEdge = 4.5f;
+    [SerializeField] private float screenEdge = 0;
     [SerializeField] private float bulletPower = 0;
     [SerializeField] private float bulletGap = 0.35f;
     [SerializeField] private float tripleBulletGap = 0.45f;
@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour {
         playerAnim = this.GetComponent<Animator>();
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
         muteForBulletTime = 2.5f;
+        screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
     }
 	
 	// Update is called once per frame
