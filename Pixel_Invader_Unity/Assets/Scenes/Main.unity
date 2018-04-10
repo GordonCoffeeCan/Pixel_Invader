@@ -1174,6 +1174,7 @@ GameObject:
   - component: {fileID: 1158940751}
   - component: {fileID: 1158940750}
   - component: {fileID: 1158940752}
+  - component: {fileID: 1158940753}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1266,6 +1267,18 @@ MonoBehaviour:
   waveClearText: {fileID: 2094257461}
   gameOverText: {fileID: 2139370587}
   countDownText: {fileID: 47912551}
+--- !u!114 &1158940753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1158940748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2091d2f92cae893499aed1751a2649c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halfWindowSize: {x: 0, y: 0}
 --- !u!1 &1227825838
 GameObject:
   m_ObjectHideFlags: 0
