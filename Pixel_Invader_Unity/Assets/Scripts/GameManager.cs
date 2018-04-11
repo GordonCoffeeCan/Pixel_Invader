@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.2f);
+        vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
         GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
     }
 
