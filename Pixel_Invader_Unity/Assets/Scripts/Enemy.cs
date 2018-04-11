@@ -178,7 +178,7 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.enemyList.Remove(this);
         }
 
-        if (enemyType == EnemyType.SuicideEnemy && GameManager.instance.playerClone != null) {
+        if (enemyType == EnemyType.SuicideEnemy && GameManager.instance.player1Clone != null) {
             suicideTime -= Time.deltaTime;
             if (suicideTime <= 0) {
                 suicideTime = 0;
@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour {
                 trail.gameObject.SetActive(true);
                 movementStyle = MovementStyle.Towards;
             }
-        } else if(suicideTime <= 0 && GameManager.instance.playerClone == null && enemyType == EnemyType.SuicideEnemy) {
+        } else if(suicideTime <= 0 && GameManager.instance.player1Clone == null && enemyType == EnemyType.SuicideEnemy) {
             suicideTime = Random.Range(3f, 15f);
             foundPlayer = false;
             movementStyle = MovementStyle.LeftAndRight;
@@ -210,7 +210,7 @@ public class Enemy : MonoBehaviour {
                     rig.MovePosition(new Vector2(this.transform.position.x + speed * speedMultiplier * Time.deltaTime, this.transform.position.y - verticalSpeed * speedMultiplier * Time.deltaTime));
                     break;
                 case MovementStyle.Towards:
-                    rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.playerClone.transform.position, 0.05f);
+                    rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player1Clone.transform.position, 0.05f);
                     break;
             }
         }

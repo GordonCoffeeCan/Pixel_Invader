@@ -12,9 +12,17 @@ public class GameManager : MonoBehaviour {
     public int wave = 0;
     public float enemySpeed = 0.85f;
 
-    public int playerCount = 3;
+    public int player1Count = 3;
+    public int player2Count = 3;
     public int bombCount = 0;
     public int laserCount = 0;
+
+    public enum GameMode {
+        SinglePlayerMode,
+        CoopMode
+    }
+
+    public GameMode gameMode;
 
     [HideInInspector] public float score = 0;
     [HideInInspector] public float currentWaveEnemySpeed;
@@ -24,17 +32,21 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int currentLineEnemyDirection = 1;
     [HideInInspector] public int waveIndex = 1;
     [HideInInspector] public float countDownTime = 10;
-    [HideInInspector] public bool playerIsDead = false;
+    [HideInInspector] public bool player1IsDead = false;
+    [HideInInspector] public bool player2IsDead = false;
     [HideInInspector] public bool gameIsOver = false;
     [HideInInspector] public bool levelBuilt = false;
     [HideInInspector] public bool recreateLevel = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
-    [HideInInspector] public PlayerControl playerClone;
+    [HideInInspector] public PlayerControl player1Clone;
+    [HideInInspector] public PlayerControl player2Clone;
     [HideInInspector] public float vibrateValue = 0;
 
-    [SerializeField] private PlayerControl player;
+    [SerializeField] private PlayerControl player1;
+    [SerializeField] private PlayerControl player2;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text waveText;
+    [SerializeField] private bool controllerVibration = true;
 
     private bool hDirChanged = false;
     private bool vDirChanged = false;
@@ -58,7 +70,14 @@ public class GameManager : MonoBehaviour {
         waveIndex = ProgressManager.currentWaveIndex;
         LevelBuilder.instance.BuildLevel(wave);
         levelBuilt = true;
-        StartCoroutine(ResetPlayer());
+        if (gameMode == GameMode.SinglePlayerMode) {
+            StartCoroutine(ResetPlayer1());
+        } else {
+            //Add instantiate players for Coop Mode script here------------------------------------------*********---------------------------------------------------------------/
+            StartCoroutine(ResetPlayer1(0, -1f));
+            StartCoroutine(ResetPlayer2(0, 1f));
+        }
+
         enemyPositionLimit = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
     }
 	
@@ -88,8 +107,10 @@ public class GameManager : MonoBehaviour {
 
             //Enemy Breakthrough the final line, Game Over
             if (enemyList[i].transform.position.y <= -(WindowSizeUtil.instance.halfWindowSize.y - 1.5f) && enemyList[i].movementStyle != Enemy.MovementStyle.Towards) {
-                playerIsDead = true;
-                playerCount = 0;
+                player1IsDead = true;
+                player2IsDead = true;
+                player1Count = 0;
+                player2Count = 0;
                 gameIsOver = true;
             }
             //Enemy Breakthrough the final line, Game Over
@@ -145,18 +166,35 @@ public class GameManager : MonoBehaviour {
         //Shake Camera on Destroy enemy;
 
         //Instanciate Player if player is dead
-        if (playerCount > 0 && playerIsDead) {
-            StartCoroutine(ResetPlayer(1));
-            playerIsDead = false;
-        }else if (playerCount <= 0 && playerIsDead) {
-            gameIsOver = true;
+        if (gameMode == GameMode.SinglePlayerMode) {
+            if (player1Count > 0 && player1IsDead) {
+                StartCoroutine(ResetPlayer1(1));
+                player1IsDead = false;
+            } else if (player1Count <= 0 && player1IsDead) {
+                gameIsOver = true;
+            }
+        } else {
+            //Add reset player for Coop Mode script here------------------------------------------*********---------------------------------------------------------------/
+            if (player1Count > 0 && player1IsDead) {
+                StartCoroutine(ResetPlayer1(1, -1f));
+                player1IsDead = false;
+            } else if (player1Count <= 0 && player1IsDead) {
+                gameIsOver = true;
+            }
+
+            if (player2Count > 0 && player2IsDead) {
+                StartCoroutine(ResetPlayer1(1, 1f));
+                player2IsDead = false;
+            } else if (player1Count <= 0 && player1IsDead) {
+                gameIsOver = true;
+            }
         }
         //Instanciate Player if player is dead
 
         //Only for Dev
         if (Input.GetKeyDown(KeyCode.K)) {
-            playerCount = 0;
-            playerIsDead = true;
+            player1Count = 0;
+            player1IsDead = true;
             gameIsOver = true;
         }
         //Only for Dev
@@ -177,7 +215,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
+        if (controllerVibration) {
+            vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
+        } else {
+            vibrateValue = 0;
+        }
+        
         GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
     }
 
@@ -215,13 +258,18 @@ public class GameManager : MonoBehaviour {
         levelBuilt = true;
     }
 
-    private IEnumerator ResetPlayer(float _time = 0) {
+    private IEnumerator ResetPlayer1(float _time = 0, float _xPos = 0) {
         yield return new WaitForSeconds(_time);
-        playerClone = Instantiate(player, new Vector3(0, -4, -2), Quaternion.identity) as PlayerControl;
+        player1Clone = Instantiate(player1, new Vector3(_xPos, -4, -2), Quaternion.identity) as PlayerControl;
+    }
+
+    private IEnumerator ResetPlayer2(float _time = 0, float _xPos = 0) {
+        yield return new WaitForSeconds(_time);
+        player2Clone = Instantiate(player2, new Vector3(_xPos, -4, -2), Quaternion.identity) as PlayerControl;
     }
 
     public void ReloadLevel() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu() {

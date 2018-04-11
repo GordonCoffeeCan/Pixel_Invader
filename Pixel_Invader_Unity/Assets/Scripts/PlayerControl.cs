@@ -111,7 +111,7 @@ public class PlayerControl : MonoBehaviour {
         if (GameManager.instance.gameIsOver) {
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;
-            GameManager.instance.playerIsDead = true;
+            GameManager.instance.player1IsDead = true;
             Destroy(this.gameObject);
         }
 	}
@@ -129,8 +129,14 @@ public class PlayerControl : MonoBehaviour {
             GameManager.instance.cameraShakeAmount += 0.35f;
             if (muteForBulletTime <= 0) {
                 OnRegularGun();
-                GameManager.instance.playerIsDead = true;
-                GameManager.instance.playerCount--;
+                if(playerID == 1) {
+                    GameManager.instance.player1IsDead = true;
+                    GameManager.instance.player1Count--;
+                }else if (playerID == 2) {
+                    GameManager.instance.player2IsDead = true;
+                    GameManager.instance.player2Count--;
+                }
+                
                 Destroy(this.gameObject);
             }
         }
@@ -155,8 +161,8 @@ public class PlayerControl : MonoBehaviour {
                     break;
                 case DropBox.BoxType.NewSpacecraft:
                     Instantiate(powerUpFX[1], this.transform);
-                    if (GameManager.instance.playerCount < 3) {
-                        GameManager.instance.playerCount++;
+                    if (GameManager.instance.player1Count < 3) {
+                        GameManager.instance.player1Count++;
                     }
                     break;
                 case DropBox.BoxType.Shotgun:
@@ -174,8 +180,8 @@ public class PlayerControl : MonoBehaviour {
                 GameManager.instance.cameraShakeAmount += 0.35f;
                 if (muteForBulletTime <= 0) {
                     OnRegularGun();
-                    GameManager.instance.playerIsDead = true;
-                    GameManager.instance.playerCount--;
+                    GameManager.instance.player1IsDead = true;
+                    GameManager.instance.player1Count--;
                     Destroy(this.gameObject);
                 }
             }

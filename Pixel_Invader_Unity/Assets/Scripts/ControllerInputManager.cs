@@ -20,11 +20,11 @@ public class ControllerInputManager : MonoBehaviour {
         }
 
         if (_playerID == 2) {
-            horizontal = "P2Horizontal";
-            vertical = "P2Vertical";
-            bullet = "P2Fire";
-            bomb = "P2Bomb";
-            laser = "P2Laser";
+            horizontal = "P2Horizontal_T";
+            vertical = "P2Vertical_T";
+            bullet = "P2Fire_T";
+            bomb = "P2Bomb_T";
+            laser = "P2Laser_T";
         }
     }
 

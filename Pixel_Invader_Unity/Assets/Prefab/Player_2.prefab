@@ -235,9 +235,9 @@ MonoBehaviour:
     type: 2}
   bomb: {fileID: 114247307767806914, guid: 8cc6cc08ce85b684895af21884ac3bc3, type: 2}
   laser: {fileID: 114915512869623948, guid: 72634d02e812107458f94dea68754911, type: 2}
-  playerExplosionFX: {fileID: 198574922467594088, guid: f48c8936eeb9e38459f1cf51b1c8c0a8,
+  playerExplosionFX: {fileID: 198574922467594088, guid: fb4fda56efc747b40b994415e55dcab8,
     type: 2}
-  muteFX: {fileID: 198040881722531856, guid: 809f63029d5c7b948bbd32738a2132fd, type: 2}
+  muteFX: {fileID: 198040881722531856, guid: 22dc14d0f631fb14d9424d4739493b26, type: 2}
   powerUpFX:
   - {fileID: 198029922481528766, guid: 4f7fbbc750c6d174ea76b3b33ed52062, type: 2}
   - {fileID: 198029922481528766, guid: 2070f599ae677de4ca51fdeaecae0343, type: 2}

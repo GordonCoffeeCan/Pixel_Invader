@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void OnHowToPlay() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void OnMainMenu() {
