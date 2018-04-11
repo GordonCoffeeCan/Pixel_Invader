@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
+    [SerializeField] private int playerID = 1;
     [SerializeField] private float speed = 7;
     [SerializeField] private float screenEdge = 0;
     [SerializeField] private float bulletPower = 0;
@@ -29,17 +30,17 @@ public class PlayerControl : MonoBehaviour {
     [HideInInspector] public GunType gunType;
 
     private Rigidbody2D rig;
-
     private float currentShootGap = 0;
-
     private float muteForBulletTime = 0;
-
     private Animator playerAnim;
+    private ControllerInputManager controllerInput;
 
 	// Use this for initialization
 	void Start () {
         rig = this.GetComponent<Rigidbody2D>();
         playerAnim = this.GetComponent<Animator>();
+        controllerInput = this.GetComponent<ControllerInputManager>();
+        controllerInput.SetupPlayerInput(playerID);
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
         muteForBulletTime = 2.5f;
         screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
@@ -71,7 +72,7 @@ public class PlayerControl : MonoBehaviour {
         }
         //Only for development------------------------------------*/
 
-        if (Input.GetButton("Fire") && currentShootGap <= 0) {
+        if (controllerInput.ShootBullet() && currentShootGap <= 0) {
             switch (gunType) {
                 case GunType.RegularGun:
                     CreateRegularBullet();
@@ -85,7 +86,7 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("Bomb") && GameManager.instance.bombCount > 0) {
+        if (controllerInput.ShootBomb() && GameManager.instance.bombCount > 0) {
             GameManager.instance.vibrateValue = 2;
             Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
             _bombClone.dir = 1;
@@ -93,7 +94,7 @@ public class PlayerControl : MonoBehaviour {
             GameManager.instance.bombCount--;
         }
 
-        if (Input.GetButtonDown("Laser") && GameManager.instance.laserCount > 0) {
+        if (controllerInput.ShootLaser() && GameManager.instance.laserCount > 0) {
             GameManager.instance.vibrateValue = 2;
             Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
             _laserClone.power = 80;
@@ -116,8 +117,8 @@ public class PlayerControl : MonoBehaviour {
 	}
 
     private void FixedUpdate() {
-        rig.MovePosition(new Vector2(this.transform.position.x + speed * Input.GetAxis("Horizontal") * Time.deltaTime, this.transform.position.y));
-        playerAnim.SetFloat("Speed", Input.GetAxis("Horizontal"));
+        rig.MovePosition(new Vector2(this.transform.position.x + speed * controllerInput.MoveHorizontal() * Time.deltaTime, this.transform.position.y));
+        playerAnim.SetFloat("Speed", controllerInput.MoveHorizontal());
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4255746603331950}
   - component: {fileID: 212162482940561224}
   - component: {fileID: 114929660498260090}
+  - component: {fileID: 114551498025901100}
   - component: {fileID: 50194128926992366}
   - component: {fileID: 61083046412376346}
   - component: {fileID: 95949006763962358}
@@ -197,6 +198,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114551498025901100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149580621961124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee71c2091eed7d48a8f24cc5020bf25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114929660498260090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730e0b339e6a82a4ea68951d1d7ed1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 2
   speed: 7
   screenEdge: 4.5
   bulletPower: 10
