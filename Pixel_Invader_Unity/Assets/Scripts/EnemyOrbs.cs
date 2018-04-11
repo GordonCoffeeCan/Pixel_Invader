@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyOrbs : MonoBehaviour {
 
-    [SerializeField] private float showTrailTimer = 0.25f;
     [SerializeField] private TrailRenderer[] orbTrails;
-
+    private float showTrailTimer = 0.35f;
     private float speed = 420;
 
     // Use this for initialization

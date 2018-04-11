@@ -1083,9 +1083,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 0
-  enemySpeed: 0.95
+  enemySpeed: 0.85
   playerCount: 3
-  bombCount: 3
+  bombCount: 100
   laserCount: 3
   score: 0
   currentWaveEnemySpeed: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   enemyList: []
   playerClone: {fileID: 0}
   vibrateValue: 0
-  player: {fileID: 114929660498260090, guid: 26726c7b7a83511429b8ee64d3d6067f, type: 2}
+  player: {fileID: 114929660498260090, guid: 518e7ac774a550a48a9c57469a809a0d, type: 2}
   scoreText: {fileID: 470924933}
   waveText: {fileID: 1684786883}
 --- !u!114 &1158940752
@@ -1741,7 +1741,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
+  m_Sprite: {fileID: 21300014, guid: bbd664c78bc346145947312731516841, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1809,7 +1809,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
+  m_Sprite: {fileID: 21300014, guid: bbd664c78bc346145947312731516841, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2444,7 +2444,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 383aaff19b4ac234498e310ae82537ed, type: 3}
+  m_Sprite: {fileID: 21300014, guid: bbd664c78bc346145947312731516841, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
