@@ -86,21 +86,42 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (controllerInput.ShootBomb() && GameManager.instance.bombCount > 0) {
-            GameManager.instance.vibrateValue = 2;
-            Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
-            _bombClone.dir = 1;
-            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
-            GameManager.instance.bombCount--;
-        }
+        //Special weapons count----------------------------------------------------------------------------------------
+        if (playerID == 1) {
+            if (controllerInput.ShootBomb() && GameManager.instance.player1BombCount > 0) {
+                GameManager.instance.vibrateValue = 2;
+                Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+                _bombClone.dir = 1;
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
+                GameManager.instance.player1BombCount--;
+            }
 
-        if (controllerInput.ShootLaser() && GameManager.instance.laserCount > 0) {
-            GameManager.instance.vibrateValue = 2;
-            Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
-            _laserClone.power = 80;
-            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
-            GameManager.instance.laserCount--;
+            if (controllerInput.ShootLaser() && GameManager.instance.player1LaserCount > 0) {
+                GameManager.instance.vibrateValue = 2;
+                Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
+                _laserClone.power = 80;
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
+                GameManager.instance.player1LaserCount--;
+            }
+        }else if (playerID == 2) {
+            if (controllerInput.ShootBomb() && GameManager.instance.player2BombCount > 0) {
+                GameManager.instance.vibrateValue = 2;
+                Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
+                _bombClone.dir = 1;
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
+                GameManager.instance.player2BombCount--;
+            }
+
+            if (controllerInput.ShootLaser() && GameManager.instance.player2LaserCount > 0) {
+                GameManager.instance.vibrateValue = 2;
+                Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
+                _laserClone.power = 80;
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
+                GameManager.instance.player2LaserCount--;
+            }
         }
+        //Special weapons count----------------------------------------------------------------------------------------
+
 
         muteForBulletTime -= Time.deltaTime;
 
@@ -146,8 +167,14 @@ public class PlayerControl : MonoBehaviour {
             switch (_dropBox.boxType) {
                 case DropBox.BoxType.Bomb:
                     Instantiate(powerUpFX[0], this.transform);
-                    if (GameManager.instance.bombCount < 3) {
-                        GameManager.instance.bombCount++;
+                    if (playerID == 1) {
+                        if (GameManager.instance.player1BombCount < 3) {
+                            GameManager.instance.player1BombCount++;
+                        }
+                    } else if (playerID == 2) {
+                        if (GameManager.instance.player2BombCount < 3) {
+                            GameManager.instance.player2BombCount++;
+                        }
                     }
                     break;
                 case DropBox.BoxType.HeavyGun:
@@ -155,15 +182,29 @@ public class PlayerControl : MonoBehaviour {
                     break;
                 case DropBox.BoxType.Laser:
                     Instantiate(powerUpFX[3], this.transform);
-                    if (GameManager.instance.laserCount < 3) {
-                        GameManager.instance.laserCount++;
+
+                    if (playerID == 1) {
+                        if (GameManager.instance.player1LaserCount < 3) {
+                            GameManager.instance.player1LaserCount++; ;
+                        }
+                    } else if (playerID == 2) {
+                        if (GameManager.instance.player2LaserCount < 3) {
+                            GameManager.instance.player2LaserCount++; ;
+                        }
                     }
                     break;
                 case DropBox.BoxType.NewSpacecraft:
                     Instantiate(powerUpFX[1], this.transform);
-                    if (GameManager.instance.player1Count < 3) {
-                        GameManager.instance.player1Count++;
+                    if (playerID == 1) {
+                        if (GameManager.instance.player1Count < 3) {
+                            GameManager.instance.player1Count++;
+                        }
+                    }else if (playerID == 2) {
+                        if (GameManager.instance.player2Count < 3) {
+                            GameManager.instance.player2Count++;
+                        }
                     }
+                    
                     break;
                 case DropBox.BoxType.Shotgun:
                     OnShotGun();

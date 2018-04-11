@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour {
 
     public int player1Count = 3;
     public int player2Count = 3;
-    public int bombCount = 0;
-    public int laserCount = 0;
+    public int player1BombCount = 0;
+    public int player2BombCount = 0;
+    public int player1LaserCount = 0;
+    public int player2LaserCount = 0;
 
     public enum GameMode {
         SinglePlayerMode,
@@ -178,14 +180,14 @@ public class GameManager : MonoBehaviour {
             if (player1Count > 0 && player1IsDead) {
                 StartCoroutine(ResetPlayer1(1, -1f));
                 player1IsDead = false;
-            } else if (player1Count <= 0 && player1IsDead) {
-                gameIsOver = true;
             }
 
             if (player2Count > 0 && player2IsDead) {
-                StartCoroutine(ResetPlayer1(1, 1f));
+                StartCoroutine(ResetPlayer2(1, 1f));
                 player2IsDead = false;
-            } else if (player1Count <= 0 && player1IsDead) {
+            }
+
+            if ((player1Count <= 0 && player1IsDead) && (player2Count <= 0 && player2IsDead)) {
                 gameIsOver = true;
             }
         }
