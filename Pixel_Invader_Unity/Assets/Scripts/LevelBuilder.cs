@@ -29,8 +29,7 @@ public class LevelBuilder : MonoBehaviour {
 
     private int id = 0;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake() {
         instance = this;
     }
 	

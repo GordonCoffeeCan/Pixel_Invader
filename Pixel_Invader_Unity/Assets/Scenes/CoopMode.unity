@@ -2239,17 +2239,17 @@ MonoBehaviour:
   - {fileID: 478916203}
   - {fileID: 705235104}
   player2Lifes:
-  - {fileID: 1027208619}
-  - {fileID: 1872317274}
   - {fileID: 1004287801}
+  - {fileID: 1872317274}
+  - {fileID: 1027208619}
   player2Bombs:
-  - {fileID: 1923400006}
-  - {fileID: 798577890}
   - {fileID: 356660454}
+  - {fileID: 798577890}
+  - {fileID: 1923400006}
   player2Lasers:
-  - {fileID: 1027208619}
-  - {fileID: 1872317274}
-  - {fileID: 1004287801}
+  - {fileID: 18702443}
+  - {fileID: 1682316032}
+  - {fileID: 809257429}
   waveClearText: {fileID: 766545173}
   gameOverText: {fileID: 536024764}
   countDownText: {fileID: 1082050517}

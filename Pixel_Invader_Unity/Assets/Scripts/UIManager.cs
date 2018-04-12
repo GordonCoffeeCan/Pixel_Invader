@@ -30,9 +30,17 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Change Player1 properties UI--------------------------------------------------
         ChangeUICount(GameManager.instance.player1Count, player1Lifes);
         ChangeUICount(GameManager.instance.player1BombCount, player1Bombs);
         ChangeUICount(GameManager.instance.player1LaserCount, player1Lasers);
+        //Change Player1 properties UI-------------------------------------------------- end
+
+        //Change Player2 properties UI--------------------------------------------------
+        ChangeUICount(GameManager.instance.player2Count, player2Lifes);
+        ChangeUICount(GameManager.instance.player2BombCount, player2Bombs);
+        ChangeUICount(GameManager.instance.player2LaserCount, player2Lasers);
+        //Change Player2 properties UI-------------------------------------------------- end
 
         if (GameManager.instance.levelBuilt == false) {
             waveClearText.text = "Wave " + (GameManager.instance.waveIndex).ToString() + " Clear!\r\nGet Ready for New Wave!!";

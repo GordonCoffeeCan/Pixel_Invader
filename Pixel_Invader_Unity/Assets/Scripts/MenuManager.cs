@@ -22,15 +22,15 @@ public class MenuManager : MonoBehaviour {
     public void OnNewGame() {
         ProgressManager.currentWave = 0;
         ProgressManager.currentWaveIndex = 1;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("CoopMode");
     }
 
     public void OnHowToPlay() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("HowToPlay");
     }
 
     public void OnMainMenu() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
     }
 
     public void OnExitGame() {
