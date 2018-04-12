@@ -19,7 +19,21 @@ public class MenuManager : MonoBehaviour {
 		
 	}
 
+    public void OnStartGame() {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void OnNewGame() {
+        SceneManager.LoadScene("GameModes");
+    }
+
+    public void OnOnePlayerGame() {
+        ProgressManager.currentWave = 0;
+        ProgressManager.currentWaveIndex = 1;
+        SceneManager.LoadScene("SinglePlayerMode");
+    }
+
+    public void OnTwoPlayerGame() {
         ProgressManager.currentWave = 0;
         ProgressManager.currentWaveIndex = 1;
         SceneManager.LoadScene("CoopMode");
@@ -30,10 +44,11 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void OnMainMenu() {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnExitGame() {
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene("TitleScreen");
     }
 }

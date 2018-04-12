@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e3d3801f758d5564ba38bca5fd25ded4
-timeCreated: 1523393966
+timeCreated: 1523566057
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,19 @@ TextureImporter:
     21300016: Panel_UI_1
     21300018: Panel_UI_2
     21300020: GamePad_UI
+    21300022: Button_A_Selected
+    21300024: Button_B_Selected
+    21300026: UI_Panel_0
+    21300028: UI_Panel_2
+    21300030: UI_Panel_3
+    21300032: UI_Panel_1
+    21300034: SubmenuPanel
+    21300036: UI_GamePad
+    21300038: XBox_A
+    21300040: XBox_B
+    21300042: XBox_Y
+    21300044: XBox_X
+    21300046: UI_SubMenuPanel
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -145,7 +158,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 107
+        y: 235
         width: 52
         height: 19
       alignment: 0
@@ -155,67 +168,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Indicator_A
+      name: XBox_A
       rect:
         serializedVersion: 2
         x: 56
-        y: 114
-        width: 11
-        height: 12
+        y: 241
+        width: 12
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 0, z: 0, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Indicator_B
+      name: XBox_B
       rect:
         serializedVersion: 2
         x: 69
-        y: 114
-        width: 11
+        y: 242
+        width: 12
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Indicator_Y
+      name: XBox_Y
       rect:
         serializedVersion: 2
         x: 82
-        y: 114
-        width: 11
+        y: 242
+        width: 12
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Indicator_X
+      name: XBox_X
       rect:
         serializedVersion: 2
         x: 95
-        y: 114
-        width: 11
+        y: 242
+        width: 12
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Panel_UI_0
+      name: UI_Panel_0
       rect:
         serializedVersion: 2
-        x: 108
-        y: 13
+        x: 2
+        y: 111
         width: 129
         height: 113
       alignment: 0
@@ -225,11 +238,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Panel_Frane_0
+      name: UI_Panel_1
       rect:
         serializedVersion: 2
-        x: 239
-        y: 96
+        x: 133
+        y: 194
         width: 31
         height: 30
       alignment: 0
@@ -239,25 +252,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Panel_Frane_1
+      name: UI_Panel_2
       rect:
         serializedVersion: 2
-        x: 275
-        y: 96
+        x: 169
+        y: 194
         width: 31
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 10, z: 11, w: 11}
+      border: {x: 11, y: 11, z: 11, w: 11}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Panel_UI_1
+      name: UI_Panel_3
       rect:
         serializedVersion: 2
-        x: 308
-        y: 23
+        x: 2
+        y: 6
         width: 60
         height: 103
       alignment: 0
@@ -267,30 +280,58 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Panel_UI_2
+      name: UI_SubMenuPanel
       rect:
         serializedVersion: 2
-        x: 370
-        y: 81
+        x: 64
+        y: 51
         width: 75
-        height: 45
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 27, y: 27, z: 28, w: 12}
+      border: {x: 27, y: 27, z: 28, w: 28}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GamePad_UI
+      name: UI_GamePad
       rect:
         serializedVersion: 2
-        x: 447
-        y: 84
+        x: 141
+        y: 67
         width: 57
         height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Button_A_Selected
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 226
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 17, y: 7, z: 7, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Button_B_Selected
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 226
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 17, y: 7, z: 7, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0

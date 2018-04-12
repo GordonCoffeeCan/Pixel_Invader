@@ -16,9 +16,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":12},
 	"sourceSize": {"w":50,"h":12}
 },
+"Buttons_Selected.png":
+{
+	"frame": {"x":108,"y":2,"w":72,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":28},
+	"sourceSize": {"w":72,"h":28}
+},
 "Panel_01.png":
 {
-	"frame": {"x":108,"y":2,"w":129,"h":113},
+	"frame": {"x":2,"y":32,"w":129,"h":113},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":113},
@@ -26,7 +34,7 @@
 },
 "Panel_02.png":
 {
-	"frame": {"x":239,"y":2,"w":67,"h":30},
+	"frame": {"x":133,"y":32,"w":67,"h":30},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":30},
@@ -34,23 +42,23 @@
 },
 "Panel_03.png":
 {
-	"frame": {"x":308,"y":2,"w":60,"h":103},
+	"frame": {"x":2,"y":147,"w":60,"h":103},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":103},
 	"sourceSize": {"w":60,"h":103}
 },
-"Score_Panel.png":
+"Submenu_Panel.png":
 {
-	"frame": {"x":370,"y":2,"w":75,"h":45},
+	"frame": {"x":64,"y":147,"w":75,"h":58},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":45},
-	"sourceSize": {"w":75,"h":45}
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":58},
+	"sourceSize": {"w":75,"h":58}
 },
 "UI_GamePad.png":
 {
-	"frame": {"x":447,"y":2,"w":57,"h":42},
+	"frame": {"x":141,"y":147,"w":57,"h":42},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":42},
@@ -61,8 +69,8 @@
 	"version": "1.0",
 	"image": "GameUI.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":128},
+	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a4688e72d0f004c9da41a21e87404c9c:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1b98abf7328867fde82a6d65a2a46430:1/1$"
 }
 }
