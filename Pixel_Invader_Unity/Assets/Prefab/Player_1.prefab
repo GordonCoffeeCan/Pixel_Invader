@@ -251,13 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730e0b339e6a82a4ea68951d1d7ed1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 1
+  playerID: 1
   speed: 7
   screenEdge: 4.5
   bulletPower: 10
   bulletGap: 0.35
   tripleBulletGap: 0.25
   shotgunBulletGap: 0.45
+  gordModeTime: 2.5
   regularBullet: {fileID: 114882958960836000, guid: aaea84b5917c7a34c8445f5eea5e43cd,
     type: 2}
   heavyGunBullet: {fileID: 114882958960836000, guid: 4b4debffd3d04de43bfe6d5590016165,
@@ -278,7 +279,9 @@ MonoBehaviour:
   weapons:
   - {fileID: 1538934208202048}
   - {fileID: 1912099257302098}
+  controllerVibration: 0
   gunType: 0
+  vibrateValue: 0
 --- !u!198 &198422113413090366
 ParticleSystem:
   m_ObjectHideFlags: 1

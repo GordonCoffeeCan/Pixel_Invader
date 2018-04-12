@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour {
 
     private float deltaPosY;
 
-    private PlayerIndex playerIndex = PlayerIndex.One;
+    private PlayerIndex player1Vib = PlayerIndex.One;
+    private PlayerIndex player2Vib = PlayerIndex.Two;
 
     private void Awake() {
         instance = this;
@@ -225,8 +226,9 @@ public class GameManager : MonoBehaviour {
         } else {
             vibrateValue = 0;
         }
-        
-        GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
+
+        GamePad.SetVibration(player1Vib, vibrateValue, vibrateValue);
+        GamePad.SetVibration(player2Vib, vibrateValue, vibrateValue);
     }
 
     private void SetEnemySpeed() {

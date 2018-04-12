@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PlayerControl : MonoBehaviour {
 
-    [SerializeField] private int playerID = 1;
+    [SerializeField][Range(1, 2)] private int playerID = 1;
     [SerializeField] private float speed = 7;
     [SerializeField] private float screenEdge = 0;
     [SerializeField] private float bulletPower = 0;
     [SerializeField] private float bulletGap = 0.35f;
     [SerializeField] private float tripleBulletGap = 0.45f;
     [SerializeField] private float shotgunBulletGap = 0.6f;
+    [SerializeField] private float gordModeTime = 0;
     [SerializeField] private Bullet regularBullet;
     [SerializeField] private Bullet heavyGunBullet;
     [SerializeField] private Bullet shotgunBullet;
@@ -20,6 +22,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private ParticleSystem muteFX;
     [SerializeField] private ParticleSystem[] powerUpFX;
     [SerializeField] private GameObject[] weapons;
+    [SerializeField] private bool controllerVibration = true;
 
     [HideInInspector] public enum GunType {
         RegularGun,
@@ -29,21 +32,29 @@ public class PlayerControl : MonoBehaviour {
 
     [HideInInspector] public GunType gunType;
 
+    [HideInInspector] public float vibrateValue = 0;
+
     private Rigidbody2D rig;
     private float currentShootGap = 0;
-    private float muteForBulletTime = 0;
+    
     private Animator playerAnim;
     private ControllerInputManager controllerInput;
+    private PlayerIndex playerIndex;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rig = this.GetComponent<Rigidbody2D>();
         playerAnim = this.GetComponent<Animator>();
         controllerInput = this.GetComponent<ControllerInputManager>();
         controllerInput.SetupPlayerInput(playerID);
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
-        muteForBulletTime = 2.5f;
         screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
+
+        if (playerID == 1) {
+            playerIndex = PlayerIndex.One;
+        } else if (playerID == 2) {
+            playerIndex = PlayerIndex.Two;
+        }
     }
 	
 	// Update is called once per frame
@@ -89,7 +100,7 @@ public class PlayerControl : MonoBehaviour {
         //Special weapons count----------------------------------------------------------------------------------------
         if (playerID == 1) {
             if (controllerInput.ShootBomb() && GameManager.instance.player1BombCount > 0) {
-                GameManager.instance.vibrateValue = 2;
+                vibrateValue = 2;
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
@@ -97,7 +108,7 @@ public class PlayerControl : MonoBehaviour {
             }
 
             if (controllerInput.ShootLaser() && GameManager.instance.player1LaserCount > 0) {
-                GameManager.instance.vibrateValue = 2;
+                vibrateValue = 2;
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
@@ -105,7 +116,7 @@ public class PlayerControl : MonoBehaviour {
             }
         }else if (playerID == 2) {
             if (controllerInput.ShootBomb() && GameManager.instance.player2BombCount > 0) {
-                GameManager.instance.vibrateValue = 2;
+                vibrateValue = 2;
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
@@ -113,7 +124,7 @@ public class PlayerControl : MonoBehaviour {
             }
 
             if (controllerInput.ShootLaser() && GameManager.instance.player2LaserCount > 0) {
-                GameManager.instance.vibrateValue = 2;
+                vibrateValue = 2;
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
@@ -123,10 +134,10 @@ public class PlayerControl : MonoBehaviour {
         //Special weapons count----------------------------------------------------------------------------------------
 
 
-        muteForBulletTime -= Time.deltaTime;
+        gordModeTime -= Time.deltaTime;
 
-        if (muteForBulletTime <= 0) {
-            muteForBulletTime = 0;
+        if (gordModeTime <= 0) {
+            gordModeTime = 0;
         }
 
         if (GameManager.instance.gameIsOver) {
@@ -140,15 +151,25 @@ public class PlayerControl : MonoBehaviour {
     private void FixedUpdate() {
         rig.MovePosition(new Vector2(this.transform.position.x + speed * controllerInput.MoveHorizontal() * Time.deltaTime, this.transform.position.y));
         playerAnim.SetFloat("Speed", controllerInput.MoveHorizontal());
+
+        //Controller Vibration Here-------------------------------------------
+        if (controllerVibration) {
+            vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
+        } else {
+            vibrateValue = 0;
+        }
+
+        GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
+        //Controller Vibration Here------------------------------------------- end
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {
         if (_col.tag == "EnemyBullet") {
-            GameManager.instance.vibrateValue = 2;
+            vibrateValue = 2;
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;
-            if (muteForBulletTime <= 0) {
+            if (gordModeTime <= 0) {
                 OnRegularGun();
                 if(playerID == 1) {
                     GameManager.instance.player1IsDead = true;
@@ -219,10 +240,16 @@ public class PlayerControl : MonoBehaviour {
                 _enemy.health -= 100;
                 Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
                 GameManager.instance.cameraShakeAmount += 0.35f;
-                if (muteForBulletTime <= 0) {
-                    OnRegularGun();
-                    GameManager.instance.player1IsDead = true;
-                    GameManager.instance.player1Count--;
+                if (gordModeTime <= 0) {
+                    OnRegularGun(); //Reset player's weapon-------------------
+                    if (playerID == 1) {
+                        GameManager.instance.player1IsDead = true;
+                        GameManager.instance.player1Count--;
+                    } else if (playerID == 2) {
+                        GameManager.instance.player2IsDead = true;
+                        GameManager.instance.player2Count--;
+                    }
+                    
                     Destroy(this.gameObject);
                 }
             }

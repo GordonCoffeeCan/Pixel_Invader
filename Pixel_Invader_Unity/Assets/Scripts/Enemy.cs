@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour {
     private bool isAbleToShoot = false;
     private bool hasDropBox = false;
     private bool foundPlayer = false;
+    private int randomPlayerTargetID = 0;
 
     public enum EnemyType {
         RegularEnemy,
@@ -177,23 +178,24 @@ public class Enemy : MonoBehaviour {
             Destroy(this.gameObject);
             GameManager.instance.enemyList.Remove(this);
         }
+        
 
-        if (enemyType == EnemyType.SuicideEnemy && GameManager.instance.player1Clone != null) {
+        if (enemyType == EnemyType.SuicideEnemy && (GameManager.instance.player1Clone != null || GameManager.instance.player2Clone != null)) {
             suicideTime -= Time.deltaTime;
             if (suicideTime <= 0) {
                 suicideTime = 0;
                 foundPlayer = true;
             }
+        }
 
-            if (foundPlayer) {
-                trail.gameObject.SetActive(true);
-                movementStyle = MovementStyle.Towards;
-            }
-        } else if(suicideTime <= 0 && GameManager.instance.player1Clone == null && enemyType == EnemyType.SuicideEnemy) {
-            suicideTime = Random.Range(3f, 15f);
-            foundPlayer = false;
-            movementStyle = MovementStyle.LeftAndRight;
+        if (foundPlayer) {
+            trail.gameObject.SetActive(true);
+            movementStyle = MovementStyle.Towards;
+
+        }else {
             trail.gameObject.SetActive(false);
+            movementStyle = MovementStyle.LeftAndRight;
+            randomPlayerTargetID = Random.Range(1, 3); //Random value to select the player as the target-------------------------------------------------------------
         }
     }
 
@@ -210,9 +212,24 @@ public class Enemy : MonoBehaviour {
                     rig.MovePosition(new Vector2(this.transform.position.x + speed * speedMultiplier * Time.deltaTime, this.transform.position.y - verticalSpeed * speedMultiplier * Time.deltaTime));
                     break;
                 case MovementStyle.Towards:
-                    if (GameManager.instance.player1Clone != null || GameManager.instance.player2Clone != null) {
-                        rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player1Clone.transform.position, 0.05f);
+                    //Randomly select the player as the target-------------------------------------------------------------
+                    if (randomPlayerTargetID == 1) {
+                        if (GameManager.instance.player1Clone != null) {
+                            rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player1Clone.transform.position, 0.045f);
+                        } else {
+                            suicideTime = Random.Range(3f, 15f);
+                            foundPlayer = false;
+                        }
+                    } else if (randomPlayerTargetID == 2) {
+                        if (GameManager.instance.player2Clone != null) {
+                            rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player2Clone.transform.position, 0.045f);
+                        } else {
+                            suicideTime = Random.Range(3f, 15f);
+                            foundPlayer = false;
+                        }
                     }
+
+                    //Randomly select the player as the target------------------------------------------------------------- end
                     break;
             }
         }
