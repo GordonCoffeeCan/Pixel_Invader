@@ -5,29 +5,34 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    [SerializeField] private Image[] lifes;
-    [SerializeField] private Image[] lasers;
-    [SerializeField] private Image[] bombs;
+    [SerializeField] private Image[] player1Lifes;
+    [SerializeField] private Image[] player1Bombs;
+    [SerializeField] private Image[] player1Lasers;
+
+    [SerializeField] private Image[] player2Lifes;
+    [SerializeField] private Image[] player2Bombs;
+    [SerializeField] private Image[] player2Lasers;
+
     [SerializeField] private Text waveClearText;
     [SerializeField] private Text gameOverText;
     [SerializeField] private Text countDownText;
 
 	// Use this for initialization
 	void Start () {
-        for (int i = 0; i < lasers.Length; i++) {
-            lasers[i].gameObject.SetActive(false);
+        for (int i = 0; i < player1Lasers.Length; i++) {
+            player1Lasers[i].gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < bombs.Length; i++) {
-            bombs[i].gameObject.SetActive(false);
+        for (int i = 0; i < player1Bombs.Length; i++) {
+            player1Bombs[i].gameObject.SetActive(false);
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        ChangeUICount(GameManager.instance.player1Count, lifes);
-        //ChangeUICount(GameManager.instance.bombCount, bombs);
-        //ChangeUICount(GameManager.instance.laserCount, lasers);
+        ChangeUICount(GameManager.instance.player1Count, player1Lifes);
+        ChangeUICount(GameManager.instance.player1BombCount, player1Bombs);
+        ChangeUICount(GameManager.instance.player1LaserCount, player1Lasers);
 
         if (GameManager.instance.levelBuilt == false) {
             waveClearText.text = "Wave " + (GameManager.instance.waveIndex).ToString() + " Clear!\r\nGet Ready for New Wave!!";

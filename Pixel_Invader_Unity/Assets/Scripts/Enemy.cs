@@ -210,7 +210,9 @@ public class Enemy : MonoBehaviour {
                     rig.MovePosition(new Vector2(this.transform.position.x + speed * speedMultiplier * Time.deltaTime, this.transform.position.y - verticalSpeed * speedMultiplier * Time.deltaTime));
                     break;
                 case MovementStyle.Towards:
-                    rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player1Clone.transform.position, 0.05f);
+                    if (GameManager.instance.player1Clone != null || GameManager.instance.player2Clone != null) {
+                        rig.transform.position = Vector2.MoveTowards(this.transform.position, GameManager.instance.player1Clone.transform.position, 0.05f);
+                    }
                     break;
             }
         }

@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour {
     public void OnNewGame() {
         ProgressManager.currentWave = 0;
         ProgressManager.currentWaveIndex = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OnHowToPlay() {
