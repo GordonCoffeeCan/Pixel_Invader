@@ -20,9 +20,12 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Bullet laser;
     [SerializeField] private ParticleSystem playerExplosionFX;
     [SerializeField] private ParticleSystem muteFX;
+    [SerializeField] private ParticleSystem shieldDeestroyFX;
     [SerializeField] private ParticleSystem[] powerUpFX;
     [SerializeField] private GameObject[] weapons;
     [SerializeField] private bool controllerVibration = true;
+    [SerializeField] private SpriteRenderer shield;
+
 
     [HideInInspector] public enum GunType {
         RegularGun,
@@ -133,6 +136,17 @@ public class PlayerControl : MonoBehaviour {
         }
         //Special weapons count----------------------------------------------------------------------------------------
 
+        if (controllerInput.OnShield()) {
+            shield.gameObject.SetActive(true);
+            shield.color = new Color(1, 1, 1, Mathf.Lerp(shield.color.a, 1, 0.08f));
+        } else {
+            if (shield.gameObject.activeSelf) {
+                Instantiate(shieldDeestroyFX, new Vector3(this.transform.position.x, this.transform.position.y - 1.19f, this.transform.position.z), Quaternion.identity);
+            }
+            shield.gameObject.SetActive(false);
+            shield.color = new Color(1, 1, 1, 0);
+            
+        }
 
         gordModeTime -= Time.deltaTime;
 

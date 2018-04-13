@@ -9,6 +9,7 @@ public class ControllerInputManager : MonoBehaviour {
     private string bullet = "";
     private string bomb = "";
     private string laser = "";
+    private string shield = "";
 
     public void SetupPlayerInput(int _playerID) {
         if (_playerID == 1) {
@@ -17,6 +18,7 @@ public class ControllerInputManager : MonoBehaviour {
             bullet = "P1Fire";
             bomb = "P1Bomb";
             laser = "P1Laser";
+            shield = "P1Shield";
         }
 
         if (_playerID == 2) {
@@ -25,6 +27,7 @@ public class ControllerInputManager : MonoBehaviour {
             bullet = "P2Fire";
             bomb = "P2Bomb";
             laser = "P2Laser";
+            shield = "P2Shield";
         }
     }
 
@@ -46,5 +49,9 @@ public class ControllerInputManager : MonoBehaviour {
 
     public bool ShootLaser() {
         return (Input.GetButtonDown(laser));
+    }
+
+    public bool OnShield() {
+        return (Input.GetButton(shield) || Input.GetAxis(shield) > 0);
     }
 }
