@@ -2155,12 +2155,10 @@ MonoBehaviour:
   enemyList: []
   player1Clone: {fileID: 0}
   player2Clone: {fileID: 0}
-  vibrateValue: 0
   player1: {fileID: 114929660498260090, guid: 26726c7b7a83511429b8ee64d3d6067f, type: 2}
   player2: {fileID: 114929660498260090, guid: 518e7ac774a550a48a9c57469a809a0d, type: 2}
   scoreText: {fileID: 273281918}
   waveText: {fileID: 900766428}
-  controllerVibration: 1
 --- !u!114 &1269928202
 MonoBehaviour:
   m_ObjectHideFlags: 0

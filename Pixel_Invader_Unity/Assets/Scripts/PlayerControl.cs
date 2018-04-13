@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -23,8 +22,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private ParticleSystem shieldDeestroyFX;
     [SerializeField] private ParticleSystem[] powerUpFX;
     [SerializeField] private GameObject[] weapons;
-    [SerializeField] private bool controllerVibration = true;
-    [SerializeField] private SpriteRenderer shield;
+    
 
 
     [HideInInspector] public enum GunType {
@@ -35,14 +33,11 @@ public class PlayerControl : MonoBehaviour {
 
     [HideInInspector] public GunType gunType;
 
-    [HideInInspector] public float vibrateValue = 0;
-
     private Rigidbody2D rig;
     private float currentShootGap = 0;
     
     private Animator playerAnim;
     private ControllerInputManager controllerInput;
-    private PlayerIndex playerIndex;
 
     // Use this for initialization
     void Start () {
@@ -52,12 +47,6 @@ public class PlayerControl : MonoBehaviour {
         controllerInput.SetupPlayerInput(playerID);
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
         screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
-
-        if (playerID == 1) {
-            playerIndex = PlayerIndex.One;
-        } else if (playerID == 2) {
-            playerIndex = PlayerIndex.Two;
-        }
     }
 	
 	// Update is called once per frame
@@ -103,7 +92,6 @@ public class PlayerControl : MonoBehaviour {
         //Special weapons count----------------------------------------------------------------------------------------
         if (playerID == 1) {
             if (controllerInput.ShootBomb() && GameManager.instance.player1BombCount > 0) {
-                vibrateValue = 2;
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
@@ -111,7 +99,6 @@ public class PlayerControl : MonoBehaviour {
             }
 
             if (controllerInput.ShootLaser() && GameManager.instance.player1LaserCount > 0) {
-                vibrateValue = 2;
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
@@ -119,7 +106,6 @@ public class PlayerControl : MonoBehaviour {
             }
         }else if (playerID == 2) {
             if (controllerInput.ShootBomb() && GameManager.instance.player2BombCount > 0) {
-                vibrateValue = 2;
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
@@ -127,7 +113,6 @@ public class PlayerControl : MonoBehaviour {
             }
 
             if (controllerInput.ShootLaser() && GameManager.instance.player2LaserCount > 0) {
-                vibrateValue = 2;
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
@@ -165,21 +150,10 @@ public class PlayerControl : MonoBehaviour {
     private void FixedUpdate() {
         rig.MovePosition(new Vector2(this.transform.position.x + speed * controllerInput.MoveHorizontal() * Time.deltaTime, this.transform.position.y));
         playerAnim.SetFloat("Speed", controllerInput.MoveHorizontal());
-
-        //Controller Vibration Here-------------------------------------------
-        if (controllerVibration) {
-            vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
-        } else {
-            vibrateValue = 0;
-        }
-
-        GamePad.SetVibration(playerIndex, vibrateValue, vibrateValue);
-        //Controller Vibration Here------------------------------------------- end
     }
 
     private void OnTriggerEnter2D(Collider2D _col) {
         if (_col.tag == "EnemyBullet") {
-            vibrateValue = 2;
             Destroy(_col.gameObject);
             Instantiate(playerExplosionFX, this.transform.position, Quaternion.identity);
             GameManager.instance.cameraShakeAmount += 0.35f;

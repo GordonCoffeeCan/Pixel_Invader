@@ -61,12 +61,12 @@ GameObject:
   - component: {fileID: 95526454153832858}
   - component: {fileID: 60185371439221940}
   m_Layer: 0
-  m_Name: Player1Shield
+  m_Name: Player2Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1538934208202048
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ Animator:
   m_GameObject: {fileID: 1305684965130206}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe139a353ea88c74cb8bfce84c573bf5, type: 2}
+  m_Controller: {fileID: 9100000, guid: c38d828c9707ec24eb22ae1c2a584490, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -423,10 +423,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 1538934208202048}
   - {fileID: 1912099257302098}
-  controllerVibration: 0
   shield: {fileID: 212455691268138012}
   gunType: 0
-  vibrateValue: 0
 --- !u!198 &198162303117771136
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -487,7 +485,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 182947545
+  randomSeed: -1708314053
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -576,8 +574,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.44852942, g: 0.79462457, b: 1, a: 1}
-      maxColor: {r: 0.26805797, g: 0.77754295, b: 0.9852941, a: 0.528}
+      minColor: {r: 1, g: 0.44852942, b: 0.8478701, a: 1}
+      maxColor: {r: 0.9852941, g: 0.2680579, b: 0.8171146, a: 0.528}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3848,7 +3846,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1032373897
+  randomSeed: -827961577
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3937,8 +3935,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.7568628, g: 0.87843144, b: 0.9568628, a: 0.847}
-      maxColor: {r: 0.23137257, g: 0.58431375, b: 0.8745099, a: 0.578}
+      minColor: {r: 0.8980393, g: 0.7254902, b: 0.86274517, a: 0.847}
+      maxColor: {r: 0.7372549, g: 0.14509805, b: 0.5764706, a: 0.578}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10576,7 +10574,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -674483704
+  randomSeed: 71351013
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14259,7 +14257,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 3f982a2bb8e70b24b8abf05b7a42b415, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 3f982a2bb8e70b24b8abf05b7a42b415, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

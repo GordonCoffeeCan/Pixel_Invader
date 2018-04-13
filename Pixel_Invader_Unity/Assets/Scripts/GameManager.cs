@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using XInputDotNetPure;
 
 public class GameManager : MonoBehaviour {
 
@@ -43,13 +42,11 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
     [HideInInspector] public PlayerControl player1Clone;
     [HideInInspector] public PlayerControl player2Clone;
-    [HideInInspector] public float vibrateValue = 0;
 
     [SerializeField] private PlayerControl player1;
     [SerializeField] private PlayerControl player2;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text waveText;
-    [SerializeField] private bool controllerVibration = true;
 
     private bool hDirChanged = false;
     private bool vDirChanged = false;
@@ -58,9 +55,6 @@ public class GameManager : MonoBehaviour {
     private float enemyPositionLimit = 0;
 
     private float deltaPosY;
-
-    private PlayerIndex player1Vib = PlayerIndex.One;
-    private PlayerIndex player2Vib = PlayerIndex.Two;
 
     private void Awake() {
         instance = this;
@@ -218,17 +212,6 @@ public class GameManager : MonoBehaviour {
             countDownTime = 10;
         }
         //Record current game progress
-    }
-
-    private void FixedUpdate() {
-        if (controllerVibration) {
-            vibrateValue = Mathf.MoveTowards(vibrateValue, 0, 0.3f);
-        } else {
-            vibrateValue = 0;
-        }
-
-        GamePad.SetVibration(player1Vib, vibrateValue, vibrateValue);
-        GamePad.SetVibration(player2Vib, vibrateValue, vibrateValue);
     }
 
     private void SetEnemySpeed() {

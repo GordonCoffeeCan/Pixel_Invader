@@ -454,7 +454,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1538934208202048}
   - {fileID: 1912099257302098}
-  controllerVibration: 0
+  controllerVibration: 1
   shield: {fileID: 212959789982949896}
   gunType: 0
   vibrateValue: 0
