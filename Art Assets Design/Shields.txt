@@ -1,0 +1,28 @@
+{"frames": {
+
+"Shield_1.png":
+{
+	"frame": {"x":2,"y":2,"w":89,"h":17},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":17},
+	"sourceSize": {"w":89,"h":17}
+},
+"Shield_2.png":
+{
+	"frame": {"x":2,"y":21,"w":89,"h":17},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":17},
+	"sourceSize": {"w":89,"h":17}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "Shields.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2093dbd34ab4412b5ece21006c8e9c59:1/1$"
+}
+}

@@ -10,6 +10,10 @@ public class GameBackground : MonoBehaviour {
     private SpriteRenderer[] backgroundGraphics;
     private Vector2 drawSize = Vector2.zero;
 
+    private void Awake() {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Use this for initialization
     void Start () {
         drawSize = WindowSizeUtil.instance.halfWindowSize * 2;
