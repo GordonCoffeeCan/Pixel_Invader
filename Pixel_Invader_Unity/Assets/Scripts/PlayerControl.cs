@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Bullet shotgunBullet;
     [SerializeField] private Bullet bomb;
     [SerializeField] private Bullet laser;
+    [SerializeField] private SpriteRenderer shield;
     [SerializeField] private ParticleSystem playerExplosionFX;
     [SerializeField] private ParticleSystem muteFX;
     [SerializeField] private ParticleSystem shieldDeestroyFX;
