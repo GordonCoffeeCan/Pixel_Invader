@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour {
     [HideInInspector] public int dir = 0;
     [HideInInspector] public float showObjecDelay = 0;
     [HideInInspector] public bool soundFXPlayable = true;
-    [HideInInspector] public bool hitEnemy = false;
+    [HideInInspector] public bool hitObject = false;
 
     private float speed = 6;
 
@@ -75,7 +75,7 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        if ((hitEnemy && bulletType != BulletType.Laser) || bulletType == BulletType.Bomb) {
+        if ((hitObject && bulletType != BulletType.Laser) || bulletType == BulletType.Bomb) {
             Instantiate(hitFX, this.transform.position, Quaternion.identity);
         }
 

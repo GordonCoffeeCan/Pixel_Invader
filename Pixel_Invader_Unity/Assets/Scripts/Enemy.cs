@@ -238,7 +238,7 @@ public class Enemy : MonoBehaviour {
         if(_col.tag == "Bullet" || _col.tag == "Laser") {
             Bullet _bullet = _col.gameObject.GetComponent<Bullet>();
             health -= _bullet.power;
-            _bullet.hitEnemy = true;
+            _bullet.hitObject = true;
             if (_col.tag == "Bullet") {
                 Destroy(_col.gameObject);
             }else if (_col.tag == "Laser") {

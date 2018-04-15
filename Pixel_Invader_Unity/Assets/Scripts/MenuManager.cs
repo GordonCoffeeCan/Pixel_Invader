@@ -11,8 +11,8 @@ public class MenuManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        ClearRepeatedObjects();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,5 +50,17 @@ public class MenuManager : MonoBehaviour {
     public void OnExitGame() {
         //Application.Quit();
         SceneManager.LoadScene("TitleScreen");
+    }
+
+    private void ClearRepeatedObjects() {
+        GameBackground[] gameBGs = GameObject.FindObjectsOfType<GameBackground>();
+        BackgroundMusic[] bgMusics = GameObject.FindObjectsOfType<BackgroundMusic>();
+        if (gameBGs.Length > 1) {
+            Destroy(gameBGs[0].gameObject);
+        }
+
+        if (bgMusics.Length > 1) {
+            Destroy(bgMusics[0].gameObject);
+        }
     }
 }

@@ -52,6 +52,6 @@ public class ControllerInputManager : MonoBehaviour {
     }
 
     public bool OnShield() {
-        return (Input.GetButton(shield) || Input.GetAxis(shield) > 0);
+        return (Input.GetButton(shield) || Input.GetAxis(shield) > 0.1f);
     }
 }

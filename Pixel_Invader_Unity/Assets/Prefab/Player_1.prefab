@@ -58,8 +58,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4724813525977438}
   - component: {fileID: 212959789982949896}
+  - component: {fileID: 114143574451946942}
   - component: {fileID: 95004232716220012}
   - component: {fileID: 60429288827769890}
+  - component: {fileID: 50234256146623560}
   m_Layer: 0
   m_Name: Player1Shield
   m_TagString: Untagged
@@ -312,6 +314,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!50 &50234256146623560
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399959436774006}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!60 &60429288827769890
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -413,6 +435,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee71c2091eed7d48a8f24cc5020bf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114143574451946942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399959436774006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0421213e3a8c94eb784f3c6d48f89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114929660498260090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +473,7 @@ MonoBehaviour:
     type: 2}
   bomb: {fileID: 114247307767806914, guid: 8cc6cc08ce85b684895af21884ac3bc3, type: 2}
   laser: {fileID: 114915512869623948, guid: 72634d02e812107458f94dea68754911, type: 2}
+  shield: {fileID: 212959789982949896}
   playerExplosionFX: {fileID: 198574922467594088, guid: f48c8936eeb9e38459f1cf51b1c8c0a8,
     type: 2}
   muteFX: {fileID: 198040881722531856, guid: 809f63029d5c7b948bbd32738a2132fd, type: 2}
@@ -454,10 +488,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1538934208202048}
   - {fileID: 1912099257302098}
-  controllerVibration: 1
-  shield: {fileID: 212959789982949896}
   gunType: 0
-  vibrateValue: 0
 --- !u!198 &198422113413090366
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0572c8769b8a39740a33a6a24c09b6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: 0
+  wave: 3
   enemySpeed: 0.85
   player1Count: 3
   player1BombCount: 3
