@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0421213e3a8c94eb784f3c6d48f89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldTimer: 0
 --- !u!114 &114551498025901100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +435,7 @@ MonoBehaviour:
   tripleBulletGap: 0.25
   shotgunBulletGap: 0.45
   gordModeTime: 2.5
+  shieldActivatedTimer: 5
   regularBullet: {fileID: 114882958960836000, guid: fbef0493c5263c34f982bccc456670be,
     type: 2}
   heavyGunBullet: {fileID: 114882958960836000, guid: cb51351dd11a2a947a7ea287b7387c87,

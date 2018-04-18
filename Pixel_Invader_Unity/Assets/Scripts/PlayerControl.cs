@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private float tripleBulletGap = 0.45f;
     [SerializeField] private float shotgunBulletGap = 0.6f;
     [SerializeField] private float gordModeTime = 0;
+    [SerializeField] private float shieldActivatedTimer = 2;
     [SerializeField] private Bullet regularBullet;
     [SerializeField] private Bullet heavyGunBullet;
     [SerializeField] private Bullet shotgunBullet;
@@ -39,12 +40,15 @@ public class PlayerControl : MonoBehaviour {
     
     private Animator playerAnim;
     private ControllerInputManager controllerInput;
+    private Shield shieldBehavior;
+    private bool shieldActivated = false;
 
     // Use this for initialization
     void Start () {
         rig = this.GetComponent<Rigidbody2D>();
         playerAnim = this.GetComponent<Animator>();
         controllerInput = this.GetComponent<ControllerInputManager>();
+        shieldBehavior = shield.GetComponent<Shield>();
         controllerInput.SetupPlayerInput(playerID);
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
         screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
@@ -122,16 +126,27 @@ public class PlayerControl : MonoBehaviour {
         }
         //Special weapons count----------------------------------------------------------------------------------------
 
-        if (controllerInput.OnShield()) {
+        if (controllerInput.OnShield() == false) {
+            shieldActivated = false;
+        }
+
+        if (controllerInput.OnShield() && shield.gameObject.activeSelf == false && shieldActivated == false) {
+            shieldActivated = true;
+            shieldBehavior.shieldTimer = shieldActivatedTimer;
+        }
+
+        if (shieldBehavior.shieldTimer > 0) {
             shield.gameObject.SetActive(true);
             shield.color = new Color(1, 1, 1, Mathf.Lerp(shield.color.a, 1, 0.08f));
+            shieldBehavior.shieldTimer -= Time.deltaTime;
+
         } else {
             if (shield.gameObject.activeSelf) {
                 Instantiate(shieldDeestroyFX, new Vector3(this.transform.position.x, this.transform.position.y - 1.19f, this.transform.position.z), Quaternion.identity);
             }
             shield.gameObject.SetActive(false);
             shield.color = new Color(1, 1, 1, 0);
-            
+            shieldBehavior.shieldTimer = 0;
         }
 
         gordModeTime -= Time.deltaTime;

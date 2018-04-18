@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour {
 
+    [HideInInspector] public float shieldTimer = 0;
+
     private void OnTriggerEnter2D(Collider2D _col) {
         if (_col.tag == "EnemyBullet") {
             Bullet _bullet = _col.gameObject.GetComponent<Bullet>();
