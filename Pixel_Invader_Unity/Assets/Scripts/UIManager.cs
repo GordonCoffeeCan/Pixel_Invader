@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     [SerializeField] private Image[] player1Lifes;
+    [SerializeField] private Image[] player1Shields;
     [SerializeField] private Image[] player1Bombs;
     [SerializeField] private Image[] player1Lasers;
 
     [SerializeField] private Image[] player2Lifes;
+    [SerializeField] private Image[] player2Shields;
     [SerializeField] private Image[] player2Bombs;
     [SerializeField] private Image[] player2Lasers;
 
@@ -19,25 +21,21 @@ public class UIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        for (int i = 0; i < player1Lasers.Length; i++) {
-            player1Lasers[i].gameObject.SetActive(false);
-        }
-
-        for (int i = 0; i < player1Bombs.Length; i++) {
-            player1Bombs[i].gameObject.SetActive(false);
-        }
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //Change Player1 properties UI--------------------------------------------------
         ChangeUICount(GameManager.instance.player1Count, player1Lifes);
+        ChangeUICount(GameManager.instance.player1ShieldCount, player1Shields);
         ChangeUICount(GameManager.instance.player1BombCount, player1Bombs);
         ChangeUICount(GameManager.instance.player1LaserCount, player1Lasers);
         //Change Player1 properties UI-------------------------------------------------- end
 
         //Change Player2 properties UI--------------------------------------------------
         ChangeUICount(GameManager.instance.player2Count, player2Lifes);
+        ChangeUICount(GameManager.instance.player2ShieldCount, player2Shields);
         ChangeUICount(GameManager.instance.player2BombCount, player2Bombs);
         ChangeUICount(GameManager.instance.player2LaserCount, player2Lasers);
         //Change Player2 properties UI-------------------------------------------------- end

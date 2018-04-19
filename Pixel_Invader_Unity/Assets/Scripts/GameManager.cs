@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour {
     public float enemySpeed = 0.85f;
 
     public int player1Count = 3;
+    public int player1ShieldCount = 3;
     public int player1BombCount = 0;
     public int player1LaserCount = 0;
 
     public int player2Count = 3;
+    public int player2ShieldCount = 3;
     public int player2BombCount = 0;
     public int player2LaserCount = 0;
 
