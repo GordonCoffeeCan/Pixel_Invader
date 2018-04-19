@@ -2552,14 +2552,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: 3
   enemySpeed: 0.85
-  player1Count: 3
-  player1ShieldCount: 3
-  player1BombCount: 3
-  player1LaserCount: 3
-  player2Count: 3
-  player2ShieldCount: 3
-  player2BombCount: 3
-  player2LaserCount: 3
+  player1Count: 0
+  player1ShieldCount: 2
+  player1BombCount: 2
+  player1LaserCount: 2
+  player2Count: 2
+  player2ShieldCount: 2
+  player2BombCount: 2
+  player2LaserCount: 2
+  player1IsDead: 1
+  player2IsDead: 0
   gameMode: 1
   score: 0
   currentWaveEnemySpeed: 0
@@ -2569,8 +2571,6 @@ MonoBehaviour:
   currentLineEnemyDirection: 1
   waveIndex: 1
   countDownTime: 10
-  player1IsDead: 0
-  player2IsDead: 0
   gameIsOver: 0
   levelBuilt: 0
   recreateLevel: 0

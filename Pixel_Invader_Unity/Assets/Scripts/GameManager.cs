@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
     public int player2BombCount = 0;
     public int player2LaserCount = 0;
 
+    public bool player1IsDead = false;
+    public bool player2IsDead = false;
+
     public enum GameMode {
         SinglePlayerMode,
         CoopMode
@@ -36,8 +39,6 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int currentLineEnemyDirection = 1;
     [HideInInspector] public int waveIndex = 1;
     [HideInInspector] public float countDownTime = 10;
-    [HideInInspector] public bool player1IsDead = false;
-    [HideInInspector] public bool player2IsDead = false;
     [HideInInspector] public bool gameIsOver = false;
     [HideInInspector] public bool levelBuilt = false;
     [HideInInspector] public bool recreateLevel = false;
@@ -168,7 +169,7 @@ public class GameManager : MonoBehaviour {
         //Instanciate Player if player is dead
         if (gameMode == GameMode.SinglePlayerMode) {
             if (player1Count > 0 && player1IsDead) {
-                StartCoroutine(ResetPlayer1(1));
+                StartCoroutine(ResetPlayer1(0.5f));
                 player1IsDead = false;
             } else if (player1Count <= 0 && player1IsDead) {
                 gameIsOver = true;
@@ -176,12 +177,12 @@ public class GameManager : MonoBehaviour {
         } else {
             //Add reset player for Coop Mode script here------------------------------------------*********---------------------------------------------------------------/
             if (player1Count > 0 && player1IsDead) {
-                StartCoroutine(ResetPlayer1(1, -1f));
+                StartCoroutine(ResetPlayer1(0.5f, -1f));
                 player1IsDead = false;
             }
 
             if (player2Count > 0 && player2IsDead) {
-                StartCoroutine(ResetPlayer2(1, 1f));
+                StartCoroutine(ResetPlayer2(0.5f, 1f));
                 player2IsDead = false;
             }
 

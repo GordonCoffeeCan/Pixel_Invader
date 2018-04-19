@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour {
     private ControllerInputManager controllerInput;
     private Shield shieldBehavior;
     private bool shieldActivated = false;
+    private bool resourceShared = false;
 
     // Use this for initialization
     void Start () {
@@ -126,28 +127,15 @@ public class PlayerControl : MonoBehaviour {
         }
         //Special weapons count----------------------------------------------------------------------------------------
 
-        if (controllerInput.OnShield() == false) {
-            shieldActivated = false;
-        }
+        //On Casting Sheild -----------------------------------------------------------------
+        OnShield();
+        //On Casting Sheild -----------------------------------------------------------------
 
-        if (controllerInput.OnShield() && shield.gameObject.activeSelf == false && shieldActivated == false) {
-            shieldActivated = true;
-            shieldBehavior.shieldTimer = shieldActivatedTimer;
+        //On Sharing Resources -----------------------------------------------------------------
+        if (GameManager.instance.gameMode == GameManager.GameMode.CoopMode) {
+            OnShareResources();
         }
-
-        if (shieldBehavior.shieldTimer > 0) {
-            shield.gameObject.SetActive(true);
-            shield.color = new Color(1, 1, 1, Mathf.Lerp(shield.color.a, 1, 0.08f));
-            shieldBehavior.shieldTimer -= Time.deltaTime;
-
-        } else {
-            if (shield.gameObject.activeSelf) {
-                Instantiate(shieldDeestroyFX, new Vector3(this.transform.position.x, this.transform.position.y - 1.19f, this.transform.position.z), Quaternion.identity);
-            }
-            shield.gameObject.SetActive(false);
-            shield.color = new Color(1, 1, 1, 0);
-            shieldBehavior.shieldTimer = 0;
-        }
+        //On Sharing Resources -----------------------------------------------------------------
 
         gordModeTime -= Time.deltaTime;
 
@@ -207,7 +195,6 @@ public class PlayerControl : MonoBehaviour {
                     break;
                 case DropBox.BoxType.Laser:
                     Instantiate(powerUpFX[3], this.transform);
-
                     if (playerID == 1) {
                         if (GameManager.instance.player1LaserCount < 3) {
                             GameManager.instance.player1LaserCount++; ;
@@ -330,5 +317,127 @@ public class PlayerControl : MonoBehaviour {
         }
 
         currentShootGap = shotgunBulletGap;
+    }
+
+    private void OnShield() {
+        if (controllerInput.OnShield() == false) {
+            shieldActivated = false;
+        }
+
+        if (playerID == 1) {
+            if (controllerInput.OnShield() && shield.gameObject.activeSelf == false && shieldActivated == false && GameManager.instance.player1ShieldCount > 0) {
+                GameManager.instance.player1ShieldCount--;
+                shieldActivated = true;
+                shieldBehavior.shieldTimer = shieldActivatedTimer;
+            }
+        }
+
+        if (playerID == 2) {
+            if (controllerInput.OnShield() && shield.gameObject.activeSelf == false && shieldActivated == false && GameManager.instance.player2ShieldCount > 0) {
+                GameManager.instance.player2ShieldCount--;
+                shieldActivated = true;
+                shieldBehavior.shieldTimer = shieldActivatedTimer;
+            }
+        }
+
+        if (shieldBehavior.shieldTimer > 0) {
+            shield.gameObject.SetActive(true);
+            shield.color = new Color(1, 1, 1, Mathf.Lerp(shield.color.a, 1, 0.08f));
+            shieldBehavior.shieldTimer -= Time.deltaTime;
+
+        } else {
+            if (shield.gameObject.activeSelf) {
+                Instantiate(shieldDeestroyFX, new Vector3(this.transform.position.x, this.transform.position.y - 1.19f, this.transform.position.z), Quaternion.identity);
+            }
+            shield.gameObject.SetActive(false);
+            shield.color = new Color(1, 1, 1, 0);
+            shieldBehavior.shieldTimer = 0;
+        }
+    }
+
+    private void OnShareResources() {
+        if (controllerInput.OnShareX() == 0 && controllerInput.OnShareY() == 0) {
+            resourceShared = false;
+        }
+
+        //Player 1 Share Resourse to Player 2
+        if (playerID == 1) {
+            //Share Life
+            if (GameManager.instance.player1Count > 1 && controllerInput.OnShareX() < 0 && GameManager.instance.player2Count < 3 && resourceShared == false) {
+                resourceShared = true;
+                if (GameManager.instance.player2Clone != null) {
+                    Instantiate(powerUpFX[1], GameManager.instance.player2Clone.transform);
+                }
+                GameManager.instance.player1Count--;
+                GameManager.instance.player2Count++;
+                Debug.Log("Player 1 share 1 life to player 2");
+            }
+
+            //Share Shield
+            if (GameManager.instance.player1ShieldCount > 0 && controllerInput.OnShareY() > 0 && GameManager.instance.player2ShieldCount < 3 && resourceShared == false && GameManager.instance.player2Clone != null) {
+                resourceShared = true;
+                GameManager.instance.player1ShieldCount--;
+                GameManager.instance.player2ShieldCount++;
+                Debug.Log("Player 1 share 1 shield to player 2");
+            }
+
+            //Share Laser
+            if (GameManager.instance.player1LaserCount > 0 && controllerInput.OnShareX() > 0 && GameManager.instance.player2LaserCount < 3 && resourceShared == false && GameManager.instance.player2Clone != null) {
+                resourceShared = true;
+                Instantiate(powerUpFX[3], GameManager.instance.player2Clone.transform);
+                GameManager.instance.player1LaserCount--;
+                GameManager.instance.player2LaserCount++;
+                Debug.Log("Player 1 share 1 laser to player2");
+            }
+
+            //Share Bomb
+            if (GameManager.instance.player1BombCount > 0 && controllerInput.OnShareY() < 0 && GameManager.instance.player2BombCount < 3 && resourceShared == false && GameManager.instance.player2Clone != null) {
+                resourceShared = true;
+                Instantiate(powerUpFX[0], GameManager.instance.player2Clone.transform);
+                GameManager.instance.player1BombCount--;
+                GameManager.instance.player2BombCount++;
+                Debug.Log("Player 1 share 1 bomb to player2");
+            }
+        }
+
+        //Player 2 Share Resourse to Player 1
+        if (playerID == 2) {
+            //Share Life
+            if (GameManager.instance.player2Count > 1 && controllerInput.OnShareX() < 0 && GameManager.instance.player1Count < 3 && resourceShared == false) {
+                resourceShared = true;
+                //Player 2 share 1 life to player 1;
+                if (GameManager.instance.player1Clone != null) {
+                    Instantiate(powerUpFX[1], GameManager.instance.player1Clone.transform);
+                }
+                GameManager.instance.player2Count--;
+                GameManager.instance.player1Count++;
+            }
+
+            //Share Shield
+            if (GameManager.instance.player2ShieldCount > 0 && controllerInput.OnShareY() > 0 && GameManager.instance.player1ShieldCount < 3 && resourceShared == false && GameManager.instance.player1Clone != null) {
+                resourceShared = true;
+                //Player 2 share 1 shield to player 1;
+                GameManager.instance.player2ShieldCount--;
+                GameManager.instance.player1ShieldCount++;
+            }
+
+            //Share Laser
+            if (GameManager.instance.player2LaserCount > 0 && controllerInput.OnShareX() > 0 && GameManager.instance.player1LaserCount < 3 && resourceShared == false && GameManager.instance.player1Clone != null) {
+                resourceShared = true;
+                //Player 2 share 1 laser to player1;
+                Instantiate(powerUpFX[3], GameManager.instance.player1Clone.transform);
+                GameManager.instance.player2LaserCount--;
+                GameManager.instance.player1LaserCount++;
+            }
+
+            //Share Bomb
+            if (GameManager.instance.player2BombCount > 0 && controllerInput.OnShareY() < 0 && GameManager.instance.player1BombCount < 3 && resourceShared == false && GameManager.instance.player1Clone != null) {
+                resourceShared = true;
+                //Player 2 share 1 bomb to player1;
+                Instantiate(powerUpFX[0], GameManager.instance.player1Clone.transform);
+                GameManager.instance.player2BombCount--;
+                GameManager.instance.player1BombCount++;
+            }
+        }
     }
 }

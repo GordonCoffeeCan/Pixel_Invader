@@ -10,6 +10,8 @@ public class ControllerInputManager : MonoBehaviour {
     private string bomb = "";
     private string laser = "";
     private string shield = "";
+    private string shareX = "";
+    private string shareY = "";
 
     public void SetupPlayerInput(int _playerID) {
         if (_playerID == 1) {
@@ -19,6 +21,8 @@ public class ControllerInputManager : MonoBehaviour {
             bomb = "P1Bomb";
             laser = "P1Laser";
             shield = "P1Shield";
+            shareX = "P1ShareX";
+            shareY = "P1ShareY";
         }
 
         if (_playerID == 2) {
@@ -28,6 +32,8 @@ public class ControllerInputManager : MonoBehaviour {
             bomb = "P2Bomb";
             laser = "P2Laser";
             shield = "P2Shield";
+            shareX = "P2ShareX";
+            shareY = "P2ShareY";
         }
     }
 
@@ -53,5 +59,13 @@ public class ControllerInputManager : MonoBehaviour {
 
     public bool OnShield() {
         return (Input.GetButton(shield) || Input.GetAxis(shield) > 0.1f);
+    }
+
+    public float OnShareX() {
+        return (Input.GetAxis(shareX));
+    }
+
+    public float OnShareY() {
+        return (Input.GetAxis(shareY));
     }
 }
