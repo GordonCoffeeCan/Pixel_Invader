@@ -631,6 +631,8 @@ MonoBehaviour:
   laserHit: {fileID: 198537107640596934, guid: 9b805c114150a2d47b7010e6482f9be1, type: 2}
   trail: {fileID: 198541122270390660}
   dropBox: {fileID: 114558592735487730, guid: e8482aadf13bded41af8f07ea324936c, type: 2}
+  dropScore: {fileID: 114455341116306830, guid: 2da5c3e11c92b44469aeabb02fd4028d,
+    type: 2}
   orbs: {fileID: 1637519081895192}
   speed: 0
   speedMultiplier: 1

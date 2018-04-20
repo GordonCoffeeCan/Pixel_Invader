@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private ParticleSystem laserHit;
     [SerializeField] private ParticleSystem trail;
     [SerializeField] private DropBox dropBox;
+    [SerializeField] private DropScore dropScore;
     [SerializeField] private GameObject orbs;
 
     [HideInInspector] public float speed = 0;
@@ -64,6 +65,7 @@ public class Enemy : MonoBehaviour {
         spriteRender = this.GetComponent<SpriteRenderer>();
         enemyAnim = this.GetComponent<Animator>();
         boxCollider = this.GetComponent<BoxCollider2D>();
+        rig = this.GetComponent<Rigidbody2D>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
                 health = 10;
@@ -88,7 +90,6 @@ public class Enemy : MonoBehaviour {
                 health = 20;
                 score = 60;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
-                
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
                 enemySpawnFX = enemySpawnFXs[2];
                 enemyExplosionFX = explosionFXes[2];
@@ -131,7 +132,7 @@ public class Enemy : MonoBehaviour {
                 break;
         }
 
-        rig = this.GetComponent<Rigidbody2D>();
+        
         boxCollider.size = new Vector2(spriteRender.sprite.rect.size.x / spriteRender.sprite.pixelsPerUnit, spriteRender.sprite.rect.size.y / spriteRender.sprite.pixelsPerUnit);
 
         if (movementStyle == MovementStyle.Zigzag) {
@@ -139,7 +140,6 @@ public class Enemy : MonoBehaviour {
         }
 
         currentPosY = this.transform.position.y;
-
         spriteRender.color = new Color32(255, 255, 255, 0);
         Instantiate(enemySpawnFX, this.transform.position, Quaternion.identity, this.transform);
     }
@@ -154,6 +154,8 @@ public class Enemy : MonoBehaviour {
             GameManager.instance.enemyList.Remove(this);
             GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
+            DropScore dropScoreClone = Instantiate(dropScore, this.transform.position + Vector3.forward * -2.5f, Quaternion.identity) as DropScore;
+            dropScore.score = score;
             if (hasDropBox) {
                 Instantiate(dropBox, this.transform.position + Vector3.forward * -2.5f , Quaternion.identity);
             }
