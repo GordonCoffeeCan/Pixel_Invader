@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour {
     [HideInInspector] public float showObjecDelay = 0;
     [HideInInspector] public bool soundFXPlayable = true;
     [HideInInspector] public bool hitObject = false;
+    [HideInInspector] public int playerID = 0;
 
     private float speed = 6;
 
@@ -81,7 +82,7 @@ public class Bullet : MonoBehaviour {
 
         if (bulletType == BulletType.Bomb) {
             GameManager.instance.cameraShakeAmount = 0.65f;
-            GameManager.instance.BombAll();
+            GameManager.instance.BombAll(playerID);
         }
     }
 }

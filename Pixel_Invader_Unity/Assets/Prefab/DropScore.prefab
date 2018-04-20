@@ -130,5 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDelay: 2
-  scaleDownSpeed: 0.02
-  score: 80
+  fadeOutSpeed: 0.03
+  score: 10

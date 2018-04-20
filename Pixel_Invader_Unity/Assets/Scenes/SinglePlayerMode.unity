@@ -1119,7 +1119,7 @@ MonoBehaviour:
   enemySpeed: 0.85
   player1Count: 3
   player1ShieldCount: 3
-  player1BombCount: 3
+  player1BombCount: 3000
   player1LaserCount: 3
   player2Count: 3
   player2ShieldCount: 3
@@ -1128,13 +1128,15 @@ MonoBehaviour:
   player1IsDead: 0
   player2IsDead: 0
   gameMode: 0
-  score: 0
+  player1Score: 0
+  player2Score: 0
   currentWaveEnemySpeed: 0
   cameraShakeAmount: 0
   moveDirection: 1
   enemiesCount: 0
   currentLineEnemyDirection: 1
   waveIndex: 1
+  playerID: 0
   countDownTime: 10
   gameIsOver: 0
   levelBuilt: 0
@@ -1144,7 +1146,8 @@ MonoBehaviour:
   player2Clone: {fileID: 0}
   player1: {fileID: 114929660498260090, guid: 26726c7b7a83511429b8ee64d3d6067f, type: 2}
   player2: {fileID: 114929660498260090, guid: 518e7ac774a550a48a9c57469a809a0d, type: 2}
-  scoreText: {fileID: 470924933}
+  player1ScoreText: {fileID: 470924933}
+  player2ScoreText: {fileID: 0}
   waveText: {fileID: 1684786883}
 --- !u!114 &1158940752
 MonoBehaviour:

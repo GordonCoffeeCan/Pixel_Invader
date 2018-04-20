@@ -11,7 +11,8 @@ public class DropBox : MonoBehaviour {
         Laser,
         NewSpacecraft,
         HeavyGun,
-        Shotgun
+        Shotgun,
+        Shield
     }
 
     [HideInInspector] public BoxType boxType;
@@ -25,28 +26,12 @@ public class DropBox : MonoBehaviour {
 	void Start () {
         spriteRender = this.GetComponent<SpriteRenderer>();
         boxCollider = this.GetComponent<BoxCollider2D>();
-        switch (Random.Range(0, 5)) {
-            case 0:
-                boxType = BoxType.Bomb;
-                spriteRender.sprite = sprites[0];
-                break;
-            case 1:
-                boxType = BoxType.Laser;
-                spriteRender.sprite = sprites[1];
-                break;
-            case 2:
-                boxType = BoxType.NewSpacecraft;
-                spriteRender.sprite = sprites[2];
-                break;
-            case 3:
-                boxType = BoxType.HeavyGun;
-                spriteRender.sprite = sprites[3];
-                break;
-            case 4:
-                boxType = BoxType.Shotgun;
-                spriteRender.sprite = sprites[4];
-                break;
-        }
+
+        //Randomly select drop box item;
+        int _boxItemID = Random.Range(0, 6);
+        boxType = (BoxType)_boxItemID;
+        spriteRender.sprite = sprites[_boxItemID];
+        //Randomly select drop box item;
 
         boxCollider.size = new Vector2(spriteRender.sprite.rect.size.x / spriteRender.sprite.pixelsPerUnit, spriteRender.sprite.rect.size.y / spriteRender.sprite.pixelsPerUnit);
     }

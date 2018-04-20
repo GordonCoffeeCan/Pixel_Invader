@@ -31,13 +31,15 @@ public class GameManager : MonoBehaviour {
 
     public GameMode gameMode;
 
-    [HideInInspector] public float score = 0;
+    [HideInInspector] public float player1Score = 0;
+    [HideInInspector] public float player2Score = 0;
     [HideInInspector] public float currentWaveEnemySpeed;
     [HideInInspector] public float cameraShakeAmount = 0;
     [HideInInspector] public int moveDirection = 1;
     [HideInInspector] public int enemiesCount = 0;
     [HideInInspector] public int currentLineEnemyDirection = 1;
     [HideInInspector] public int waveIndex = 1;
+    [HideInInspector] public int playerID = 0;
     [HideInInspector] public float countDownTime = 10;
     [HideInInspector] public bool gameIsOver = false;
     [HideInInspector] public bool levelBuilt = false;
@@ -48,13 +50,15 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private PlayerControl player1;
     [SerializeField] private PlayerControl player2;
-    [SerializeField] private Text scoreText;
+    [SerializeField] private Text player1ScoreText;
+    [SerializeField] private Text player2ScoreText;
     [SerializeField] private Text waveText;
 
     private bool hDirChanged = false;
     private bool vDirChanged = false;
 
-    private float currentScore = 0;
+    private float currentPlayer1Score = 0;
+    private float currentPlayer2Score = 0;
     private float enemyPositionLimit = 0;
 
     private float deltaPosY;
@@ -65,7 +69,8 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        currentScore = score;
+        currentPlayer1Score = player1Score;
+        currentPlayer2Score = player2Score;
         SetEnemySpeed();
         wave = ProgressManager.currentWave;
         waveIndex = ProgressManager.currentWaveIndex;
@@ -84,10 +89,17 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        currentScore = Mathf.Lerp(currentScore, score, 0.15f);
+        currentPlayer1Score = Mathf.Lerp(currentPlayer1Score, player1Score, 0.15f);
+        currentPlayer2Score = Mathf.Lerp(currentPlayer2Score, player2Score, 0.15f);
 
-        scoreText.text = Mathf.Round(currentScore).ToString();
-        waveText.text = waveIndex.ToString();
+        if (gameMode == GameMode.SinglePlayerMode) {
+            player1ScoreText.text = Mathf.Round(currentPlayer1Score).ToString();
+            waveText.text = waveIndex.ToString();
+        }else if (gameMode == GameMode.CoopMode) {
+            player1ScoreText.text = Mathf.Round(currentPlayer1Score).ToString();
+            player2ScoreText.text = Mathf.Round(currentPlayer2Score).ToString();
+        }
+        
 
         if (enemiesCount <= 0 && levelBuilt == true) {
             levelBuilt = false;
@@ -230,9 +242,10 @@ public class GameManager : MonoBehaviour {
         vDirChanged = false;
     }
 
-    public void BombAll() {
+    public void BombAll(int _playerID) {
         for (int i = 0; i < enemyList.Count; i++) {
-            enemyList[i].health -= Random.Range(10f, 30f);
+            enemyList[i].health -= Random.Range(15f, 40f);
+            enemyList[i].playerID = _playerID;
         }
     }
 

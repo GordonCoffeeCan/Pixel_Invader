@@ -5,13 +5,14 @@ using UnityEngine;
 public class DropScore : MonoBehaviour {
 
     public float destroyDelay = 2;
-    public float scaleDownSpeed = 0.02f;
+    public float fadeOutSpeed = 0.03f;
 
     [HideInInspector] public float score = 0;
 
     private TextMesh textMesh;
     private Rigidbody2D rig;
     private float alpha = 1;
+    private float currentFadeOutSpeed = 0;
 
     private void Awake() {
         rig = this.GetComponent<Rigidbody2D>();
@@ -21,7 +22,7 @@ public class DropScore : MonoBehaviour {
     // Use this for initialization
     void Start () {
         textMesh.text = "+" + score.ToString();
-        Vector2 force = new Vector2(Random.Range(Random.Range(-1f, -0.5f), Random.Range(0.5f, 1f)), Random.Range(2f, 3f));
+        Vector2 force = new Vector2(Random.Range(Random.Range(-2f, -1f), Random.Range(1f, 2f)), Random.Range(2.5f, 3.2f));
         rig.AddForce(force, ForceMode2D.Impulse);
         Destroy(this.gameObject, destroyDelay);
     }
@@ -29,7 +30,9 @@ public class DropScore : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         textMesh.text = "+" + score.ToString();
-        alpha = Mathf.MoveTowards(alpha, 0, scaleDownSpeed);
-        textMesh.color = new Color(1, 1, 1, alpha);
+        currentFadeOutSpeed = Mathf.Lerp(currentFadeOutSpeed, fadeOutSpeed, 0.05f);
+        alpha = Mathf.MoveTowards(alpha, 0, currentFadeOutSpeed);
+        //textMesh.color = new Color(1, 1, 1, alpha);
+        this.transform.localScale = new Vector3(alpha, alpha, 1);
 	}
 }

@@ -105,6 +105,7 @@ MonoBehaviour:
   - {fileID: 21300018, guid: 7ad45d6f0ac51944cb59c95a188d59a0, type: 3}
   - {fileID: 21300012, guid: 7ad45d6f0ac51944cb59c95a188d59a0, type: 3}
   - {fileID: 21300014, guid: 7ad45d6f0ac51944cb59c95a188d59a0, type: 3}
+  - {fileID: 21300028, guid: 7ad45d6f0ac51944cb59c95a188d59a0, type: 3}
   boxType: 0
 --- !u!212 &212468602073458686
 SpriteRenderer:

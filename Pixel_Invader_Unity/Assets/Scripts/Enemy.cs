@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour {
     [HideInInspector] public float verticalSpeed = 0;
     [HideInInspector] public float currentPosY = 0;
 
+    [HideInInspector] public int playerID = 0;
+
     private float shootGap = 0;
     private float currentShootGap = 0;
     private float cameraShakeAmount = 0;
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour {
         rig = this.GetComponent<Rigidbody2D>();
         switch (enemyType) {
             case EnemyType.RegularEnemy:
-                health = 10;
+                health = 15;
                 isAbleToShoot = RegularEnemyShoot();
                 if (isAbleToShoot) {
                     score = 15;
@@ -87,7 +89,7 @@ public class Enemy : MonoBehaviour {
                 }
                 break;
             case EnemyType.EnemyCarrier:
-                health = 20;
+                health = 30;
                 score = 60;
                 cameraShakeAmount = Random.Range(0.1f, 0.2f);
                 enemyAnim.runtimeAnimatorController = enemyAnimControllers[2];
@@ -97,7 +99,7 @@ public class Enemy : MonoBehaviour {
                 hasDropBox = true;
                 break;
             case EnemyType.EnemyMotherShip:
-                health = 40;
+                health = 50;
                 score = 80;
                 cameraShakeAmount = Random.Range(0.25f, 0.4f);
                 orbs.gameObject.SetActive(true);
@@ -107,7 +109,7 @@ public class Enemy : MonoBehaviour {
                 spriteRender.sprite = sprites[1];
                 break;
             case EnemyType.ArmouredEnemy:
-                health = 50;
+                health = 70;
                 score = 120;
                 isAbleToShoot = true;
                 shootGap = Random.Range(3.15f, 10.85f);
@@ -139,6 +141,10 @@ public class Enemy : MonoBehaviour {
             
         }
 
+        if (GameManager.instance.wave > 9) {
+            health += (GameManager.instance.wave - 9) * 2f;
+            Debug.Log(health);
+        }
         currentPosY = this.transform.position.y;
         spriteRender.color = new Color32(255, 255, 255, 0);
         Instantiate(enemySpawnFX, this.transform.position, Quaternion.identity, this.transform);
@@ -147,15 +153,20 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         spriteRender.color = Color32.Lerp(spriteRender.color, new Color32(255, 255, 255, 255), 0.15f);
-
+        dropScore.score = score;
         if (health <= 0) {
-            GameManager.instance.score += score;
+
+            if (playerID == 1) {
+                GameManager.instance.player1Score += score;
+            }else if (playerID == 2) {
+                GameManager.instance.player2Score += score;
+            }
+            
             GameManager.instance.enemiesCount--;
             GameManager.instance.enemyList.Remove(this);
             GameManager.instance.cameraShakeAmount += cameraShakeAmount;
             Instantiate(enemyExplosionFX, this.transform.position, Quaternion.identity);
-            DropScore dropScoreClone = Instantiate(dropScore, this.transform.position + Vector3.forward * -2.5f, Quaternion.identity) as DropScore;
-            dropScore.score = score;
+            Instantiate(dropScore, this.transform.position + Vector3.forward * -2.5f, Quaternion.identity);
             if (hasDropBox) {
                 Instantiate(dropBox, this.transform.position + Vector3.forward * -2.5f , Quaternion.identity);
             }
@@ -192,8 +203,7 @@ public class Enemy : MonoBehaviour {
         if (foundPlayer) {
             trail.gameObject.SetActive(true);
             movementStyle = MovementStyle.Towards;
-
-        }else {
+        } else {
             trail.gameObject.SetActive(false);
             movementStyle = MovementStyle.LeftAndRight;
             randomPlayerTargetID = Random.Range(1, 3); //Random value to select the player as the target-------------------------------------------------------------
@@ -241,6 +251,7 @@ public class Enemy : MonoBehaviour {
             Bullet _bullet = _col.gameObject.GetComponent<Bullet>();
             health -= _bullet.power;
             _bullet.hitObject = true;
+            playerID = _bullet.playerID;
             if (_col.tag == "Bullet") {
                 Destroy(_col.gameObject);
             }else if (_col.tag == "Laser") {

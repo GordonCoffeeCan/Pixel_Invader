@@ -7,7 +7,9 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField][Range(1, 2)] private int playerID = 1;
     [SerializeField] private float speed = 7;
     [SerializeField] private float screenEdge = 0;
-    [SerializeField] private float bulletPower = 0;
+    [SerializeField] private float regularBulletPower = 10;
+    [SerializeField] private float machineGunBulletPower = 10;
+    [SerializeField] private float shotgunBulletPower = 10;
     [SerializeField] private float bulletGap = 0.35f;
     [SerializeField] private float tripleBulletGap = 0.45f;
     [SerializeField] private float shotgunBulletGap = 0.6f;
@@ -36,8 +38,8 @@ public class PlayerControl : MonoBehaviour {
     [HideInInspector] public GunType gunType;
 
     private Rigidbody2D rig;
+    private float bulletPower = 0;
     private float currentShootGap = 0;
-    
     private Animator playerAnim;
     private ControllerInputManager controllerInput;
     private Shield shieldBehavior;
@@ -50,6 +52,7 @@ public class PlayerControl : MonoBehaviour {
         playerAnim = this.GetComponent<Animator>();
         controllerInput = this.GetComponent<ControllerInputManager>();
         shieldBehavior = shield.GetComponent<Shield>();
+        bulletPower = regularBulletPower;
         controllerInput.SetupPlayerInput(playerID);
         Instantiate(muteFX, this.transform.position + Vector3.down * 0.06f, Quaternion.identity, this.transform);
         screenEdge = WindowSizeUtil.instance.halfWindowSize.x - 4.15f;
@@ -100,6 +103,7 @@ public class PlayerControl : MonoBehaviour {
             if (controllerInput.ShootBomb() && GameManager.instance.player1BombCount > 0) {
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
+                _bombClone.playerID = playerID;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
                 GameManager.instance.player1BombCount--;
             }
@@ -107,6 +111,7 @@ public class PlayerControl : MonoBehaviour {
             if (controllerInput.ShootLaser() && GameManager.instance.player1LaserCount > 0) {
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
+                _laserClone.playerID = playerID;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
                 GameManager.instance.player1LaserCount--;
             }
@@ -114,6 +119,7 @@ public class PlayerControl : MonoBehaviour {
             if (controllerInput.ShootBomb() && GameManager.instance.player2BombCount > 0) {
                 Bullet _bombClone = Instantiate(bomb, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
                 _bombClone.dir = 1;
+                _bombClone.playerID = playerID;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bombClone.GetComponent<BoxCollider2D>());
                 GameManager.instance.player2BombCount--;
             }
@@ -121,6 +127,7 @@ public class PlayerControl : MonoBehaviour {
             if (controllerInput.ShootLaser() && GameManager.instance.player2LaserCount > 0) {
                 Bullet _laserClone = Instantiate(laser, this.transform.position + Vector3.forward * 0.1f, Quaternion.identity, this.transform) as Bullet;
                 _laserClone.power = 80;
+                _laserClone.playerID = playerID;
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _laserClone.GetComponent<BoxCollider2D>());
                 GameManager.instance.player2LaserCount--;
             }
@@ -216,7 +223,18 @@ public class PlayerControl : MonoBehaviour {
                             GameManager.instance.player2Count++;
                         }
                     }
-                    
+                    break;
+                case DropBox.BoxType.Shield:
+                    Instantiate(powerUpFX[5], this.transform);
+                    if (playerID == 1) {
+                        if (GameManager.instance.player1ShieldCount < 3) {
+                            GameManager.instance.player1ShieldCount++;
+                        }
+                    } else if (playerID == 2) {
+                        if (GameManager.instance.player2ShieldCount < 3) {
+                            GameManager.instance.player2ShieldCount++;
+                        }
+                    }
                     break;
                 case DropBox.BoxType.Shotgun:
                     OnShotGun();
@@ -249,7 +267,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnRegularGun() {
         gunType = GunType.RegularGun;
-        bulletPower = 10;
+        bulletPower = regularBulletPower;
         for (int i = 0; i < weapons.Length; i++) {
             weapons[i].SetActive(false);
         }
@@ -257,7 +275,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnHeavyGun() {
         gunType = GunType.HeavyGun;
-        bulletPower = 5;
+        bulletPower = machineGunBulletPower;
         Instantiate(powerUpFX[2], this.transform);
         for (int i = 0; i < weapons.Length; i++) {
             weapons[i].SetActive(false);
@@ -269,7 +287,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnShotGun() {
         gunType = GunType.ShotGun;
-        bulletPower = 5;
+        bulletPower = shotgunBulletPower;
         Instantiate(powerUpFX[4], this.transform);
         for (int i = 0; i < weapons.Length; i++) {
             weapons[i].SetActive(false);
@@ -283,6 +301,7 @@ public class PlayerControl : MonoBehaviour {
         Bullet _bulletClone = Instantiate(regularBullet, this.transform.position + Vector3.forward * 0.1f + Vector3.up * 0.25f, Quaternion.identity) as Bullet;
         _bulletClone.power = bulletPower;
         _bulletClone.dir = 1;
+        _bulletClone.playerID = playerID;
         _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
         Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         currentShootGap = bulletGap;
@@ -296,6 +315,7 @@ public class PlayerControl : MonoBehaviour {
             _bulletClone.power = bulletPower;
             _bulletClone.showObjecDelay = i * 0.1f;
             _bulletClone.dir = 1;
+            _bulletClone.playerID = playerID;
             _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[0];
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         }
@@ -312,6 +332,7 @@ public class PlayerControl : MonoBehaviour {
                 _bulletClone.soundFXPlayable = false;
             }
             _bulletClone.dir = 1;
+            _bulletClone.playerID = playerID;
             _bulletClone.soundFXSource.clip = _bulletClone.bulletSoundFXes[2];
             Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), _bulletClone.GetComponent<BoxCollider2D>());
         }

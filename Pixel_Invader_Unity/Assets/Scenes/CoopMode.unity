@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 332193618}
   - component: {fileID: 332193617}
   m_Layer: 5
-  m_Name: WaveTitle
+  m_Name: ScoreTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WAVE
+  m_Text: SCORE
 --- !u!222 &332193618
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 900766429}
   - component: {fileID: 900766428}
   m_Layer: 5
-  m_Name: WaveText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2552,24 +2552,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: 3
   enemySpeed: 0.85
-  player1Count: 0
+  player1Count: 200
   player1ShieldCount: 2
-  player1BombCount: 2
+  player1BombCount: 2000
   player1LaserCount: 2
-  player2Count: 2
+  player2Count: 200
   player2ShieldCount: 2
   player2BombCount: 2
   player2LaserCount: 2
-  player1IsDead: 1
+  player1IsDead: 0
   player2IsDead: 0
   gameMode: 1
-  score: 0
+  player1Score: 0
+  player2Score: 0
   currentWaveEnemySpeed: 0
   cameraShakeAmount: 0
   moveDirection: 1
   enemiesCount: 0
   currentLineEnemyDirection: 1
   waveIndex: 1
+  playerID: 0
   countDownTime: 10
   gameIsOver: 0
   levelBuilt: 0
@@ -2579,7 +2581,8 @@ MonoBehaviour:
   player2Clone: {fileID: 0}
   player1: {fileID: 114929660498260090, guid: 26726c7b7a83511429b8ee64d3d6067f, type: 2}
   player2: {fileID: 114929660498260090, guid: 518e7ac774a550a48a9c57469a809a0d, type: 2}
-  scoreText: {fileID: 273281918}
+  player1ScoreText: {fileID: 273281918}
+  player2ScoreText: {fileID: 900766428}
   waveText: {fileID: 900766428}
 --- !u!114 &1269928202
 MonoBehaviour:

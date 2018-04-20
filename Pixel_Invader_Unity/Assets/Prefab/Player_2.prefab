@@ -430,12 +430,14 @@ MonoBehaviour:
   playerID: 2
   speed: 7
   screenEdge: 4.5
-  bulletPower: 10
-  bulletGap: 0.35
-  tripleBulletGap: 0.25
-  shotgunBulletGap: 0.45
+  regularBulletPower: 20
+  machineGunBulletPower: 5
+  shotgunBulletPower: 3
+  bulletGap: 0.5
+  tripleBulletGap: 0.35
+  shotgunBulletGap: 0.6
   gordModeTime: 2.5
-  shieldActivatedTimer: 3.5
+  shieldActivatedTimer: 5
   regularBullet: {fileID: 114882958960836000, guid: fbef0493c5263c34f982bccc456670be,
     type: 2}
   heavyGunBullet: {fileID: 114882958960836000, guid: cb51351dd11a2a947a7ea287b7387c87,
@@ -456,6 +458,7 @@ MonoBehaviour:
   - {fileID: 198029922481528766, guid: fc8805d3836b97c45b4449723f435193, type: 2}
   - {fileID: 198029922481528766, guid: f7b2a4ee05fb951409bfcba3584c6269, type: 2}
   - {fileID: 198029922481528766, guid: 5991608fe03ae3e46bddff55bbb72985, type: 2}
+  - {fileID: 198029922481528766, guid: 2436208dd55a1d447afe0e6592b82986, type: 2}
   weapons:
   - {fileID: 1538934208202048}
   - {fileID: 1912099257302098}
