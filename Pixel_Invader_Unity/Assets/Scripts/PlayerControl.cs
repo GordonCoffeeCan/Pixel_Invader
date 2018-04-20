@@ -60,7 +60,14 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(this.transform.position.x < -screenEdge) {
+        //Pause the Game------------------------------------
+        if (GameManager.instance.gameIsPause) {
+            currentShootGap = 0.35f;
+            return;
+        }
+        //Pause the Game------------------------------------
+
+        if (this.transform.position.x < -screenEdge) {
             this.transform.position = new Vector2(-screenEdge, this.transform.position.y);
         }else if (this.transform.position.x > screenEdge) {
             this.transform.position = new Vector2(screenEdge, this.transform.position.y);
@@ -159,6 +166,12 @@ public class PlayerControl : MonoBehaviour {
 	}
 
     private void FixedUpdate() {
+        //Pause the Game------------------------------------
+        if (GameManager.instance.gameIsPause) {
+            return;
+        }
+        //Pause the Game------------------------------------
+
         rig.MovePosition(new Vector2(this.transform.position.x + speed * controllerInput.MoveHorizontal() * Time.deltaTime, this.transform.position.y));
         playerAnim.SetFloat("Speed", controllerInput.MoveHorizontal());
     }

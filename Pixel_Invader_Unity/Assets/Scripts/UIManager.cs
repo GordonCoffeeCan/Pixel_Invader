@@ -16,13 +16,16 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Image[] player2Lasers;
 
     [SerializeField] private Text waveClearText;
-    [SerializeField] private Text gameOverText;
+
+    [SerializeField] private Image gameOverPanel;
     [SerializeField] private Text countDownText;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
+    [SerializeField] private Image pausePanel;
+
+    // Use this for initialization
+    void Start () {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,11 +51,9 @@ public class UIManager : MonoBehaviour {
             waveClearText.gameObject.SetActive(false);
         }
 
-        if (GameManager.instance.gameIsOver) {
-            gameOverText.gameObject.SetActive(true);
-        } else {
-            gameOverText.gameObject.SetActive(false);
-        }
+        gameOverPanel.gameObject.SetActive(GameManager.instance.gameIsOver);
+
+        pausePanel.gameObject.SetActive(GameManager.instance.gameIsPause);
 
         countDownText.text = Mathf.RoundToInt(GameManager.instance.countDownTime).ToString();
     }

@@ -41,6 +41,12 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Pause the Game------------------------------------
+        if (GameManager.instance.gameIsPause) {
+            return;
+        }
+        //Pause the Game------------------------------------
+
         if (bulletType == BulletType.Bomb) {
             deltaPosY = Mathf.Lerp(deltaPosY, 0, 0.05f);
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + deltaPosY * Time.deltaTime);

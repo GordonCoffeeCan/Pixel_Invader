@@ -1,7 +1,7 @@
 -a-a-a-a-a-a-a-
--r-c-r-c-r-c-r-
+-r-e-r-e-r-e-r-
 -m-m-m-m-m-m-m-
--c-c-c-c-c-c-c-
+-a-e-a-e-a-e-a-
 -r-r-r-r-r-r-r-
 -r-r-r-r-r-r-r-
 -a-a-a-a-a-a-a-

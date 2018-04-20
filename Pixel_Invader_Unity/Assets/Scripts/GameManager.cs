@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
 
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int playerID = 0;
     [HideInInspector] public float countDownTime = 10;
     [HideInInspector] public bool gameIsOver = false;
+    [HideInInspector] public bool gameIsPause = false;
     [HideInInspector] public bool levelBuilt = false;
     [HideInInspector] public bool recreateLevel = false;
     [HideInInspector] public List<Enemy> enemyList = new List<Enemy>();
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Text player1ScoreText;
     [SerializeField] private Text player2ScoreText;
     [SerializeField] private Text waveText;
+    [SerializeField] private Button resumeButton;
 
     private bool hDirChanged = false;
     private bool vDirChanged = false;
@@ -63,6 +66,8 @@ public class GameManager : MonoBehaviour {
 
     private float deltaPosY;
 
+    private EventSystem eventSystem;
+
     private void Awake() {
         instance = this;
     }
@@ -71,6 +76,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
         currentPlayer1Score = player1Score;
         currentPlayer2Score = player2Score;
+        eventSystem = EventSystem.current;
         SetEnemySpeed();
         wave = ProgressManager.currentWave;
         waveIndex = ProgressManager.currentWaveIndex;
@@ -220,11 +226,19 @@ public class GameManager : MonoBehaviour {
             ProgressManager.currentWaveIndex = waveIndex;
             if (countDownTime > 0) {
                 countDownTime -= Time.deltaTime;
+                if (Input.GetButtonDown("Start")) {
+                    ReloadLevel();
+                }
             } else {
                 LoadMainMenu();
             }
         } else {
             countDownTime = 10;
+            if (Input.GetButtonDown("Pause")) {
+                eventSystem.SetSelectedGameObject(null);
+                gameIsPause = !gameIsPause;
+                StartCoroutine(SelectButton());
+            }
         }
         //Record current game progress
     }
@@ -274,11 +288,20 @@ public class GameManager : MonoBehaviour {
         player2Clone = Instantiate(player2, new Vector3(_xPos, -4, -2), Quaternion.identity) as PlayerControl;
     }
 
+    private IEnumerator SelectButton() {
+        yield return new WaitForEndOfFrame();
+        eventSystem.SetSelectedGameObject(resumeButton.gameObject);
+    }
+
     public void ReloadLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu() {
         SceneManager.LoadScene(0);
+    }
+
+    public void ResumeGame() {
+        gameIsPause = false;
     }
 }

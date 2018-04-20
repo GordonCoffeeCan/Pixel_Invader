@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour {
                 enemySpawnFX = enemySpawnFXs[0];
                 enemyExplosionFX = explosionFXes[0];
                 spriteRender.sprite = sprites[0];
-                if (Random.Range(0, 26) == 5) {
+                if (Random.Range(0, 60) == 5) {
                     hasDropBox = true;
                 }
                 break;
@@ -107,6 +107,9 @@ public class Enemy : MonoBehaviour {
                 enemySpawnFX = enemySpawnFXs[1];
                 enemyExplosionFX = explosionFXes[1];
                 spriteRender.sprite = sprites[1];
+                if (Random.Range(0, 80) == 5) {
+                    hasDropBox = true;
+                }
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 70;
@@ -119,6 +122,9 @@ public class Enemy : MonoBehaviour {
                 enemySpawnFX = enemySpawnFXs[3];
                 enemyExplosionFX = explosionFXes[3];
                 spriteRender.sprite = sprites[3];
+                if (Random.Range(0, 100) == 5) {
+                    hasDropBox = true;
+                }
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
@@ -142,8 +148,7 @@ public class Enemy : MonoBehaviour {
         }
 
         if (GameManager.instance.wave > 9) {
-            health += (GameManager.instance.wave - 9) * 2f;
-            Debug.Log(health);
+            health += (GameManager.instance.wave - 9) * 1f;
         }
         currentPosY = this.transform.position.y;
         spriteRender.color = new Color32(255, 255, 255, 0);
@@ -154,6 +159,13 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         spriteRender.color = Color32.Lerp(spriteRender.color, new Color32(255, 255, 255, 255), 0.15f);
         dropScore.score = score;
+
+        //Pause the Game------------------------------------
+        if (GameManager.instance.gameIsPause) {
+            return;
+        }
+        //Pause the Game------------------------------------
+
         if (health <= 0) {
 
             if (playerID == 1) {
@@ -211,6 +223,12 @@ public class Enemy : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        //Pause the Game------------------------------------
+        if (GameManager.instance.gameIsPause) {
+            return;
+        }
+        //Pause the Game------------------------------------
+
         if (initialMoveTime > 0) {
             initialMoveTime -= Time.deltaTime;
             this.transform.position = new Vector3(this.transform.position.x, Mathf.MoveTowards(this.transform.position.y, currentPosY - 2, 0.03f), this.transform.position.z);
