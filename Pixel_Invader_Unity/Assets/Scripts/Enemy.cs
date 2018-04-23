@@ -34,8 +34,6 @@ public class Enemy : MonoBehaviour {
     private ParticleSystem enemySpawnFX;
     private ParticleSystem enemyExplosionFX;
 
-    private int score = 0;
-
     private Rigidbody2D rig;
     private BoxCollider2D boxCollider;
     private Animator enemyAnim;
@@ -43,6 +41,9 @@ public class Enemy : MonoBehaviour {
     private bool hasDropBox = false;
     private bool foundPlayer = false;
     private int randomPlayerTargetID = 0;
+    private int score = 0;
+
+    private Color32 scoreColor = Color.white;
 
     public enum EnemyType {
         RegularEnemy,
@@ -87,6 +88,7 @@ public class Enemy : MonoBehaviour {
                 if (Random.Range(0, 60) == 5) {
                     hasDropBox = true;
                 }
+                scoreColor = new Color32(173, 238, 223, 255);
                 break;
             case EnemyType.EnemyCarrier:
                 health = 30;
@@ -97,6 +99,7 @@ public class Enemy : MonoBehaviour {
                 enemyExplosionFX = explosionFXes[2];
                 spriteRender.sprite = sprites[2];
                 hasDropBox = true;
+                scoreColor = new Color32(255, 189, 135, 255);
                 break;
             case EnemyType.EnemyMotherShip:
                 health = 50;
@@ -110,6 +113,7 @@ public class Enemy : MonoBehaviour {
                 if (Random.Range(0, 80) == 5) {
                     hasDropBox = true;
                 }
+                scoreColor = new Color32(229, 171, 253, 255);
                 break;
             case EnemyType.ArmouredEnemy:
                 health = 70;
@@ -125,6 +129,7 @@ public class Enemy : MonoBehaviour {
                 if (Random.Range(0, 100) == 5) {
                     hasDropBox = true;
                 }
+                scoreColor = new Color32(127, 185, 249, 255);
                 break;
             case EnemyType.SuicideEnemy:
                 health = 10;
@@ -135,6 +140,7 @@ public class Enemy : MonoBehaviour {
                 enemySpawnFX = enemySpawnFXs[4];
                 enemyExplosionFX = explosionFXes[4];
                 spriteRender.sprite = sprites[4];
+                scoreColor = new Color32(255, 186, 186, 255);
                 break;
             case EnemyType.SpawnPoint:
                 break;
@@ -159,7 +165,7 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         spriteRender.color = Color32.Lerp(spriteRender.color, new Color32(255, 255, 255, 255), 0.15f);
         dropScore.score = score;
-
+        dropScore.scoreColor = scoreColor;
         //Pause the Game------------------------------------
         if (GameManager.instance.gameIsPause) {
             return;

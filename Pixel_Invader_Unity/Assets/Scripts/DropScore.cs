@@ -6,6 +6,7 @@ public class DropScore : MonoBehaviour {
 
     public float destroyDelay = 2;
     public float fadeOutSpeed = 0.03f;
+    public Color32 scoreColor = Color.white;
 
     [HideInInspector] public float score = 0;
 
@@ -30,6 +31,7 @@ public class DropScore : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         textMesh.text = "+" + score.ToString();
+        textMesh.color = scoreColor;
         currentFadeOutSpeed = Mathf.Lerp(currentFadeOutSpeed, fadeOutSpeed, 0.05f);
         alpha = Mathf.MoveTowards(alpha, 0, currentFadeOutSpeed);
         //textMesh.color = new Color(1, 1, 1, alpha);

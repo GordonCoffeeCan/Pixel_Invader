@@ -46,7 +46,7 @@ public class ControllerInputManager : MonoBehaviour {
     }
 
     public bool ShootBullet() {
-        return (Input.GetButton(bullet));
+        return (Input.GetButton(bullet) || Input.GetAxis(bullet) > 0.1f);
     }
 
     public bool ShootBomb() {

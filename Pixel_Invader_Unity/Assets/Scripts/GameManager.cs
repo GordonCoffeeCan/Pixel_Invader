@@ -227,6 +227,9 @@ public class GameManager : MonoBehaviour {
             if (countDownTime > 0) {
                 countDownTime -= Time.deltaTime;
                 if (Input.GetButtonDown("Start")) {
+                    if (MenuSoundManager.instance != null) {
+                        MenuSoundManager.instance.PlayeButtonSelectedSound();
+                    }
                     ReloadLevel();
                 }
             } else {
@@ -235,6 +238,9 @@ public class GameManager : MonoBehaviour {
         } else {
             countDownTime = 10;
             if (Input.GetButtonDown("Pause")) {
+                if (MenuSoundManager.instance != null) {
+                    MenuSoundManager.instance.PlayeButtonSelectedSound();
+                }
                 eventSystem.SetSelectedGameObject(null);
                 gameIsPause = !gameIsPause;
                 StartCoroutine(SelectButton());
@@ -294,14 +300,29 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ReloadLevel() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu() {
-        SceneManager.LoadScene(0);
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ResumeGame() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         gameIsPause = false;
+    }
+
+    public void OnButtonSwitched() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayButtonSwitchSound();
+        }
     }
 }

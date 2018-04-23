@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour {
 
     private void Awake() {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (SceneManager.GetActiveScene().name == "TitleScreen") {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     // Use this for initialization
@@ -16,51 +19,107 @@ public class MenuManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (SceneManager.GetActiveScene().name == "TitleScreen") {
+            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Start")) {
+                OnStartGame();
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "MainMenu") {
+            if (Input.GetButtonDown("Cancel")) {
+                OnExitGame();
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "HowToPlay") {
+            if(Input.GetButtonDown("Submit") || Input.GetButtonDown("Start")) {
+                OnNewGame();
+            } else if (Input.GetButtonDown("Cancel")) {
+                OnStartGame();
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "GameModes") {
+            if (Input.GetButtonDown("Cancel")) {
+                OnStartGame();
+            }
+        }
+    }
 
     public void OnStartGame() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
     public void OnNewGame() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("GameModes");
     }
 
     public void OnOnePlayerGame() {
         ProgressManager.currentWave = 0;
         ProgressManager.currentWaveIndex = 1;
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("SinglePlayerMode");
     }
 
     public void OnTwoPlayerGame() {
         ProgressManager.currentWave = 0;
         ProgressManager.currentWaveIndex = 1;
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("CoopMode");
     }
 
     public void OnHowToPlay() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("HowToPlay");
     }
 
     public void OnMainMenu() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
     public void OnExitGame() {
-        //Application.Quit();
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
+        
         SceneManager.LoadScene("TitleScreen");
     }
 
+    public void OnButtonSwitched() {
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayButtonSwitchSound();
+        }
+    }
+
     private void ClearRepeatedObjects() {
-        GameBackground[] gameBGs = GameObject.FindObjectsOfType<GameBackground>();
-        BackgroundMusic[] bgMusics = GameObject.FindObjectsOfType<BackgroundMusic>();
-        if (gameBGs.Length > 1) {
-            Destroy(gameBGs[0].gameObject);
+        GameBackground[] _gameBGs = GameObject.FindObjectsOfType<GameBackground>();
+        BackgroundMusic[] _bgMusics = GameObject.FindObjectsOfType<BackgroundMusic>();
+        MenuSoundManager[] _menuSound = GameObject.FindObjectsOfType<MenuSoundManager>();
+        if (_gameBGs.Length > 1) {
+            Destroy(_gameBGs[0].gameObject);
         }
 
-        if (bgMusics.Length > 1) {
-            Destroy(bgMusics[0].gameObject);
+        if (_bgMusics.Length > 1) {
+            Destroy(_bgMusics[0].gameObject);
+        }
+
+        if (_menuSound.Length > 1) {
+            Destroy(_menuSound[0].gameObject);
         }
     }
 }

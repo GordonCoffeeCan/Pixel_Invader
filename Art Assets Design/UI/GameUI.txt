@@ -48,9 +48,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":103},
 	"sourceSize": {"w":60,"h":103}
 },
+"Start_Button.png":
+{
+	"frame": {"x":64,"y":147,"w":22,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":15},
+	"sourceSize": {"w":22,"h":15}
+},
 "Submenu_Panel.png":
 {
-	"frame": {"x":64,"y":147,"w":75,"h":58},
+	"frame": {"x":88,"y":147,"w":75,"h":58},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":58},
@@ -58,11 +66,11 @@
 },
 "UI_GamePad.png":
 {
-	"frame": {"x":141,"y":147,"w":57,"h":42},
+	"frame": {"x":165,"y":147,"w":65,"h":43},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":42},
-	"sourceSize": {"w":57,"h":42}
+	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":43},
+	"sourceSize": {"w":65,"h":43}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
@@ -71,6 +79,6 @@
 	"format": "RGBA8888",
 	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:8e44c26ef42e05f3d3348fc95be19de1:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:02d0bc36a1237a1c23668b44401b9006:1/1$"
 }
 }
