@@ -17,7 +17,9 @@ public class MenuManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        ClearRepeatedObjects();
+        if(SceneManager.GetActiveScene().name == "TitleScreen") {
+            InstanciateNoneDestroyObjects();
+        }
     }
 	
 	// Update is called once per frame
@@ -109,7 +111,7 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
-    private void ClearRepeatedObjects() {
+    private void InstanciateNoneDestroyObjects() {
         GameBackground[] _gameBGs = GameObject.FindObjectsOfType<GameBackground>();
         BackgroundMusic[] _bgMusics = GameObject.FindObjectsOfType<BackgroundMusic>();
         MenuSoundManager[] _menuSound = GameObject.FindObjectsOfType<MenuSoundManager>();

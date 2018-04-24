@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour {
 
     public void BombAll(int _playerID) {
         for (int i = 0; i < enemyList.Count; i++) {
-            enemyList[i].health -= Random.Range(15f, 40f);
+            enemyList[i].health -= 36;
             enemyList[i].playerID = _playerID;
         }
     }
