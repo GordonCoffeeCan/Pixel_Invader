@@ -32,7 +32,7 @@ public class DropScore : MonoBehaviour {
 	void Update () {
         textMesh.text = "+" + score.ToString();
         textMesh.color = scoreColor;
-        currentFadeOutSpeed = Mathf.Lerp(currentFadeOutSpeed, fadeOutSpeed, 0.05f);
+        currentFadeOutSpeed = Mathf.Lerp(currentFadeOutSpeed, fadeOutSpeed, 0.06f);
         alpha = Mathf.MoveTowards(alpha, 0, currentFadeOutSpeed);
         //textMesh.color = new Color(1, 1, 1, alpha);
         this.transform.localScale = new Vector3(alpha, alpha, 1);

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour {
+
+    [SerializeField] private GameBackground gameBackground;
+    [SerializeField] private BackgroundMusic backgroundMusic;
+    [SerializeField] private MenuSoundManager menuSound;
 
     private void Awake() {
         if (SceneManager.GetActiveScene().name == "TitleScreen") {
@@ -112,14 +115,20 @@ public class MenuManager : MonoBehaviour {
         MenuSoundManager[] _menuSound = GameObject.FindObjectsOfType<MenuSoundManager>();
         if (_gameBGs.Length > 1) {
             Destroy(_gameBGs[0].gameObject);
+        } else if(_gameBGs.Length == 0) {
+            Instantiate(gameBackground, Vector3.zero, Quaternion.identity);
         }
 
         if (_bgMusics.Length > 1) {
             Destroy(_bgMusics[0].gameObject);
+        } else if(_bgMusics.Length == 0) {
+            Instantiate(backgroundMusic, Vector3.zero, Quaternion.identity);
         }
 
         if (_menuSound.Length > 1) {
             Destroy(_menuSound[0].gameObject);
+        } else if(_menuSound.Length == 0) {
+            Instantiate(menuSound, Vector3.zero, Quaternion.identity);
         }
     }
 }

@@ -410,6 +410,9 @@ public class PlayerControl : MonoBehaviour {
             //Share Shield
             if (GameManager.instance.player1ShieldCount > 0 && controllerInput.OnShareY() > 0 && GameManager.instance.player2ShieldCount < 3 && resourceShared == false && GameManager.instance.player2Clone != null) {
                 resourceShared = true;
+                if (GameManager.instance.player2Clone != null) {
+                    Instantiate(powerUpFX[5], GameManager.instance.player2Clone.transform);
+                }
                 GameManager.instance.player1ShieldCount--;
                 GameManager.instance.player2ShieldCount++;
                 Debug.Log("Player 1 share 1 shield to player 2");
@@ -451,6 +454,9 @@ public class PlayerControl : MonoBehaviour {
             if (GameManager.instance.player2ShieldCount > 0 && controllerInput.OnShareY() > 0 && GameManager.instance.player1ShieldCount < 3 && resourceShared == false && GameManager.instance.player1Clone != null) {
                 resourceShared = true;
                 //Player 2 share 1 shield to player 1;
+                if (GameManager.instance.player1Clone != null) {
+                    Instantiate(powerUpFX[5], GameManager.instance.player1Clone.transform);
+                }
                 GameManager.instance.player2ShieldCount--;
                 GameManager.instance.player1ShieldCount++;
             }

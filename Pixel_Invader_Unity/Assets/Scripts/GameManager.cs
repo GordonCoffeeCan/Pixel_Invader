@@ -211,13 +211,13 @@ public class GameManager : MonoBehaviour {
         //Instanciate Player if player is dead
 
         //Only for Dev
-        if (Input.GetKeyDown(KeyCode.K)) {
+        /*if (Input.GetKeyDown(KeyCode.K)) {
             player1Count = 0;
             player1IsDead = true;
             player2Count = 0;
             player2IsDead = true;
             gameIsOver = true;
-        }
+        }*/
         //Only for Dev
 
         //Record current game progress

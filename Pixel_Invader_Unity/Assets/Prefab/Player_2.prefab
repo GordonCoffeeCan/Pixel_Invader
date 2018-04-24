@@ -437,7 +437,7 @@ MonoBehaviour:
   tripleBulletGap: 0.35
   shotgunBulletGap: 0.6
   gordModeTime: 2.5
-  shieldActivatedTimer: 5
+  shieldActivatedTimer: 30
   regularBullet: {fileID: 114882958960836000, guid: fbef0493c5263c34f982bccc456670be,
     type: 2}
   heavyGunBullet: {fileID: 114882958960836000, guid: cb51351dd11a2a947a7ea287b7387c87,
