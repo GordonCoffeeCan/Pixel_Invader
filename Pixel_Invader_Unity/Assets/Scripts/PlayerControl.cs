@@ -376,8 +376,8 @@ public class PlayerControl : MonoBehaviour {
 
         if (shieldBehavior.shieldTimer > 0) {
             shield.gameObject.SetActive(true);
-            shield.color = new Color(1, 1, 1, Mathf.Lerp(shield.color.a, 1, 0.08f));
             shieldBehavior.shieldTimer -= Time.deltaTime;
+            shield.color = new Color(1, 1, 1, shieldBehavior.shieldTimer/shieldActivatedTimer);
 
         } else {
             if (shield.gameObject.activeSelf) {
