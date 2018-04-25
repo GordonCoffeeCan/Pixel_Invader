@@ -414,8 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickNames:
+  - Controller (Xbox One For Windows)
   - Controller ([BETOP (GAME FOR WINDOWS)])
-  - 
 --- !u!1 &1748810264
 GameObject:
   m_ObjectHideFlags: 0
