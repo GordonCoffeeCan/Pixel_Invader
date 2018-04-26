@@ -41,23 +41,25 @@ public class MenuManager : MonoBehaviour {
                 OnStartGame();
             }
 
-            currentGameIdleTimer -= Time.deltaTime;
+            //In-Game Trailer video ---------------------------------------------------------
+            if (inGameTrailer != null) {
+                currentGameIdleTimer -= Time.deltaTime;
 
-            if (currentGameIdleTimer <= 0) {
-                if (inGameTrailer != null) {
+                if (currentGameIdleTimer <= 0) {
                     inGameTrailer.gameObject.SetActive(true);
                     inGameTrailer.Play();
                     currentGameIdleTimer = 0;
                 }
-            }
 
-            if (inGameTrailer.isPlaying) {
-                if ((int)inGameTrailer.frame == (int)inGameTrailer.frameCount) {
-                    inGameTrailer.Stop();
-                    inGameTrailer.gameObject.SetActive(false);
-                    currentGameIdleTimer = gameIdleTimer;
+                if (inGameTrailer.isPlaying) {
+                    if ((int)inGameTrailer.frame == (int)inGameTrailer.frameCount) {
+                        inGameTrailer.Stop();
+                        inGameTrailer.gameObject.SetActive(false);
+                        currentGameIdleTimer = gameIdleTimer;
+                    }
                 }
             }
+            //In-Game Trailer video --------------------------------------------------------- end
         }
 
         if (SceneManager.GetActiveScene().name == "MainMenu") {
