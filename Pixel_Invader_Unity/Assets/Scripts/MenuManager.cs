@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour {
 
+    [SerializeField] private VideoPlayer inGameTrailer;
     [SerializeField] private GameBackground gameBackground;
     [SerializeField] private BackgroundMusic backgroundMusic;
     [SerializeField] private MenuSoundManager menuSound;
+
+    [SerializeField] private float gameIdleTimer = 10f;
+
+    private float currentGameIdleTimer;
 
     private void Awake() {
         if (SceneManager.GetActiveScene().name == "TitleScreen") {
@@ -19,6 +25,12 @@ public class MenuManager : MonoBehaviour {
     void Start () {
         if(SceneManager.GetActiveScene().name == "TitleScreen") {
             InstanciateNoneDestroyObjects();
+
+            if (inGameTrailer != null) {
+                inGameTrailer.gameObject.SetActive(false);
+            }
+
+            currentGameIdleTimer = gameIdleTimer;
         }
     }
 	
@@ -27,6 +39,24 @@ public class MenuManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "TitleScreen") {
             if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Start")) {
                 OnStartGame();
+            }
+
+            currentGameIdleTimer -= Time.deltaTime;
+
+            if (currentGameIdleTimer <= 0) {
+                if (inGameTrailer != null) {
+                    inGameTrailer.gameObject.SetActive(true);
+                    inGameTrailer.Play();
+                    currentGameIdleTimer = 0;
+                }
+            }
+
+            if (inGameTrailer.isPlaying) {
+                if ((int)inGameTrailer.frame == (int)inGameTrailer.frameCount) {
+                    inGameTrailer.Stop();
+                    inGameTrailer.gameObject.SetActive(false);
+                    currentGameIdleTimer = gameIdleTimer;
+                }
             }
         }
 
