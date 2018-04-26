@@ -2668,7 +2668,7 @@ MonoBehaviour:
   player1Count: 3
   player1ShieldCount: 3
   player1BombCount: 3
-  player1LaserCount: 2
+  player1LaserCount: 3
   player2Count: 3
   player2ShieldCount: 3
   player2BombCount: 3
