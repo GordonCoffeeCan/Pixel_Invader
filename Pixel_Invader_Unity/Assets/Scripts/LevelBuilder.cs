@@ -40,7 +40,7 @@ public class LevelBuilder : MonoBehaviour {
 
     public void BuildLevel(int _wave) {
 #if UNITY_STANDALONE
-        filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
+        //filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
 #endif
 
 #if UNITY_EDITOR
@@ -118,7 +118,7 @@ public class LevelBuilder : MonoBehaviour {
     }
 
     private IEnumerator GetURL(int _wave) {
-        using (WWW www = new WWW("https://github.com/GordonCoffeeCan/Pixel_Invader/blob/master/Pixel_Invader_Unity/LevelDesign/Level_0.html")) {
+        using (WWW www = new WWW("https://raw.githubusercontent.com/GordonCoffeeCan/Pixel_Invader/master/Pixel_Invader_Unity" + "/LevelDesign/" + FILENAME + _wave + ".txt")) {
             yield return www;
             Debug.Log(www.text);
         }
