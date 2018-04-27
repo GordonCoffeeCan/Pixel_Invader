@@ -307,10 +307,21 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadMainMenu() {
+#if UNITY_EDITOR
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
         SceneManager.LoadScene("MainMenu");
+#elif UNITY_STANDALONE
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
+        SceneManager.LoadScene("MainMenu");
+#endif
+
+#if UNITY_WEBGL
+        SceneManager.LoadScene("MainMenu_Web");
+#endif
     }
 
     public void ResumeGame() {

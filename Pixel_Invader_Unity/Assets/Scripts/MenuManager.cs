@@ -14,8 +14,6 @@ public class MenuManager : MonoBehaviour {
 
     [SerializeField] private float gameIdleTimer = 10f;
 
-    [SerializeField] private Text path;
-
     private float currentGameIdleTimer;
 
     private void Awake() {
@@ -26,6 +24,17 @@ public class MenuManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+#if UNITY_EDITOR
+        if (SceneManager.GetActiveScene().name == "TitleScreen") {
+            InstanciateNoneDestroyObjects();
+
+            if (inGameTrailer != null) {
+                inGameTrailer.gameObject.SetActive(false);
+            }
+
+            currentGameIdleTimer = gameIdleTimer;
+        }
+#elif UNITY_STANDALONE
         if(SceneManager.GetActiveScene().name == "TitleScreen") {
             InstanciateNoneDestroyObjects();
 
@@ -35,15 +44,23 @@ public class MenuManager : MonoBehaviour {
 
             currentGameIdleTimer = gameIdleTimer;
         }
+#endif
 
-        if (path != null) {
-            path.text = Application.absoluteURL;
+#if UNITY_WEBGL
+        if (SceneManager.GetActiveScene().name == "MainMenu_Web") {
+            InstanciateNoneDestroyObjects();
+
+            if (inGameTrailer != null) {
+                inGameTrailer.gameObject.SetActive(false);
+            }
+
+            currentGameIdleTimer = gameIdleTimer;
         }
-        
+#endif
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (SceneManager.GetActiveScene().name == "TitleScreen") {
             if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Start")) {
                 OnStartGame();
@@ -111,7 +128,17 @@ public class MenuManager : MonoBehaviour {
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
+
+#if UNITY_EDITOR
         SceneManager.LoadScene("SinglePlayerMode");
+#elif UNITY_STANDALONE
+        SceneManager.LoadScene("SinglePlayerMode");
+#endif
+
+#if UNITY_WEBGL
+        SceneManager.LoadScene("SinglePlayerMode_Web");
+#endif
+
     }
 
     public void OnTwoPlayerGame() {
@@ -127,22 +154,52 @@ public class MenuManager : MonoBehaviour {
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
+
+#if UNITY_EDITOR
         SceneManager.LoadScene("HowToPlay");
+#elif UNITY_STANDALONE
+        SceneManager.LoadScene("HowToPlay");
+#endif
+
+#if UNITY_WEBGL
+        SceneManager.LoadScene("HowToPlay_Web");
+#endif
     }
 
     public void OnMainMenu() {
+#if UNITY_EDITOR
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void OnExitGame() {
+#elif UNITY_STANDALONE
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
-        
+        SceneManager.LoadScene("MainMenu");
+#endif
+
+#if UNITY_WEBGL
+        SceneManager.LoadScene("MainMenu_Web");
+#endif
+    }
+
+    public void OnExitGame() {
+#if UNITY_EDITOR
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
         SceneManager.LoadScene("TitleScreen");
+#elif UNITY_STANDALONE
+        if (MenuSoundManager.instance != null) {
+            MenuSoundManager.instance.PlayeButtonSelectedSound();
+        }
+        SceneManager.LoadScene("TitleScreen");
+#endif
+
+#if UNITY_WEBGL
+        SceneManager.LoadScene("MainMenu_Web");
+#endif
     }
 
     public void OnButtonSwitched() {
