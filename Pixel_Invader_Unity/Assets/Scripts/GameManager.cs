@@ -243,7 +243,13 @@ public class GameManager : MonoBehaviour {
                 }
                 eventSystem.SetSelectedGameObject(null);
                 gameIsPause = !gameIsPause;
+
+
+#if UNITY_EDITOR
                 StartCoroutine(SelectButton());
+#elif UNITY_STANDALONE
+                StartCoroutine(SelectButton());
+#endif
             }
         }
         //Record current game progress
