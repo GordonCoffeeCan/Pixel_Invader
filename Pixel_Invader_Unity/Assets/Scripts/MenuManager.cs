@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class MenuManager : MonoBehaviour {
     [SerializeField] private MenuSoundManager menuSound;
 
     [SerializeField] private float gameIdleTimer = 10f;
+
+    [SerializeField] private Text path;
 
     private float currentGameIdleTimer;
 
@@ -32,6 +35,11 @@ public class MenuManager : MonoBehaviour {
 
             currentGameIdleTimer = gameIdleTimer;
         }
+
+        if (path != null) {
+            path.text = Application.absoluteURL;
+        }
+        
     }
 	
 	// Update is called once per frame

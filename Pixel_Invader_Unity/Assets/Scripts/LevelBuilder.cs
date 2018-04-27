@@ -39,7 +39,18 @@ public class LevelBuilder : MonoBehaviour {
     }
 
     public void BuildLevel(int _wave) {
+#if UNITY_STANDALONE
         filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
+#endif
+
+#if UNITY_EDITOR
+        filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
+#endif
+
+#if UNITY_WEBGL
+        filePath = Application.dataPath + "LevelDesign/" + FILENAME + _wave + ".txt";
+#endif
+
         streamReader = new StreamReader(filePath);
 
         posY = -1;
