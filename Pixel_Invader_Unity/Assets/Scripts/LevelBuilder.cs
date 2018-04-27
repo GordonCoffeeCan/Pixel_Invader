@@ -44,11 +44,12 @@ public class LevelBuilder : MonoBehaviour {
 #endif
 
 #if UNITY_EDITOR
-        filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
+        //filePath = Application.dataPath + "/LevelDesign/" + FILENAME + _wave + ".txt";
+        StartCoroutine(GetURL(_wave));
 #endif
 
 #if UNITY_WEBGL
-        filePath = Application.dataPath + "LevelDesign/" + FILENAME + _wave + ".txt";
+        filePath = new WWW("https://github.com/GordonCoffeeCan/Pixel_Invader/blob/master/Pixel_Invader_Unity") + "/LevelDesign/" + FILENAME + _wave + ".txt";
 #endif
 
         streamReader = new StreamReader(filePath);
@@ -114,5 +115,12 @@ public class LevelBuilder : MonoBehaviour {
         GameManager.instance.enemiesCount++;
         GameManager.instance.enemyList.Add(_enemyClone);
         id++;
+    }
+
+    private IEnumerator GetURL(int _wave) {
+        using (WWW www = new WWW("https://github.com/GordonCoffeeCan/Pixel_Invader/blob/master/Pixel_Invader_Unity/LevelDesign/Level_0.html")) {
+            yield return www;
+            Debug.Log(www.text);
+        }
     }
 }
