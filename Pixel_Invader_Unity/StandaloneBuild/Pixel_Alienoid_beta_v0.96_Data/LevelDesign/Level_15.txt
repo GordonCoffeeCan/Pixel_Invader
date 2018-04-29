@@ -1,0 +1,7 @@
+-r-r-r---r-r-r-
+-r-c-r---r-c-r-
+-r-r-r-a-r-r-r-
+--r--a-r-a--r--
+-r-r-r-a-r-r-r-
+-r-c-r---r-c-r-
+-r-r-r---r-r-r-

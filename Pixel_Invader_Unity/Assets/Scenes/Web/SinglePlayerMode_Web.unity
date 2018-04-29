@@ -1302,7 +1302,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 146.5, y: -211.53749}
-  m_SizeDelta: {x: 186, y: 48}
+  m_SizeDelta: {x: 194.85, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184354997
 MonoBehaviour:
@@ -1330,9 +1330,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4,
+    m_HighlightedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4,
       type: 3}
-    m_PressedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
+    m_PressedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1717,7 +1717,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press Enter to
+  m_Text: 'Press       to
 
     Continue!'
 --- !u!222 &1383610139
@@ -1760,7 +1760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1554214158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1798,7 +1798,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300048, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
+  m_Sprite: {fileID: 21300066, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2345,7 +2345,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 146.5, y: -148.7625}
-  m_SizeDelta: {x: 186, y: 48}
+  m_SizeDelta: {x: 194.85, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873365151
 MonoBehaviour:
@@ -2373,9 +2373,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4,
+    m_HighlightedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4,
       type: 3}
-    m_PressedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
+    m_PressedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2571,7 +2571,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 146.5, y: -274.3125}
-  m_SizeDelta: {x: 130, y: 48}
+  m_SizeDelta: {x: 136.19, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905523421
 MonoBehaviour:
@@ -2599,9 +2599,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4,
+    m_HighlightedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4,
       type: 3}
-    m_PressedSprite: {fileID: 21300022, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
+    m_PressedSprite: {fileID: 21300050, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

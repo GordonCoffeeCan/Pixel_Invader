@@ -167,15 +167,12 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void OnMainMenu() {
-#if UNITY_EDITOR
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
+#if UNITY_EDITOR
         SceneManager.LoadScene("MainMenu");
 #elif UNITY_STANDALONE
-        if (MenuSoundManager.instance != null) {
-            MenuSoundManager.instance.PlayeButtonSelectedSound();
-        }
         SceneManager.LoadScene("MainMenu");
 #endif
 
@@ -185,15 +182,12 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void OnExitGame() {
-#if UNITY_EDITOR
         if (MenuSoundManager.instance != null) {
             MenuSoundManager.instance.PlayeButtonSelectedSound();
         }
+#if UNITY_EDITOR
         SceneManager.LoadScene("TitleScreen");
 #elif UNITY_STANDALONE
-        if (MenuSoundManager.instance != null) {
-            MenuSoundManager.instance.PlayeButtonSelectedSound();
-        }
         SceneManager.LoadScene("TitleScreen");
 #endif
 

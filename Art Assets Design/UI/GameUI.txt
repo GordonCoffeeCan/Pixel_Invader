@@ -18,15 +18,23 @@
 },
 "Buttons_Selected.png":
 {
-	"frame": {"x":108,"y":2,"w":72,"h":28},
+	"frame": {"x":108,"y":2,"w":110,"h":28},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":28},
-	"sourceSize": {"w":72,"h":28}
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":28},
+	"sourceSize": {"w":110,"h":28}
+},
+"Keyboard_Layout.png":
+{
+	"frame": {"x":2,"y":32,"w":186,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":186,"h":81},
+	"sourceSize": {"w":186,"h":81}
 },
 "Panel_01.png":
 {
-	"frame": {"x":2,"y":32,"w":129,"h":113},
+	"frame": {"x":2,"y":115,"w":129,"h":113},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":113},
@@ -34,7 +42,7 @@
 },
 "Panel_02.png":
 {
-	"frame": {"x":133,"y":32,"w":67,"h":30},
+	"frame": {"x":133,"y":115,"w":67,"h":30},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":30},
@@ -42,15 +50,23 @@
 },
 "Panel_03.png":
 {
-	"frame": {"x":2,"y":147,"w":60,"h":103},
+	"frame": {"x":2,"y":230,"w":60,"h":103},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":103},
 	"sourceSize": {"w":60,"h":103}
 },
+"Return_Button.png":
+{
+	"frame": {"x":64,"y":230,"w":22,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":15},
+	"sourceSize": {"w":22,"h":15}
+},
 "Start_Button.png":
 {
-	"frame": {"x":64,"y":147,"w":22,"h":15},
+	"frame": {"x":88,"y":230,"w":22,"h":15},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":15},
@@ -58,7 +74,7 @@
 },
 "Submenu_Panel.png":
 {
-	"frame": {"x":88,"y":147,"w":75,"h":58},
+	"frame": {"x":112,"y":230,"w":75,"h":58},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":58},
@@ -66,7 +82,7 @@
 },
 "UI_GamePad.png":
 {
-	"frame": {"x":165,"y":147,"w":65,"h":43},
+	"frame": {"x":189,"y":230,"w":65,"h":43},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":43},
@@ -77,8 +93,8 @@
 	"version": "1.0",
 	"image": "GameUI.png",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":256},
+	"size": {"w":256,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:02d0bc36a1237a1c23668b44401b9006:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d74a5664f261e3c0195966985a81e592:1/1$"
 }
 }
