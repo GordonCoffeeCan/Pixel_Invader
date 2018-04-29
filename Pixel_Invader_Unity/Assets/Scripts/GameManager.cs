@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public PlayerControl player1Clone;
     [HideInInspector] public PlayerControl player2Clone;
 
+    [HideInInspector] public string currentGameMode = "";
+
     [SerializeField] private PlayerControl player1;
     [SerializeField] private PlayerControl player2;
     [SerializeField] private Text player1ScoreText;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+        currentGameMode = SceneManager.GetActiveScene().name;
     }
 
     // Use this for initialization

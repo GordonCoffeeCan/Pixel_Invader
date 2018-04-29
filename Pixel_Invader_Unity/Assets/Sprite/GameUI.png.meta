@@ -39,6 +39,7 @@ TextureImporter:
     21300064: Ctrl_Key
     21300066: Return_Start
     21300068: Keyboard_UI
+    21300070: Keyboard_Web_UI
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -240,7 +241,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 284
+        y: 201
         width: 129
         height: 113
       alignment: 0
@@ -254,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 133
-        y: 367
+        y: 284
         width: 31
         height: 30
       alignment: 0
@@ -268,7 +269,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 169
-        y: 367
+        y: 284
         width: 31
         height: 30
       alignment: 0
@@ -282,7 +283,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 179
+        y: 96
         width: 60
         height: 103
       alignment: 0
@@ -296,7 +297,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 224
+        y: 141
         width: 75
         height: 58
       alignment: 0
@@ -310,7 +311,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 189
-        y: 239
+        y: 156
         width: 65
         height: 43
       alignment: 0
@@ -352,7 +353,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 88
-        y: 267
+        y: 184
         width: 22
         height: 15
       alignment: 0
@@ -380,7 +381,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 267
+        y: 184
         width: 22
         height: 15
       alignment: 0
@@ -399,6 +400,20 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Keyboard_Web_UI
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 316
+        width: 186
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

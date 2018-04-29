@@ -5,30 +5,30 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/TitleScreen.unity
     guid: 70ff36e9f8afb8142a4db36eb1ffdfe3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/MainMenu.unity
     guid: 7ac448d157a31de4eaad87fa916caf0a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/GameModes.unity
     guid: c4a4e05676bfec143a1ddf37e746b7a0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/HowToPlay.unity
     guid: fe3be38494d7e7d4b91e86c5141f5ea0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/SinglePlayerMode.unity
     guid: 92b2ec4c42826cd4c9b3efe16fb50ffd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Standalone/CoopMode.unity
     guid: fc299714fab14c94cacf8bdc39f96ead
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web/MainMenu_Web.unity
     guid: 0c5d4c18b16924444996fe726cfe749e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web/SinglePlayerMode_Web.unity
     guid: 53dcf25e63f90f64aa068bd94ecb6647
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web/HowToPlay_Web.unity
     guid: 97f18a4c02cda8145b02ddcf951fe6d0

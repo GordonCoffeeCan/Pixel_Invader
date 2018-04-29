@@ -23,6 +23,18 @@ public class ControllerInputManager : MonoBehaviour {
             shield = "P1Shield";
             shareX = "P1ShareX";
             shareY = "P1ShareY";
+
+            if (GameManager.instance.currentGameMode != "" && GameManager.instance.currentGameMode == "CoopMode" && Input.GetJoystickNames().Length <= 1) {
+                horizontal = "P1Horizontal_Keyboard";
+                vertical = "P1Vertical_Keyboard";
+                bullet = "P1Fire_Keyboard";
+                bomb = "P1Bomb_Keyboard";
+                laser = "P1Laser_Keyboard";
+                shield = "P1Shield_Keyboard";
+                shareX = "P1ShareX_Keyboard";
+                shareY = "P1ShareY_Keyboard";
+            }
+            
         }
 
         if (_playerID == 2) {
@@ -34,6 +46,18 @@ public class ControllerInputManager : MonoBehaviour {
             shield = "P2Shield";
             shareX = "P2ShareX";
             shareY = "P2ShareY";
+
+            if (Input.GetJoystickNames().Length <= 1) {
+                horizontal = "P2Horizontal_Joystick_1";
+                vertical = "P2Vertical_Joystick_1";
+                bullet = "P2Fire_Joystick_1";
+                bomb = "P2Bomb_Joystick_1";
+                laser = "P2Laser_Joystick_1";
+                shield = "P2Shield_Joystick_1";
+                shareX = "P2ShareX_Joystick_1";
+                shareY = "P2ShareY_Joystick_1";
+            }
+            
         }
     }
 

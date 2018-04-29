@@ -1147,7 +1147,7 @@ GameObject:
   - component: {fileID: 339497156}
   - component: {fileID: 339497155}
   m_Layer: 5
-  m_Name: GameTitle_Text
+  m_Name: HowToPlayTitle_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2667,7 +2667,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300068, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
+  m_Sprite: {fileID: 21300070, guid: e3d3801f758d5564ba38bca5fd25ded4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

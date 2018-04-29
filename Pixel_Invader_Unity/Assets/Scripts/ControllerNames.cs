@@ -4,7 +4,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class ControllerNames : MonoBehaviour {
-    public string[] joystickNames = new string[2];
+    [SerializeField]private string[] joystickNames = new string[2];
 
     private void Update() {
         if (Input.GetJoystickNames().Length > 0) {

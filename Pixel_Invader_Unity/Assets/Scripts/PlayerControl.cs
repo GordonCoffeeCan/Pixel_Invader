@@ -404,7 +404,6 @@ public class PlayerControl : MonoBehaviour {
                 }
                 GameManager.instance.player1Count--;
                 GameManager.instance.player2Count++;
-                Debug.Log("Player 1 share 1 life to player 2");
             }
 
             //Share Shield
@@ -415,7 +414,6 @@ public class PlayerControl : MonoBehaviour {
                 }
                 GameManager.instance.player1ShieldCount--;
                 GameManager.instance.player2ShieldCount++;
-                Debug.Log("Player 1 share 1 shield to player 2");
             }
 
             //Share Laser
@@ -424,7 +422,6 @@ public class PlayerControl : MonoBehaviour {
                 Instantiate(powerUpFX[3], GameManager.instance.player2Clone.transform);
                 GameManager.instance.player1LaserCount--;
                 GameManager.instance.player2LaserCount++;
-                Debug.Log("Player 1 share 1 laser to player2");
             }
 
             //Share Bomb
@@ -433,7 +430,6 @@ public class PlayerControl : MonoBehaviour {
                 Instantiate(powerUpFX[0], GameManager.instance.player2Clone.transform);
                 GameManager.instance.player1BombCount--;
                 GameManager.instance.player2BombCount++;
-                Debug.Log("Player 1 share 1 bomb to player2");
             }
         }
 
