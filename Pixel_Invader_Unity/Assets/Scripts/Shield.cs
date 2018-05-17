@@ -12,7 +12,7 @@ public class Shield : MonoBehaviour {
             _bullet.hitObject = true;
             Destroy(_col.gameObject);
             GameManager.instance.cameraShakeAmount += 0.35f;
-            shieldTimer -= 1f;
+            shieldTimer -= 3f;
         }
 
         if (_col.tag == "Enemy") {
@@ -20,7 +20,7 @@ public class Shield : MonoBehaviour {
             if (_enemy.enemyType == Enemy.EnemyType.SuicideEnemy) {
                 _enemy.health -= 100;
                 GameManager.instance.cameraShakeAmount += 0.35f;
-                shieldTimer -= 2f;
+                shieldTimer -= 5f;
             }
         }
     }
